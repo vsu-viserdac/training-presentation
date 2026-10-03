@@ -45,7 +45,6 @@ library(readxl)
 -   Data reshaping
 :::
 
-
 # Basic data wrangling with `dplyr`
 
 ## Data wrangling using `dplyr` {.center-text}
@@ -145,7 +144,6 @@ data
 :::
 
 ::: column
-
 ```{{r}}
 select(data, -year, -pop)
 ```
@@ -582,40 +580,42 @@ data %>%
 :::
 :::::
 
-
 # Check-up quiz
 
-## Which dplyr function is used to select specific columns from a dataset? {.quiz-question} 
-- filter()  
-- mutate()  
-- [select()]{.correct data-explanation="Correct! The select() function picks variables (columns) based on their names."}  
-- summarise()
+## Which dplyr function is used to select specific columns from a dataset? {.quiz-question}
 
-## Which dplyr function is used to add new variables to a dataset?  {.quiz-question}
-- arrange()  
-- [mutate()]{.correct data-explanation="Correct! The mutate() function creates new variables by applying calculations or transformations, attaching them at the end of the dataset."}  
-- summarise()  
-- filter()
+-   filter()\
+-   mutate()\
+-   [select()]{.correct data-explanation="Correct! The select() function picks variables (columns) based on their names."}\
+-   summarise()
 
-## If you want to keep only rows where country == "Philippines", which function should you use?  {.quiz-question}
-- select()  
-- [filter()]{.correct data-explanation='Correct! The filter() function selects cases (rows) based on their values, such as keeping only rows where country == "Philippines".'}  
-- arrange()  
-- mutate()
+## Which dplyr function is used to add new variables to a dataset? {.quiz-question}
 
-## Which dplyr function reduces multiple values down to a single summary statistic (e.g., mean, sum)?  {.quiz-question}
-- mutate()  
-- [summarise()]{.correct data-explanation="Correct! The summarise() function collapses multiple values into a single summary, such as calculating averages or totals."}  
-- arrange()  
-- select()
+-   arrange()\
+-   [mutate()]{.correct data-explanation="Correct! The mutate() function creates new variables by applying calculations or transformations, attaching them at the end of the dataset."}\
+-   summarise()\
+-   filter()
 
-## Which dplyr function is used to reorder rows in a dataset?  {.quiz-question}
-- [arrange()]{.correct data-explanation="Correct! The arrange() function changes the ordering of rows based on specified variables."}  
-- mutate()  
-- filter()  
-- select()
+## If you want to keep only rows where country == "Philippines", which function should you use? {.quiz-question}
 
+-   select()\
+-   [filter()]{.correct data-explanation="Correct! The filter() function selects cases (rows) based on their values, such as keeping only rows where country == \"Philippines\"."}\
+-   arrange()\
+-   mutate()
 
+## Which dplyr function reduces multiple values down to a single summary statistic (e.g., mean, sum)? {.quiz-question}
+
+-   mutate()\
+-   [summarise()]{.correct data-explanation="Correct! The summarise() function collapses multiple values into a single summary, such as calculating averages or totals."}\
+-   arrange()\
+-   select()
+
+## Which dplyr function is used to reorder rows in a dataset? {.quiz-question}
+
+-   [arrange()]{.correct data-explanation="Correct! The arrange() function changes the ordering of rows based on specified variables."}\
+-   mutate()\
+-   filter()\
+-   select()
 
 # Basic data transformation
 

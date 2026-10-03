@@ -290,35 +290,39 @@ library(tidyverse)
 # Check-up quiz
 
 ## Which of the following is true about R packages? {.quiz-question}
-- [They are collections of functions prepared by the community.]{.correct data-explanation="Correct! R packages are collections of functions that have been prepared by the R community for general use."}
-- They are only available for Windows
-- They cannot be installed by users
-- They replace the base R functions entirely
+
+-   [They are collections of functions prepared by the community.]{.correct data-explanation="Correct! R packages are collections of functions that have been prepared by the R community for general use."}
+-   They are only available for Windows
+-   They cannot be installed by users
+-   They replace the base R functions entirely
 
 ## Which command is used to install an R package? {.quiz-question}
-- [install.packages()]{.correct data-explanation="Correct! The install.packages() function is used to install R packages."}
-- library()
-- require()
-- load()
+
+-   [install.packages()]{.correct data-explanation="Correct! The install.packages() function is used to install R packages."}
+-   library()
+-   require()
+-   load()
 
 ## After installing a package, which command is used to load it into the R session? {.quiz-question}
-- install.packages()
-- [library()]{.correct data-explanation="Correct! The library() function is used to load an installed package into the current R session."}
-- require()
-- load()
+
+-   install.packages()
+-   [library()]{.correct data-explanation="Correct! The library() function is used to load an installed package into the current R session."}
+-   require()
+-   load()
 
 ## What symbol is used to assign a value to an object in R? {.quiz-question}
-- =
-- ->
-- [ <- ]{.correct data-explanation="Correct! The `<-` symbol is used to assign a value to an object in R."}
-- ==
+
+-   =
+-   -\>
+-   [\<-]{.correct data-explanation="Correct! The `<-` symbol is used to assign a value to an object in R."}
+-   ==
 
 ## Which of the following statements about R is TRUE? {.quiz-question}
-- R is only available under paid license
-- R is freely available under GNU General Public License
-- R cannot be used for graphic representation
-- R is limited to Linux operating system
 
+-   R is only available under paid license
+-   R is freely available under GNU General Public License
+-   R cannot be used for graphic representation
+-   R is limited to Linux operating system
 
 # Reading data into R
 
@@ -479,39 +483,41 @@ knitr::include_graphics("img/readr.png")
 :::
 :::::
 
-
 # Check-up quiz
 
-## Which R package is used to import SPSS, Stata, and SAS files? {.quiz-question} 
-- readr  
-- [haven]{.correct data-explanation="Correct! The haven package is designed to import data from SPSS (.sav), Stata (.dta), and SAS (.sas7bdat) files."}  
-- readxl  
-- tidyr
+## Which R package is used to import SPSS, Stata, and SAS files? {.quiz-question}
+
+-   readr\
+-   [haven]{.correct data-explanation="Correct! The haven package is designed to import data from SPSS (.sav), Stata (.dta), and SAS (.sas7bdat) files."}\
+-   readxl\
+-   tidyr
 
 ## If you want to import Excel files into R, which function should you use? {.quiz-question}
-- read_csv()  
-- [read_excel()]{.correct data-explanation="Correct! The readxl package provides the read_excel() function to import .xls or .xlsx files."}  
-- read_sav()  
-- read_tsv()
+
+-   read_csv()\
+-   [read_excel()]{.correct data-explanation="Correct! The readxl package provides the read_excel() function to import .xls or .xlsx files."}\
+-   read_sav()\
+-   read_tsv()
 
 ## Which function from the readr package is used to import comma‑separated values (CSV) files? {.quiz-question}
-- [read_csv()]{.correct data-explanation="Correct! The readr package includes read_csv() for CSV files, read_tsv() for tab‑separated files, and read_delim() for general delimited files."}  
-- read_delim()  
-- read_tsv()  
-- read_excel()
+
+-   [read_csv()]{.correct data-explanation="Correct! The readr package includes read_csv() for CSV files, read_tsv() for tab‑separated files, and read_delim() for general delimited files."}\
+-   read_delim()\
+-   read_tsv()\
+-   read_excel()
 
 ## Which of the following statements about importing data into R is TRUE? {.quiz-question}
-- read_sav() is used for Excel files
-- [read_tsv() is used for tab‑separated files]{.correct data-explanation="Correct! The readr package provides read_tsv() specifically for tab‑separated files."}
-- read_excel() is part of the readr package
-- read_dta() is used for CSV files
+
+-   read_sav() is used for Excel files
+-   [read_tsv() is used for tab‑separated files]{.correct data-explanation="Correct! The readr package provides read_tsv() specifically for tab‑separated files."}
+-   read_excel() is part of the readr package
+-   read_dta() is used for CSV files
 
 ## Which package would you use if you need to import a dataset saved in Stata format (.dta)? {.quiz-question}
-- readxl  
-- readr  
-- [haven]{.correct data-explanation="Correct! The haven package supports importing Stata files using the read_dta() function."}  
-- tidyr
 
+-   readxl\
+-   readr\
+-   [haven]{.correct data-explanation="Correct! The haven package supports importing Stata files using the read_dta() function."}\
+-   tidyr
 
 # Let's practice!
-
