@@ -287,6 +287,39 @@ library(tidyverse)
 :::
 :::::
 
+# Check-up quiz
+
+## Which of the following is true about R packages? {.quiz-question}
+- [They are collections of functions prepared by the community.]{.correct data-explanation="Correct! R packages are collections of functions that have been prepared by the R community for general use."}
+- They are only available for Windows
+- They cannot be installed by users
+- They replace the base R functions entirely
+
+## Which command is used to install an R package? {.quiz-question}
+- [install.packages()]{.correct data-explanation="Correct! The install.packages() function is used to install R packages."}
+- library()
+- require()
+- load()
+
+## After installing a package, which command is used to load it into the R session? {.quiz-question}
+- install.packages()
+- [library()]{.correct data-explanation="Correct! The library() function is used to load an installed package into the current R session."}
+- require()
+- load()
+
+## What symbol is used to assign a value to an object in R? {.quiz-question}
+- =
+- ->
+- [ <- ]{.correct data-explanation="Correct! The `<-` symbol is used to assign a value to an object in R."}
+- ==
+
+## Which of the following statements about R is TRUE? {.quiz-question}
+- R is only available under paid license
+- R is freely available under GNU General Public License
+- R cannot be used for graphic representation
+- R is limited to Linux operating system
+
+
 # Reading data into R
 
 ## Importing data
