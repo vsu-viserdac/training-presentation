@@ -11,7 +11,10 @@ format:
     code-summary: "code"
     chalkboard: true
     slide-number: true
-    footer: "Econ 106: Computer Programming for Economics"
+    footer: "Data visualization and Analysis using R"
+    quiz:
+      defaultCorrect: "Correct!"
+      defaultIncorrect: "Incorrect!"
 engine: knitr
 from: markdown+emoji
 editor: visual
@@ -38,7 +41,7 @@ library(tidyverse)
 -   Installing R and RStudio
 -   R objects
 -   Packages and help pages
--   R notation
+-   Importing data
 :::
 
 # 
@@ -77,28 +80,6 @@ Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
 
 </iframe>
 :::
-
-## Uses of R programming
-
-<br>
-
-![](img/use-r.png){fig-align="center" width="90%" height="90%"}
-
-::: {style="font-size: 0.8em;"}
-Source: [DataFlair](https://data-flair.training/blogs/r-applications/)
-:::
-
-## Why R for future economists and analysts?
-
-<br>
-
-::: {.callout-tip style="font-size: 2.5em;"}
-## Reading assingment
-
-[Why should economist use R? A peek at my journey!](https://www.hanomics.com/post/why-should-economists-use-r-a-peek-at-my-journey) by Hany Abdel-Latif
-:::
-
-> *"R is a powerful, flexible, and free software environment that allows economists to analyze data, estimate models, and visualize results in a reproducible way."*
 
 # Installing R and RStudio
 
@@ -304,148 +285,198 @@ library(tidyverse)
 :::
 :::::
 
-# Functions
+# Reading data into R
 
-## R functions
+## Importing data
 
--   R comes with built-in functions
--   For example, you can round a number with `round` function
+-   SPSS, Stata, SAS files: [haven package](https://haven.tidyverse.org/)
+
+-   Excel files: [readxl package](https://readxl.tidyverse.org/)
+
+-   CSV files: [readr package](https://readr.tidyverse.org/)
+
+## Importing data into R
+
+#### SPSS, Stata & SAS using [haven package](https://haven.tidyverse.org/)
 
 ::::: columns
 ::: column
 ```{r}
-#| echo: fenced
-round(3.1415)
+#| echo: true
+#| eval: false
+
+# loading haven package
+library(haven)
 ```
 
-```{r}
-#| echo: fenced
+<br>
 
-factorial(3)
+```{r}
+#| echo: true
+#| eval: false
+
+# SPSS
+read_sav("path/data.sav")
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Stata
+read_dta("path/data.dta")
+```
+
+<br>
+
+```{r}
+#| echo: true
+#| eval: false
+
+# SAS
+read_sas("path/data.sas7bdat")
 ```
 :::
 
 ::: column
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: "40%"
+
+knitr::include_graphics("img/haven.png")
+```
 :::
 :::::
 
-## Arguments
+## Importing data into R
 
--   data that you pass into the function is called the function’s argument
--   Linking functions together, R resolves them from innermost operation to the outermost
+#### Excel files using [readxl package](https://readxl.tidyverse.org/)
 
-``` r
-die <- 1:6
+<br>
 
-mean(1:6)
-## 3.5
-
-mean(die)
-## 3.5
-
-round(mean(die))
-## 4
+::::: columns
+::: {.column width="70%"}
+```{r}
+#| echo: true
+#| eval: false
+library(readxl)
+read_excel("path/dataset.xls")
 ```
-
-![](https://rstudio-education.github.io/hopr/images/hopr_0105.png){fig-align="center" width="120%" height="120%"}
-
-## Arguments
-
--   use `args` functions if you are not sure with the argument's name in a function
--   some `arguments` are optional
-    -   they come with a default value
-    -   e.g., `digits` is already set to `0`
 
 ```{r}
-#| echo: fenced
+#| echo: false
+#| results: hold 
 
-args(round)
+dataset_xl_sample <- readxl::readxl_example("datasets.xlsx")
+readxl::read_excel(dataset_xl_sample)
+```
+:::
+
+::: {.column width="30%"}
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: "40%"
+
+knitr::include_graphics("img/readxl.png")
+```
+:::
+:::::
+
+## Importing data into R
+
+#### CSV files using [readr package](https://readr.tidyverse.org/)
+
+<br>
+
+::::: columns
+::: {.column width="60%"}
+```{r}
+#| echo: true
+#| eval: false
+
+install.packages("readr")
+library(readr)
 ```
 
-## Sample with replacements
-
--   `sample(x, size, replace = FALSE, prob = NULL)`
--   `sample` will return `size` elements from the vector
--   `sample` takes two **arguments**: a vector named `x` and a number named `size`
+<br>
 
 ```{r}
-#| echo: fenced
-sample(x = 1:4, size = 2)
+#| echo: true
+#| eval: false
+
+# comma separated (CSV) files
+read_csv("path/data.csv")
 ```
 
-## Sample with replacements
+<br>
 
--   by default `sample` builds a sample *without replacement*
--   `replace = TRUE` causes sample to *sample with replacement*
+```{r eval=FALSE}
+#| echo: true
+#| eval: false
 
+# tab separated files
+read_tsv("path/data.tsv")
+```
+
+<br>
+
+```{r eval=FALSE}
+#| echo: true
+#| eval: false
+
+# general delimited files
+read_delim("path/data.delim")
+```
+:::
+
+::: {.column width="40%"}
 ```{r}
-#| echo: fenced
-die <- 1:6
+#| echo: false
+#| fig-align: center
+#| out-width: "40%"
 
-sample(x = die, size = 2, replace = TRUE)
+knitr::include_graphics("img/readr.png")
 ```
+:::
+:::::
 
-## Function constructor
 
--   functions in R has three basic parts: name, body of code, and set of arguments
+# Check-up quiz
 
-```{r}
-#| echo: fenced
-my_function <- function(){}
-```
+## Which R package is used to import SPSS, Stata, and SAS files? {.quiz-question} 
+- readr  
+- [haven]{.correct data-explanation="Correct! The haven package is designed to import data from SPSS (.sav), Stata (.dta), and SAS (.sas7bdat) files."}  
+- readxl  
+- tidyr
 
-## Function constructor
+## If you want to import Excel files into R, which function should you use? {.quiz-question}
+- read_csv()  
+- [read_excel()]{.correct data-explanation="Correct! The readxl package provides the read_excel() function to import .xls or .xlsx files."}  
+- read_sav()  
+- read_tsv()
 
--   `function` will build a function between braces
+## Which function from the readr package is used to import comma‑separated values (CSV) files? {.quiz-question}
+- [read_csv()]{.correct data-explanation="Correct! The readr package includes read_csv() for CSV files, read_tsv() for tab‑separated files, and read_delim() for general delimited files."}  
+- read_delim()  
+- read_tsv()  
+- read_excel()
 
-```{r}
-#| echo: fenced
-roll <- function() {
-  die <- 1:6
-  dice <- sample(die, size = 2, replace = TRUE)
-  sum(dice)
-}
-```
+## Which of the following statements about importing data into R is TRUE? {.quiz-question}
+- read_sav() is used for Excel files
+- [read_tsv() is used for tab‑separated files]{.correct data-explanation="Correct! The readr package provides read_tsv() specifically for tab‑separated files."}
+- read_excel() is part of the readr package
+- read_dta() is used for CSV files
 
-## Function constructor
+## Which package would you use if you need to import a dataset saved in Stata format (.dta)? {.quiz-question}
+- readxl  
+- readr  
+- [haven]{.correct data-explanation="Correct! The haven package supports importing Stata files using the read_dta() function."}  
+- tidyr
 
-![](https://rstudio-education.github.io/hopr/images/hopr_0106.png)
 
-# R notation
+# Let's practice!
 
-## Selecting values
-
--   R has notation for selecting values from R objects
--   `data[row, column]`
-
-```{r}
-#| echo: fenced
-gapminder_dta <- gapminder::gapminder
-
-gapminder_dta[1, ]
-```
-
-## Selecting values
-
--   R has notation for selecting values from R objects
--   `data[row, column]`
-
-```{r}
-#| echo: fenced
-gapminder_dta[, 2]
-```
-
-## Selecting values
-
--   R has notation for selecting values from R objects
--   `data[row, column]`
-
-```{r}
-#| echo: fenced
-
-gapminder_dta[3, 2]
-```
-
-# 
-
-![](img/econ106-logo.png){fig-align="center" height="40%" width="40%"}

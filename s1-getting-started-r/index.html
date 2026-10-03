@@ -207,7 +207,7 @@
 <li class="fragment">Installing R and RStudio</li>
 <li class="fragment">R objects</li>
 <li class="fragment">Packages and help pages</li>
-<li class="fragment">R notation</li>
+<li class="fragment">Importing data</li>
 </ul>
 </div>
 </section>
@@ -259,40 +259,6 @@
 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/iq_biXEIx-U?si=qq-ArfqGkbO9oYGm" frameborder="0" allowfullscreen="" style="position:absolute; top:0; left: 0">
 </iframe>
 </div>
-</section>
-<section id="uses-of-r-programming" class="slide level2">
-<h2>Uses of R programming</h2>
-<p><br></p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/use-r.png" class="quarto-figure quarto-figure-center" style="width:90.0%;height:90.0%"></p>
-</figure>
-</div>
-<div style="font-size: 0.8em;">
-<p>Source: <a href="https://data-flair.training/blogs/r-applications/">DataFlair</a></p>
-</div>
-</section>
-<section id="why-r-for-future-economists-and-analysts" class="slide level2">
-<h2>Why R for future economists and analysts?</h2>
-<p><br></p>
-<div style="font-size: 2.5em;">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Reading assingment</strong></p>
-</div>
-<div class="callout-content">
-<p><a href="https://www.hanomics.com/post/why-should-economists-use-r-a-peek-at-my-journey">Why should economist use R? A peek at my journey!</a> by Hany Abdel-Latif</p>
-</div>
-</div>
-</div>
-</div>
-<blockquote>
-<p><em>“R is a powerful, flexible, and free software environment that allows economists to analyze data, estimate models, and visualize results in a reproducible way.”</em></p>
-</blockquote>
 </section></section>
 <section>
 <section id="installing-r-and-rstudio" class="title-slide slide level1 center">
@@ -480,211 +446,199 @@
 </div></div>
 </section></section>
 <section>
-<section id="functions" class="title-slide slide level1 center">
-<h1>Functions</h1>
+<section id="reading-data-into-r" class="title-slide slide level1 center">
+<h1>Reading data into R</h1>
 
 </section>
-<section id="r-functions" class="slide level2">
-<h2>R functions</h2>
+<section id="importing-data" class="slide level2">
+<h2>Importing data</h2>
 <ul>
-<li>R comes with built-in functions</li>
-<li>For example, you can round a number with <code>round</code> function</li>
+<li><p>SPSS, Stata, SAS files: <a href="https://haven.tidyverse.org/">haven package</a></p></li>
+<li><p>Excel files: <a href="https://readxl.tidyverse.org/">readxl package</a></p></li>
+<li><p>CSV files: <a href="https://readr.tidyverse.org/">readr package</a></p></li>
 </ul>
+</section>
+<section id="importing-data-into-r" class="slide level2">
+<h2>Importing data into R</h2>
+<h4 id="spss-stata-sas-using-haven-package">SPSS, Stata &amp; SAS using <a href="https://haven.tidyverse.org/">haven package</a></h4>
 <div class="columns">
 <div class="column">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb13-2"><a href=""></a><span class="in">round(3.1415)</span></span>
-<span id="cb13-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>[1] 3</code></pre>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># loading haven package</span></span>
+<span id="cb13-2"><a href=""></a><span class="fu">library</span>(haven)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb15-2"><a href=""></a><span class="in">factorial(3)</span></span>
-<span id="cb15-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>[1] 6</code></pre>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co"># SPSS</span></span>
+<span id="cb14-2"><a href=""></a><span class="fu">read_sav</span>(<span class="st">"path/data.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co"># Stata</span></span>
+<span id="cb15-2"><a href=""></a><span class="fu">read_dta</span>(<span class="st">"path/data.dta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># SAS</span></span>
+<span id="cb16-2"><a href=""></a><span class="fu">read_sas</span>(<span class="st">"path/data.sas7bdat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column">
-
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/haven.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
 </div></div>
 </section>
-<section id="arguments" class="slide level2">
-<h2>Arguments</h2>
-<ul>
-<li>data that you pass into the function is called the function’s argument</li>
-<li>Linking functions together, R resolves them from innermost operation to the outermost</li>
-</ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>die <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
-<span id="cb17-2"><a href=""></a></span>
-<span id="cb17-3"><a href=""></a><span class="fu">mean</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)</span>
-<span id="cb17-4"><a href=""></a><span class="do">## 3.5</span></span>
-<span id="cb17-5"><a href=""></a></span>
-<span id="cb17-6"><a href=""></a><span class="fu">mean</span>(die)</span>
-<span id="cb17-7"><a href=""></a><span class="do">## 3.5</span></span>
-<span id="cb17-8"><a href=""></a></span>
-<span id="cb17-9"><a href=""></a><span class="fu">round</span>(<span class="fu">mean</span>(die))</span>
-<span id="cb17-10"><a href=""></a><span class="do">## 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="importing-data-into-r-1" class="slide level2">
+<h2>Importing data into R</h2>
+<h4 id="excel-files-using-readxl-package">Excel files using <a href="https://readxl.tidyverse.org/">readxl package</a></h4>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="fu">library</span>(readxl)</span>
+<span id="cb17-2"><a href=""></a><span class="fu">read_excel</span>(<span class="st">"path/dataset.xls"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<pre><code># A tibble: 32 × 11
+     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+ 2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+ 3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+ 4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+ 5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+ 6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+ 7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+ 8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+ 9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+# ℹ 22 more rows</code></pre>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="https://rstudio-education.github.io/hopr/images/hopr_0105.png" class="quarto-figure quarto-figure-center" style="width:120.0%;height:120.0%"></p>
+<p><img data-src="img/readxl.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
 </figure>
 </div>
-</section>
-<section id="arguments-1" class="slide level2">
-<h2>Arguments</h2>
-<ul>
-<li>use <code>args</code> functions if you are not sure with the argument’s name in a function</li>
-<li>some <code>arguments</code> are optional
-<ul>
-<li>they come with a default value</li>
-<li>e.g., <code>digits</code> is already set to <code>0</code></li>
-</ul></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb18-2"><a href=""></a><span class="in">args(round)</span></span>
-<span id="cb18-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>function (x, digits = 0, ...) 
-NULL</code></pre>
 </div>
-</section>
-<section id="sample-with-replacements" class="slide level2">
-<h2>Sample with replacements</h2>
-<ul>
-<li><code>sample(x, size, replace = FALSE, prob = NULL)</code></li>
-<li><code>sample</code> will return <code>size</code> elements from the vector</li>
-<li><code>sample</code> takes two <strong>arguments</strong>: a vector named <code>x</code> and a number named <code>size</code></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb20-2"><a href=""></a><span class="in">sample(x = 1:4, size = 2)</span></span>
-<span id="cb20-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>[1] 2 3</code></pre>
 </div>
+</div></div>
 </section>
-<section id="sample-with-replacements-1" class="slide level2">
-<h2>Sample with replacements</h2>
-<ul>
-<li>by default <code>sample</code> builds a sample <em>without replacement</em></li>
-<li><code>replace = TRUE</code> causes sample to <em>sample with replacement</em></li>
-</ul>
+<section id="importing-data-into-r-2" class="slide level2">
+<h2>Importing data into R</h2>
+<h4 id="csv-files-using-readr-package">CSV files using <a href="https://readr.tidyverse.org/">readr package</a></h4>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb22-2"><a href=""></a><span class="in">die &lt;- 1:6</span></span>
-<span id="cb22-3"><a href=""></a></span>
-<span id="cb22-4"><a href=""></a><span class="in">sample(x = die, size = 2, replace = TRUE)</span></span>
-<span id="cb22-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>[1] 2 6</code></pre>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"readr"</span>)</span>
+<span id="cb19-2"><a href=""></a><span class="fu">library</span>(readr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="function-constructor" class="slide level2">
-<h2>Function constructor</h2>
-<ul>
-<li>functions in R has three basic parts: name, body of code, and set of arguments</li>
-</ul>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb24-2"><a href=""></a><span class="in">my_function &lt;- function(){}</span></span>
-<span id="cb24-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co"># comma separated (CSV) files</span></span>
+<span id="cb20-2"><a href=""></a><span class="fu">read_csv</span>(<span class="st">"path/data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="function-constructor-1" class="slide level2">
-<h2>Function constructor</h2>
-<ul>
-<li><code>function</code> will build a function between braces</li>
-</ul>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb25-2"><a href=""></a><span class="in">roll &lt;- function() {</span></span>
-<span id="cb25-3"><a href=""></a><span class="in">  die &lt;- 1:6</span></span>
-<span id="cb25-4"><a href=""></a><span class="in">  dice &lt;- sample(die, size = 2, replace = TRUE)</span></span>
-<span id="cb25-5"><a href=""></a><span class="in">  sum(dice)</span></span>
-<span id="cb25-6"><a href=""></a><span class="in">}</span></span>
-<span id="cb25-7"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="co"># tab separated files</span></span>
+<span id="cb21-2"><a href=""></a><span class="fu">read_tsv</span>(<span class="st">"path/data.tsv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="function-constructor-2" class="slide level2">
-<h2>Function constructor</h2>
-
-<img data-src="https://rstudio-education.github.io/hopr/images/hopr_0106.png" class="r-stretch"></section></section>
-<section>
-<section id="r-notation" class="title-slide slide level1 center">
-<h1>R notation</h1>
-
-</section>
-<section id="selecting-values" class="slide level2">
-<h2>Selecting values</h2>
-<ul>
-<li>R has notation for selecting values from R objects</li>
-<li><code>data[row, column]</code></li>
-</ul>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb26-2"><a href=""></a><span class="in">gapminder_dta &lt;- gapminder::gapminder</span></span>
-<span id="cb26-3"><a href=""></a></span>
-<span id="cb26-4"><a href=""></a><span class="in">gapminder_dta[1, ]</span></span>
-<span id="cb26-5"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code># A tibble: 1 × 6
-  country     continent  year lifeExp     pop gdpPercap
-  &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
-1 Afghanistan Asia       1952    28.8 8425333      779.</code></pre>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co"># general delimited files</span></span>
+<span id="cb22-2"><a href=""></a><span class="fu">read_delim</span>(<span class="st">"path/data.delim"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="selecting-values-1" class="slide level2">
-<h2>Selecting values</h2>
-<ul>
-<li>R has notation for selecting values from R objects</li>
-<li><code>data[row, column]</code></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb28-2"><a href=""></a><span class="in">gapminder_dta[, 2]</span></span>
-<span id="cb28-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code># A tibble: 1,704 × 1
-   continent
-   &lt;fct&gt;    
- 1 Asia     
- 2 Asia     
- 3 Asia     
- 4 Asia     
- 5 Asia     
- 6 Asia     
- 7 Asia     
- 8 Asia     
- 9 Asia     
-10 Asia     
-# ℹ 1,694 more rows</code></pre>
+</div><div class="column" style="width:40%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/readr.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
 </div>
-</section>
-<section id="selecting-values-2" class="slide level2">
-<h2>Selecting values</h2>
-<ul>
-<li>R has notation for selecting values from R objects</li>
-<li><code>data[row, column]</code></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href=""></a><span class="in">```{r}</span></span>
-<span id="cb30-2"><a href=""></a><span class="in">gapminder_dta[3, 2]</span></span>
-<span id="cb30-3"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code># A tibble: 1 × 1
-  continent
-  &lt;fct&gt;    
-1 Asia     </code></pre>
 </div>
+</div>
+</div></div>
 </section></section>
-<section id="section-1" class="title-slide slide level1 center">
-<h1></h1>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/econ106-logo.png" class="quarto-figure quarto-figure-center" style="width:40.0%;height:40.0%"></p>
-</figure>
-</div>
+<section>
+<section id="check-up-quiz" class="title-slide slide level1 center">
+<h1>Check-up quiz</h1>
+
+</section>
+<section id="which-r-package-is-used-to-import-spss-stata-and-sas-files" class="slide level2 quiz-question">
+<h2>Which R package is used to import SPSS, Stata, and SAS files?</h2>
+<ul>
+<li>readr<br>
+</li>
+<li><span class="correct" data-explanation="Correct! The haven package is designed to import data from SPSS (.sav), Stata (.dta), and SAS (.sas7bdat) files.">haven</span><br>
+</li>
+<li>readxl<br>
+</li>
+<li>tidyr</li>
+</ul>
+</section>
+<section id="if-you-want-to-import-excel-files-into-r-which-function-should-you-use" class="slide level2 quiz-question">
+<h2>If you want to import Excel files into R, which function should you use?</h2>
+<ul>
+<li>read_csv()<br>
+</li>
+<li><span class="correct" data-explanation="Correct! The readxl package provides the read_excel() function to import .xls or .xlsx files.">read_excel()</span><br>
+</li>
+<li>read_sav()<br>
+</li>
+<li>read_tsv()</li>
+</ul>
+</section>
+<section id="which-function-from-the-readr-package-is-used-to-import-commaseparated-values-csv-files" class="slide level2 quiz-question">
+<h2>Which function from the readr package is used to import comma‑separated values (CSV) files?</h2>
+<ul>
+<li><span class="correct" data-explanation="Correct! The readr package includes read_csv() for CSV files, read_tsv() for tab‑separated files, and read_delim() for general delimited files.">read_csv()</span><br>
+</li>
+<li>read_delim()<br>
+</li>
+<li>read_tsv()<br>
+</li>
+<li>read_excel()</li>
+</ul>
+</section>
+<section id="which-of-the-following-statements-about-importing-data-into-r-is-true" class="slide level2 quiz-question">
+<h2>Which of the following statements about importing data into R is TRUE?</h2>
+<ul>
+<li>read_sav() is used for Excel files</li>
+<li><span class="correct" data-explanation="Correct! The readr package provides read_tsv() specifically for tab‑separated files.">read_tsv() is used for tab‑separated files</span></li>
+<li>read_excel() is part of the readr package</li>
+<li>read_dta() is used for CSV files</li>
+</ul>
+</section>
+<section id="which-package-would-you-use-if-you-need-to-import-a-dataset-saved-in-stata-format-.dta" class="slide level2 quiz-question">
+<h2>Which package would you use if you need to import a dataset saved in Stata format (.dta)?</h2>
+<ul>
+<li>readxl<br>
+</li>
+<li>readr<br>
+</li>
+<li><span class="correct" data-explanation="Correct! The haven package supports importing Stata files using the read_dta() function.">haven</span><br>
+</li>
+<li>tidyr</li>
+</ul>
+</section></section>
+<section id="lets-practice" class="title-slide slide level1 center">
+<h1>Let’s practice!</h1>
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Econ 106: Computer Programming for Economics</p>
+<p>Data visualization and Analysis using R</p>
 </div>
 </div></div>
 
