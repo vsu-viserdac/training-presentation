@@ -3088,6 +3088,4 @@ ggplot(mpg_2, aes(displ, hwy)) +
 :::
 :::::
 
-# 
-
-## Thank you!
+#  Thank you!
