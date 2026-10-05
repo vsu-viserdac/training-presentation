@@ -629,18 +629,6 @@ knitr::include_graphics("image/gg_geom.png")
 
 ## Geometries
 
-```{r}
-#| echo: FALSE
-#| out-width: 95%
-knitr::include_graphics("image/geom_collection.png")
-```
-
-::: aside
-Source: [National Bioinformatics Insfrastructure Sweden (NBIS), 2019](https://github.com/NBISweden/RaukR-2019/blob/master/docs/ggplot/presentation/ggplot_presentation_assets/geoms.png)\]
-:::
-
-## Geometries
-
 ::::: columns
 ::: {.column width="40%"}
 -   Each geom can display certain aesthetics.
@@ -837,63 +825,6 @@ ggplot(data = mpg,
 :::
 :::::
 
-## Try this!
-
-::: {.columns style="font-size: 0.6em;"}
-::: {.column width="40%"}
-Visualize the distribution of sepal lengths across species using a beeswarm plot.
-
-- Dataset: iris (built-in R dataset)
-
-Instructions:
-
-- Install and load the ggbeeswarm package.
-- Use the iris dataset.
-- Plot Sepal.Length (y-axis) against Species (x-axis).
-- Use geom_beeswarm() to spread points and avoid overlap.
-- Color points by species for clarity.
-:::
-
-::: {.column width="60%"}
-
-```{r}
-#| echo: false
-#| eval: false
-
-# Load packages
-library(ggplot2)
-library(ggbeeswarm)
-
-# Beeswarm plot: Sepal length by species
-ggplot(iris, aes(x = Species, y = Sepal.Length, color = Species)) +
-  geom_beeswarm(size = 3, alpha = 0.7) +
-  labs(
-    title = "Distribution of Sepal Lengths by Species",
-    x = "Species",
-    y = "Sepal Length"
-  ) +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(size = 16),
-    axis.text = element_text(size = 14),
-    axis.title = element_text(size = 14, margin = margin(r = 20, t = 20)),
-    legend.text = element_text(size = 14),
-    legend.title = element_text(size = 16)
-  )
-
-ggsave(filename = "img/scatter_sample.jpg",
-       width = 8, heigh = 6)
-```
-
-```{r}
-#| echo: false
-
-knitr::include_graphics("img/scatter_sample.jpg")
-```
-:::
-:::
-<!-- end columns -->
-
 # Statistical transformation and plotting distribution
 
 ## Statistics
@@ -947,33 +878,6 @@ Each stat has a default geom
 :::
 
 ::: {.column width="40%"}
-```{r}
-#| echo: FALSE
-#| out-width: 95%
-#| fig-align: center
-
-knitr::include_graphics("image/gg_stat.png")
-```
-:::
-:::::
-
-## Statistics
-
-::::: columns
-::: {.column width="50%"}
-**Interesting stats**
-
--   `stat_smooth(geom_smooth)`
--   `stat_unique(geom_point)`
--   `stat_summary(geom_pointrange`
--   `stat_count(geom_bar)`
--   `stat_bin(geom_histogram)`
--   `stat_density(geom_density)`
--   `stat_boxplot(geom_boxplot)`
--   `stat_ydensity(geom_violin)`\
-:::
-
-::: {.column width="50%"}
 ```{r}
 #| echo: FALSE
 #| out-width: 95%
@@ -1061,8 +965,6 @@ Ways to look at distributions:
 -   Histograms
 
 -   Frequency polygons
-
--   Density plots
 
 -   Boxplots
 
@@ -1202,32 +1104,6 @@ ggplot(data = data1, mapping = aes(x = price)) +
 
 ::: {.column width="50%"}
 ``` {.r code-line-numbers="2"}
-ggplot(data = data1, mapping = aes(x = depth)) +
-  geom_density()
-```
-
-```{r}
-ggplot(data = data1, mapping = aes(x = depth)) +
-  geom_density()
-```
-:::
-:::::
-
-## Displaying distribution
-
-::::: columns
-::: {.column width="50%"}
-**`Density plots`**
-
-**`geom_density`**
-
--   a smoothed version of the frequency polygon
-
--   different from **`geom_area`** where aesthetic y is needed
-:::
-
-::: {.column width="50%"}
-``` {.r code-line-numbers="2"}
 ggplot(data = data1, mapping = aes(x = depth, color = cut, fill = cut)) +
       geom_density(alpha = 0.4)
 ```
@@ -1282,43 +1158,6 @@ ggplot(data = data1, mapping = aes(x = depth, color = cut, fill = cut)) +
         legend.title = element_text(size = 16)
         )
 
-```
-:::
-:::::
-
-## Displaying distribution
-
-::::: columns
-::: {.column width="40%"}
-**Practice exercise**
-
-Use the `mpg` data to recreate the plot shown on the right. You may use the following parameters:
-
--   `bins = 10`
-
--   `fill = "cadetblue3"`
-
--   `alpha = 0.5`
-:::
-
-::: {.column width="60%"}
-```{r}
-#| echo: FALSE
-#| fig-height: 9
-#| fig-align: center
-
-ggplot(data = mpg, 
-       mapping = aes(x = displ)) +
-  geom_histogram(bins = 10, fill = "cadetblue3", alpha = 0.5) + 
-  geom_text(aes(label = stat(count)),
-            stat = "bin", 
-            bins = 10, 
-            nudge_y = 2) +
-  theme(axis.text = element_text(size = 14),
-        axis.title = element_text(size = 16),
-        legend.text = element_text(size = 14),
-        legend.title = element_text(size = 16)
-        )
 ```
 :::
 :::::
@@ -1695,48 +1534,6 @@ Discrete
 ggplot(mtcars, aes(mpg, wt, color = cyl)) +
   geom_point(size = 5) +
   scale_color_viridis_c()
-```
-:::
-:::::
-
-## Scale
-
-**Colorbrewer family**
-
-::::: {.columns style="font-size: 80%;"}
-::: {.column width="50%"}
-Continuous
-
--   scale_color_distiller \| scale_fill_distiller
-
-Binned
-
--   scale_color_fermenter \| scale_fill_fermenter
-
-Discrete
-
--   scale_color_brewer \| scale_fill_brewer
-
-``` r
-# useful parameters
-type = "seq"(sequential, the default), "div"(diverging), "qual"(qualitative)
-direction = 1 (default), -1 (reverse order)
-palette = name of pallete or index
-```
-:::
-
-::: {.column width="50%"}
-```{r}
-#| echo: false
-#| fig-align: center
-#| out-width: 55%
-
-library(RColorBrewer)
-
-par(mar=c(3,4,2,2))
-display.brewer.all(type = "seq" )
-display.brewer.all(type = "div" )
-display.brewer.all(type = "qual" )
 ```
 :::
 :::::
@@ -3291,12 +3088,6 @@ ggplot(mpg_2, aes(displ, hwy)) +
 :::
 :::::
 
-## 
+# 
 
-```{r}
-#| echo: false
-#| fig-align: center
-
-
-knitr::include_graphics("img/econ106-logo.png")
-```
+## Thank you!

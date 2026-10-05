@@ -702,21 +702,6 @@
 </section>
 <section id="geometries-2" class="slide level2">
 <h2>Geometries</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="image/geom_collection.png" style="width:95.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-
-<aside><div>
-<p>Source: <a href="https://github.com/NBISweden/RaukR-2019/blob/master/docs/ggplot/presentation/ggplot_presentation_assets/geoms.png">National Bioinformatics Insfrastructure Sweden (NBIS), 2019</a>]</p>
-</div></aside></section>
-<section id="geometries-3" class="slide level2">
-<h2>Geometries</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
@@ -735,7 +720,7 @@
 </div>
 </div></div>
 </section>
-<section id="geometries-4" class="slide level2">
+<section id="geometries-3" class="slide level2">
 <h2>Geometries</h2>
 <div class="columns">
 <p><strong>Line plots</strong></p><p>Aesthetics of <code>geom_path</code>, <code>geom_line</code>, <code>geom_step</code>:</p><div class="column" style="width:40%;">
@@ -771,7 +756,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </div>
 </div></div>
 </section>
-<section id="geometries-5" class="slide level2">
+<section id="geometries-4" class="slide level2">
 <h2>Geometries</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -784,14 +769,14 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 </section>
-<section id="geometries-6" class="slide level2">
+<section id="geometries-5" class="slide level2">
 <h2>Geometries</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -819,7 +804,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <span id="cb20-10"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
-<section id="geometries-7" class="slide level2">
+<section id="geometries-6" class="slide level2">
 <h2>Geometries</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
@@ -850,7 +835,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <span id="cb21-10"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
-<section id="geometries-8" class="slide level2">
+<section id="geometries-7" class="slide level2">
 <h2>Geometries</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -861,41 +846,12 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-34-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
-</section>
-<section id="try-this" class="slide level2">
-<h2>Try this!</h2>
-<div class="columns" style="font-size: 0.6em;">
-<div class="column" style="width:40%;">
-<p>Visualize the distribution of sepal lengths across species using a beeswarm plot.</p>
-<ul>
-<li>Dataset: iris (built-in R dataset)</li>
-</ul>
-<p>Instructions:</p>
-<ul>
-<li>Install and load the ggbeeswarm package.</li>
-<li>Use the iris dataset.</li>
-<li>Plot Sepal.Length (y-axis) against Species (x-axis).</li>
-<li>Use geom_beeswarm() to spread points and avoid overlap.</li>
-<li>Color points by species for clarity.</li>
-</ul>
-</div><div class="column" style="width:60%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="img/scatter_sample.jpg" width="1200"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<!-- end columns -->
 </section></section>
 <section>
 <section id="statistical-transformation-and-plotting-distribution" class="title-slide slide level1 center">
@@ -962,25 +918,25 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <section id="statistics-2" class="slide level2">
 <h2>Statistics</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Interesting stats</strong></p>
+<div class="column" style="font-size: 0.8em;">
+<p><strong>Computed aesthetics</strong></p>
+<p>When a stat perform a transformation, new variables are created.</p>
+<p>e.g., in <code>geom_histogram</code> computed variables are:</p>
 <ul>
-<li><code>stat_smooth(geom_smooth)</code></li>
-<li><code>stat_unique(geom_point)</code></li>
-<li><code>stat_summary(geom_pointrange</code></li>
-<li><code>stat_count(geom_bar)</code></li>
-<li><code>stat_bin(geom_histogram)</code></li>
-<li><code>stat_density(geom_density)</code></li>
-<li><code>stat_boxplot(geom_boxplot)</code></li>
-<li><code>stat_ydensity(geom_violin)</code><br>
-</li>
+<li><strong><code>count</code></strong> - number of points in bin</li>
+<li><strong><code>density</code></strong> - density of points in bins, scaled to integrate to 1 ncount.</li>
+<li><strong><code>ncount</code></strong> - count, scaled to maximum of 1</li>
+<li><strong><code>ndensity</code></strong> - density, scaled to maximum of 1</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
+<p>To access: + old way: <strong><code>..&lt;stat name&gt;..</code></strong> + new way: <strong><code>stat(name)</code></strong></p>
+</div><div class="column" style="width:40%;">
+<div class="sourceCode" id="cb23" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span></span>
+<span id="cb23-2"><a href=""></a>      <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..count..))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div>
 <figure>
-<p><img data-src="image/gg_stat.png" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-36-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1001,34 +957,6 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li><strong><code>ndensity</code></strong> - density, scaled to maximum of 1</li>
 </ul>
 <p>To access: + old way: <strong><code>..&lt;stat name&gt;..</code></strong> + new way: <strong><code>stat(name)</code></strong></p>
-</div><div class="column" style="width:40%;">
-<div class="sourceCode" id="cb23" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span></span>
-<span id="cb23-2"><a href=""></a>      <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..count..))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-40-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="statistics-4" class="slide level2">
-<h2>Statistics</h2>
-<div class="columns">
-<div class="column" style="font-size: 0.8em;">
-<p><strong>Computed aesthetics</strong></p>
-<p>When a stat perform a transformation, new variables are created.</p>
-<p>e.g., in <code>geom_histogram</code> computed variables are:</p>
-<ul>
-<li><strong><code>count</code></strong> - number of points in bin</li>
-<li><strong><code>density</code></strong> - density of points in bins, scaled to integrate to 1 ncount.</li>
-<li><strong><code>ncount</code></strong> - count, scaled to maximum of 1</li>
-<li><strong><code>ndensity</code></strong> - density, scaled to maximum of 1</li>
-</ul>
-<p>To access: + old way: <strong><code>..&lt;stat name&gt;..</code></strong> + new way: <strong><code>stat(name)</code></strong></p>
 </div><div class="column" style="width:50%;">
 <div class="sourceCode" id="cb24" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span></span>
 <span id="cb24-2"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">stat</span>(density)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1036,7 +964,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-41-1.png" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-37-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1051,7 +979,6 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <ul>
 <li><p>Histograms</p></li>
 <li><p>Frequency polygons</p></li>
-<li><p>Density plots</p></li>
 <li><p>Boxplots</p></li>
 <li><p>Violin plots</p></li>
 </ul>
@@ -1060,7 +987,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-43-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-39-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1084,7 +1011,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-44-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-40-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1117,7 +1044,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-45-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-41-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1151,7 +1078,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-46-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-42-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1169,13 +1096,13 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li><p>different from <strong><code>geom_area</code></strong> where aesthetic y is needed</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb28" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data1, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth)) <span class="sc">+</span></span>
-<span id="cb28-2"><a href=""></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data1, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth, <span class="at">color =</span> cut, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href=""></a>      <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-47-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-43-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1183,30 +1110,6 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </div></div>
 </section>
 <section id="displaying-distribution-5" class="slide level2">
-<h2>Displaying distribution</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong><code>Density plots</code></strong></p>
-<p><strong><code>geom_density</code></strong></p>
-<ul>
-<li><p>a smoothed version of the frequency polygon</p></li>
-<li><p>different from <strong><code>geom_area</code></strong> where aesthetic y is needed</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb29" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data1, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth, <span class="at">color =</span> cut, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
-<span id="cb29-2"><a href=""></a>      <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-48-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="displaying-distribution-6" class="slide level2">
 <h2>Displaying distribution</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1222,46 +1125,23 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li><p>create a ridgeline plots</p></li>
 </ul>
 </div><div class="column" style="width:60%;">
-<div class="sourceCode" id="cb30" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"ggridges"</span>)</span>
-<span id="cb30-2"><a href=""></a><span class="fu">library</span>(ggridges)</span>
-<span id="cb30-3"><a href=""></a></span>
-<span id="cb30-4"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data1, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth, <span class="at">color =</span> cut, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
-<span id="cb30-5"><a href=""></a>  <span class="fu">geom_density_ridges</span>(<span class="fu">aes</span>(<span class="at">y =</span> cut))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"ggridges"</span>)</span>
+<span id="cb29-2"><a href=""></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb29-3"><a href=""></a></span>
+<span id="cb29-4"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> data1, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> depth, <span class="at">color =</span> cut, <span class="at">fill =</span> cut)) <span class="sc">+</span></span>
+<span id="cb29-5"><a href=""></a>  <span class="fu">geom_density_ridges</span>(<span class="fu">aes</span>(<span class="at">y =</span> cut))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-49-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-44-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 </section>
-<section id="displaying-distribution-7" class="slide level2">
-<h2>Displaying distribution</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<p><strong>Practice exercise</strong></p>
-<p>Use the <code>mpg</code> data to recreate the plot shown on the right. You may use the following parameters:</p>
-<ul>
-<li><p><code>bins = 10</code></p></li>
-<li><p><code>fill = "cadetblue3"</code></p></li>
-<li><p><code>alpha = 0.5</code></p></li>
-</ul>
-</div><div class="column" style="width:60%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-50-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="displaying-distribution-8" class="slide level2">
+<section id="displaying-distribution-6" class="slide level2">
 <h2>Displaying distribution</h2>
 <p><strong>Boxplot</strong></p>
 <p><strong><code>geom_boxplot</code></strong></p>
@@ -1277,21 +1157,21 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul></li>
 </ul>
 </div><div class="column" style="width:60%;">
-<div class="sourceCode" id="cb31" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb31-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span>
-<span id="cb31-3"><a href=""></a>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb30-2"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb30-3"><a href=""></a>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-51-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-45-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 </section>
-<section id="displaying-distribution-9" class="slide level2">
+<section id="displaying-distribution-7" class="slide level2">
 <h2>Displaying distribution</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1306,21 +1186,21 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul></li>
 </ul>
 </div><div class="column" style="width:60%;">
-<div class="sourceCode" id="cb32" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
-<span id="cb32-2"><a href=""></a>  <span class="fu">geom_violin</span>()</span>
-<span id="cb32-3"><a href=""></a>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb31-2"><a href=""></a>  <span class="fu">geom_violin</span>()</span>
+<span id="cb31-3"><a href=""></a>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-52-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-46-1.png" class="quarto-figure quarto-figure-center" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 </section>
-<section id="displaying-distribution-10" class="slide level2">
+<section id="displaying-distribution-8" class="slide level2">
 <h2>Displaying distribution</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -1331,7 +1211,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-53-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-47-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1350,11 +1230,11 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <ul>
 <li>syntax</li>
 </ul>
-<div class="sourceCode" id="cb33" data-codeline-numners="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>dataset<span class="sc">&gt;</span>,</span>
-<span id="cb33-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">&lt;</span>varX<span class="sc">&gt;</span>, <span class="at">y =</span> <span class="sc">&lt;</span>varY<span class="sc">&gt;</span>, ...)) <span class="sc">+</span></span>
-<span id="cb33-3"><a href=""></a>  geom_<span class="sc">&lt;</span><span class="cf">function</span><span class="sc">&gt;</span>(..., <span class="at">stat =</span> <span class="sc">&lt;</span>stat<span class="sc">&gt;</span>, <span class="at">position =</span> <span class="sc">&lt;</span>position<span class="sc">&gt;</span>) <span class="sc">+</span><span class="dv">0</span></span>
-<span id="cb33-4"><a href=""></a>  geom_<span class="sc">&lt;</span>stat<span class="sc">&gt;</span>(...) <span class="sc">+</span> </span>
-<span id="cb33-5"><a href=""></a>  scale_<span class="sc">&lt;</span>aesthetic<span class="sc">&gt;</span>_<span class="sc">&lt;</span>type<span class="sc">&gt;</span> <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32" data-codeline-numners="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>dataset<span class="sc">&gt;</span>,</span>
+<span id="cb32-2"><a href=""></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> <span class="sc">&lt;</span>varX<span class="sc">&gt;</span>, <span class="at">y =</span> <span class="sc">&lt;</span>varY<span class="sc">&gt;</span>, ...)) <span class="sc">+</span></span>
+<span id="cb32-3"><a href=""></a>  geom_<span class="sc">&lt;</span><span class="cf">function</span><span class="sc">&gt;</span>(..., <span class="at">stat =</span> <span class="sc">&lt;</span>stat<span class="sc">&gt;</span>, <span class="at">position =</span> <span class="sc">&lt;</span>position<span class="sc">&gt;</span>) <span class="sc">+</span><span class="dv">0</span></span>
+<span id="cb32-4"><a href=""></a>  geom_<span class="sc">&lt;</span>stat<span class="sc">&gt;</span>(...) <span class="sc">+</span> </span>
+<span id="cb32-5"><a href=""></a>  scale_<span class="sc">&lt;</span>aesthetic<span class="sc">&gt;</span>_<span class="sc">&lt;</span>type<span class="sc">&gt;</span> <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p><strong>Scales</strong> control how data values are translated to visual properties</p></li>
 <li><p>Can overide default scales like axis,legend, and transformation of data to aesthetics.</p></li>
@@ -1424,24 +1304,24 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris_data, <span class="fu">aes</span>(<span class="at">x =</span> sepal_length, <span class="at">y =</span> sepal_width, <span class="at">color =</span> species)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span>
-<span id="cb34-2"><a href=""></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris_data, <span class="fu">aes</span>(<span class="at">x =</span> sepal_length, <span class="at">y =</span> sepal_width, <span class="at">color =</span> species)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span>
+<span id="cb33-2"><a href=""></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-58-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-52-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a>p <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Manual"</span>,</span>
-<span id="cb35-2"><a href=""></a>                       <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#5BC0EB"</span>,<span class="st">"#FDE74C"</span>,<span class="st">"#9BC53D"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>p <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">"Manual"</span>,</span>
+<span id="cb34-2"><a href=""></a>                       <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#5BC0EB"</span>,<span class="st">"#FDE74C"</span>,<span class="st">"#9BC53D"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-59-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-53-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1461,20 +1341,20 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>scale_x_sqrt | scale_x_sqrt</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="fu">scale_x_continuous</span>(</span>
-<span id="cb36-2"><a href=""></a>  <span class="at">name =</span> <span class="fu">waiver</span>(),</span>
-<span id="cb36-3"><a href=""></a>  <span class="at">breaks =</span> <span class="fu">waiver</span>(),</span>
-<span id="cb36-4"><a href=""></a>  <span class="at">minor_breaks =</span> <span class="fu">waiver</span>(),</span>
-<span id="cb36-5"><a href=""></a>  <span class="at">n.breaks =</span> <span class="cn">NULL</span>,</span>
-<span id="cb36-6"><a href=""></a>  <span class="at">labels =</span> <span class="fu">waiver</span>(),</span>
-<span id="cb36-7"><a href=""></a>  <span class="at">limits =</span> <span class="cn">NULL</span>,</span>
-<span id="cb36-8"><a href=""></a>  <span class="at">expand =</span> <span class="fu">waiver</span>()</span>
-<span id="cb36-9"><a href=""></a>  <span class="at">oob =</span> censor,</span>
-<span id="cb36-10"><a href=""></a>  <span class="at">na.value =</span> <span class="cn">NA_real_</span>,</span>
-<span id="cb36-11"><a href=""></a>  <span class="at">trans =</span> <span class="st">"identity"</span>,</span>
-<span id="cb36-12"><a href=""></a>  <span class="at">position =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb36-13"><a href=""></a>  <span class="at">guide =</span> waiver,</span>
-<span id="cb36-14"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">scale_x_continuous</span>(</span>
+<span id="cb35-2"><a href=""></a>  <span class="at">name =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb35-3"><a href=""></a>  <span class="at">breaks =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb35-4"><a href=""></a>  <span class="at">minor_breaks =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb35-5"><a href=""></a>  <span class="at">n.breaks =</span> <span class="cn">NULL</span>,</span>
+<span id="cb35-6"><a href=""></a>  <span class="at">labels =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb35-7"><a href=""></a>  <span class="at">limits =</span> <span class="cn">NULL</span>,</span>
+<span id="cb35-8"><a href=""></a>  <span class="at">expand =</span> <span class="fu">waiver</span>()</span>
+<span id="cb35-9"><a href=""></a>  <span class="at">oob =</span> censor,</span>
+<span id="cb35-10"><a href=""></a>  <span class="at">na.value =</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb35-11"><a href=""></a>  <span class="at">trans =</span> <span class="st">"identity"</span>,</span>
+<span id="cb35-12"><a href=""></a>  <span class="at">position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb35-13"><a href=""></a>  <span class="at">guide =</span> waiver,</span>
+<span id="cb35-14"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="scale-4" class="slide level2">
@@ -1487,17 +1367,17 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>scale_x_binned | scale_y_binned</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="fu">scale_x_binned</span>(</span>
-<span id="cb37-2"><a href=""></a>  <span class="at">name =</span> <span class="fu">waiver</span>(),</span>
-<span id="cb37-3"><a href=""></a>  <span class="at">breaks =</span> <span class="fu">waiver</span>(),</span>
-<span id="cb37-4"><a href=""></a>  <span class="at">labels =</span> <span class="fu">waiver</span>(),</span>
-<span id="cb37-5"><a href=""></a>  <span class="at">limits =</span> <span class="cn">NULL</span>,</span>
-<span id="cb37-6"><a href=""></a>  <span class="at">exapand =</span> <span class="fu">waiver</span>()</span>
-<span id="cb37-7"><a href=""></a>  <span class="at">oob =</span> censor,</span>
-<span id="cb37-8"><a href=""></a>  <span class="at">na.value =</span> <span class="cn">NA_real_</span>,</span>
-<span id="cb37-9"><a href=""></a>  <span class="at">trans =</span> <span class="st">"identity"</span>,</span>
-<span id="cb37-10"><a href=""></a>  <span class="at">position =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb37-11"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a><span class="fu">scale_x_binned</span>(</span>
+<span id="cb36-2"><a href=""></a>  <span class="at">name =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb36-3"><a href=""></a>  <span class="at">breaks =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb36-4"><a href=""></a>  <span class="at">labels =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb36-5"><a href=""></a>  <span class="at">limits =</span> <span class="cn">NULL</span>,</span>
+<span id="cb36-6"><a href=""></a>  <span class="at">exapand =</span> <span class="fu">waiver</span>()</span>
+<span id="cb36-7"><a href=""></a>  <span class="at">oob =</span> censor,</span>
+<span id="cb36-8"><a href=""></a>  <span class="at">na.value =</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb36-9"><a href=""></a>  <span class="at">trans =</span> <span class="st">"identity"</span>,</span>
+<span id="cb36-10"><a href=""></a>  <span class="at">position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb36-11"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="scale-5" class="slide level2">
@@ -1510,17 +1390,17 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>scale_x_discrete | scale_y_discrete</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">scale_x_discrete</span>(</span>
-<span id="cb38-2"><a href=""></a>  <span class="at">name =</span> <span class="fu">waiver</span>(),</span>
-<span id="cb38-3"><a href=""></a>  <span class="at">breaks =</span> <span class="fu">waiver</span>(),</span>
-<span id="cb38-4"><a href=""></a>  <span class="at">labels =</span> <span class="fu">waiver</span>(),</span>
-<span id="cb38-5"><a href=""></a>  <span class="at">limits =</span> <span class="cn">NULL</span>,</span>
-<span id="cb38-6"><a href=""></a>  <span class="at">exapand =</span> <span class="fu">waiver</span>()</span>
-<span id="cb38-7"><a href=""></a>  <span class="at">oob =</span> censor,</span>
-<span id="cb38-8"><a href=""></a>  <span class="at">na.value =</span> <span class="cn">NA_real_</span>,</span>
-<span id="cb38-9"><a href=""></a>  <span class="at">trans =</span> <span class="st">"identity"</span>,</span>
-<span id="cb38-10"><a href=""></a>  <span class="at">position =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb38-11"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="fu">scale_x_discrete</span>(</span>
+<span id="cb37-2"><a href=""></a>  <span class="at">name =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb37-3"><a href=""></a>  <span class="at">breaks =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb37-4"><a href=""></a>  <span class="at">labels =</span> <span class="fu">waiver</span>(),</span>
+<span id="cb37-5"><a href=""></a>  <span class="at">limits =</span> <span class="cn">NULL</span>,</span>
+<span id="cb37-6"><a href=""></a>  <span class="at">exapand =</span> <span class="fu">waiver</span>()</span>
+<span id="cb37-7"><a href=""></a>  <span class="at">oob =</span> censor,</span>
+<span id="cb37-8"><a href=""></a>  <span class="at">na.value =</span> <span class="cn">NA_real_</span>,</span>
+<span id="cb37-9"><a href=""></a>  <span class="at">trans =</span> <span class="st">"identity"</span>,</span>
+<span id="cb37-10"><a href=""></a>  <span class="at">position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb37-11"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 </section>
 <section id="scale-6" class="slide level2">
@@ -1546,13 +1426,13 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(mpg, wt, <span class="at">color =</span> cyl)) <span class="sc">+</span></span>
-<span id="cb39-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb39-3"><a href=""></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(mpg, wt, <span class="at">color =</span> cyl)) <span class="sc">+</span></span>
+<span id="cb38-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb38-3"><a href=""></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-60-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-54-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1581,13 +1461,13 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(mpg, wt, <span class="at">color =</span> cyl)) <span class="sc">+</span></span>
-<span id="cb40-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb40-3"><a href=""></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(mpg, wt, <span class="at">color =</span> cyl)) <span class="sc">+</span></span>
+<span id="cb39-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb39-3"><a href=""></a>  <span class="fu">scale_color_viridis_c</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-61-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-55-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1596,45 +1476,30 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </section>
 <section id="scale-8" class="slide level2">
 <h2>Scale</h2>
-<p><strong>Colorbrewer family</strong></p>
-<div class="columns" style="font-size: 80%;">
-<div class="column" style="width:50%;">
-<p>Continuous</p>
+<p><strong><code>scale_*_manual</code></strong></p>
+<div class="columns">
+<div class="column" style="font-size: 80%;">
 <ul>
-<li>scale_color_distiller | scale_fill_distiller</li>
+<li>available only for discrete scales</li>
+<li>useful if you want to specify your own set of mappings from levels in the data to aesthetic values.</li>
 </ul>
-<p>Binned</p>
+<p>For example</p>
 <ul>
-<li>scale_color_fermenter | scale_fill_fermenter</li>
+<li>choosing set of colors in discrete color scale</li>
+<li>specifying your own set of alpha</li>
+<li>specifying your own set of shapes</li>
+<li>specifying your own set of linetypes</li>
+<li>…</li>
 </ul>
-<p>Discrete</p>
-<ul>
-<li>scale_color_brewer | scale_fill_brewer</li>
-</ul>
-<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="co"># useful parameters</span></span>
-<span id="cb41-2"><a href=""></a>type <span class="ot">=</span> <span class="st">"seq"</span>(sequential, the default), <span class="st">"div"</span>(diverging), <span class="st">"qual"</span>(qualitative)</span>
-<span id="cb41-3"><a href=""></a>direction <span class="ot">=</span> <span class="dv">1</span> (default), <span class="sc">-</span><span class="dv">1</span> (reverse order)</span>
-<span id="cb41-4"><a href=""></a>palette <span class="ot">=</span> name of pallete or index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb40" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt, <span class="at">color =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb40-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb40-3"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"black"</span>, <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-62-1.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-62-2.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-62-3.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-56-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1659,14 +1524,14 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>…</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb42" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt, <span class="at">color =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
-<span id="cb42-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb42-3"><a href=""></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"black"</span>, <span class="st">"orange"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt, <span class="at">alpha =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb41-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb41-3"><a href=""></a>  <span class="fu">scale_alpha_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.6</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-63-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-57-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1691,46 +1556,14 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>…</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb43" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt, <span class="at">alpha =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
-<span id="cb43-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb43-3"><a href=""></a>  <span class="fu">scale_alpha_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.6</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt, <span class="at">shape =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
+<span id="cb42-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb42-3"><a href=""></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.6</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-64-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="scale-11" class="slide level2">
-<h2>Scale</h2>
-<p><strong><code>scale_*_manual</code></strong></p>
-<div class="columns">
-<div class="column" style="font-size: 80%;">
-<ul>
-<li>available only for discrete scales</li>
-<li>useful if you want to specify your own set of mappings from levels in the data to aesthetic values.</li>
-</ul>
-<p>For example</p>
-<ul>
-<li>choosing set of colors in discrete color scale</li>
-<li>specifying your own set of alpha</li>
-<li>specifying your own set of shapes</li>
-<li>specifying your own set of linetypes</li>
-<li>…</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb44" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt, <span class="at">shape =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span></span>
-<span id="cb44-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb44-3"><a href=""></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.6</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-65-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-58-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1755,17 +1588,17 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb45" data-code-line-numbers="2-6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a>p <span class="sc">+</span> </span>
-<span id="cb45-2"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Title of my plot"</span>,</span>
-<span id="cb45-3"><a href=""></a>       <span class="at">x =</span> <span class="st">"Miles per gallon"</span>,</span>
-<span id="cb45-4"><a href=""></a>       <span class="at">y =</span> <span class="st">"Weight"</span>, <span class="co">#&lt;&lt;</span></span>
-<span id="cb45-5"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"This would be a subtitle"</span>,</span>
-<span id="cb45-6"><a href=""></a>       <span class="at">caption =</span> <span class="st">"This is my caption"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43" data-code-line-numbers="2-6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb43-2"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Title of my plot"</span>,</span>
+<span id="cb43-3"><a href=""></a>       <span class="at">x =</span> <span class="st">"Miles per gallon"</span>,</span>
+<span id="cb43-4"><a href=""></a>       <span class="at">y =</span> <span class="st">"Weight"</span>, <span class="co">#&lt;&lt;</span></span>
+<span id="cb43-5"><a href=""></a>       <span class="at">subtitle =</span> <span class="st">"This would be a subtitle"</span>,</span>
+<span id="cb43-6"><a href=""></a>       <span class="at">caption =</span> <span class="st">"This is my caption"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-66-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-59-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1782,28 +1615,28 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>modify limits of the plot</li>
 <li>use <code>xlim</code> and <code>ylim</code></li>
 </ul>
-<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">50</span>)</span>
-<span id="cb46-2"><a href=""></a><span class="fu">ylim</span>(<span class="cn">NA</span>, <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">50</span>)</span>
+<span id="cb44-2"><a href=""></a><span class="fu">ylim</span>(<span class="cn">NA</span>, <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>or <code>lims</code> specifying vectors</li>
 </ul>
-<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))</span>
-<span id="cb47-2"><a href=""></a><span class="fu">lims</span>(<span class="at">y =</span> <span class="fu">y</span>(<span class="cn">NA</span>, <span class="dv">40</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))</span>
+<span id="cb45-2"><a href=""></a><span class="fu">lims</span>(<span class="at">y =</span> <span class="fu">y</span>(<span class="cn">NA</span>, <span class="dv">40</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb48" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a>p <span class="sc">+</span></span>
-<span id="cb48-2"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">10</span>, <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a>p <span class="sc">+</span></span>
+<span id="cb46-2"><a href=""></a>  <span class="fu">xlim</span>(<span class="dv">10</span>, <span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-67-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-60-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
 </section>
-<section id="scale-12" class="slide level2">
+<section id="scale-11" class="slide level2">
 <h2>Scale</h2>
 <p><strong>Shortcuts</strong></p>
 <div class="columns">
@@ -1813,22 +1646,22 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>modify limits of the plot</li>
 <li>use <code>xlim</code> and <code>ylim</code></li>
 </ul>
-<div class="sourceCode" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">50</span>)</span>
-<span id="cb49-2"><a href=""></a><span class="fu">ylim</span>(<span class="cn">NA</span>, <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">50</span>)</span>
+<span id="cb47-2"><a href=""></a><span class="fu">ylim</span>(<span class="cn">NA</span>, <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>or <code>lims</code> specifying vectors</li>
 </ul>
-<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a><span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))</span>
-<span id="cb50-2"><a href=""></a><span class="fu">lims</span>(<span class="at">y =</span> <span class="fu">y</span>(<span class="cn">NA</span>, <span class="dv">40</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href=""></a><span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>))</span>
+<span id="cb48-2"><a href=""></a><span class="fu">lims</span>(<span class="at">y =</span> <span class="fu">y</span>(<span class="cn">NA</span>, <span class="dv">40</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb51" data-code-line-numbers="2, 3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a>p <span class="sc">+</span> </span>
-<span id="cb51-2"><a href=""></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>),</span>
-<span id="cb51-3"><a href=""></a>       <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb49" data-code-line-numbers="2, 3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb49-2"><a href=""></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>),</span>
+<span id="cb49-3"><a href=""></a>       <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-68-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-61-1.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1856,19 +1689,19 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul></li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a>seeds <span class="ot">=</span> random seeds to make jitter reproducible</span>
-<span id="cb52-2"><a href=""></a>width <span class="ot">=</span> amount of jitter horizontally</span>
-<span id="cb52-3"><a href=""></a>height <span class="ot">=</span> amount of jitter vertically</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a>seeds <span class="ot">=</span> random seeds to make jitter reproducible</span>
+<span id="cb50-2"><a href=""></a>width <span class="ot">=</span> amount of jitter horizontally</span>
+<span id="cb50-3"><a href=""></a>height <span class="ot">=</span> amount of jitter vertically</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb53" data-code-line-numbers="3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
-<span id="cb53-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>,</span>
-<span id="cb53-3"><a href=""></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>,</span>
-<span id="cb53-4"><a href=""></a>                                        <span class="at">seed =</span> <span class="dv">143</span> ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51" data-code-line-numbers="3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb51-2"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>,</span>
+<span id="cb51-3"><a href=""></a>             <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>,</span>
+<span id="cb51-4"><a href=""></a>                                        <span class="at">seed =</span> <span class="dv">143</span> ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-69-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-62-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1890,16 +1723,16 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li><p>Stacks <code>geoms</code> on top of each other and standardizes the height.</p></li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a>reverse <span class="sc">-</span> default <span class="ot">=</span> <span class="cn">FALSE</span>, <span class="cf">if</span> <span class="cn">TRUE</span> will reverse the default stacking order.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a>reverse <span class="sc">-</span> default <span class="ot">=</span> <span class="cn">FALSE</span>, <span class="cf">if</span> <span class="cn">TRUE</span> will reverse the default stacking order.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">fill =</span> <span class="fu">factor</span>(vs))) <span class="sc">+</span> </span>
-<span id="cb55-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
-<span id="cb55-3"><a href=""></a>           <span class="at">position =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">fill =</span> <span class="fu">factor</span>(vs))) <span class="sc">+</span> </span>
+<span id="cb53-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb53-3"><a href=""></a>           <span class="at">position =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-70-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-63-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1921,16 +1754,16 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li><p>Stacks <code>geoms</code> on top of each other and standardizes the height.</p></li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a>reverse <span class="sc">-</span> default <span class="ot">=</span> <span class="cn">FALSE</span>, <span class="cf">if</span> <span class="cn">TRUE</span> will reverse the default stacking order.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a>reverse <span class="sc">-</span> default <span class="ot">=</span> <span class="cn">FALSE</span>, <span class="cf">if</span> <span class="cn">TRUE</span> will reverse the default stacking order.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb57" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">fill =</span> <span class="fu">factor</span>(vs))) <span class="sc">+</span> </span>
-<span id="cb57-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
-<span id="cb57-3"><a href=""></a>           <span class="at">position =</span> <span class="st">"stack"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb55" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">fill =</span> <span class="fu">factor</span>(vs))) <span class="sc">+</span> </span>
+<span id="cb55-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb55-3"><a href=""></a>           <span class="at">position =</span> <span class="st">"stack"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-71-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-64-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1952,16 +1785,16 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li><p>Stacks <code>geoms</code> on top of each other and standardizes the height.</p></li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a>reverse <span class="sc">-</span> default <span class="ot">=</span> <span class="cn">FALSE</span>, <span class="cf">if</span> <span class="cn">TRUE</span> will reverse the default stacking order.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href=""></a>reverse <span class="sc">-</span> default <span class="ot">=</span> <span class="cn">FALSE</span>, <span class="cf">if</span> <span class="cn">TRUE</span> will reverse the default stacking order.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">fill =</span> <span class="fu">factor</span>(vs))) <span class="sc">+</span> </span>
-<span id="cb59-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
-<span id="cb59-3"><a href=""></a>           <span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">fill =</span> <span class="fu">factor</span>(vs))) <span class="sc">+</span> </span>
+<span id="cb57-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb57-3"><a href=""></a>           <span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-72-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-65-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1978,14 +1811,14 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li><p>preserves the vertical position of a geom while adjusting the horizontal position.</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb60" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">fill =</span> <span class="fu">factor</span>(vs))) <span class="sc">+</span> </span>
-<span id="cb60-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
-<span id="cb60-3"><a href=""></a>           <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb58" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">fill =</span> <span class="fu">factor</span>(vs))) <span class="sc">+</span> </span>
+<span id="cb58-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb58-3"><a href=""></a>           <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-73-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-66-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2002,17 +1835,17 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li><p>preserves the vertical position of a geom while adjusting the horizontal position.</p></li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">width</span>(<span class="at">default =</span> <span class="fl">0.9</span>) refers to dodging width</span>
-<span id="cb61-2"><a href=""></a>preserve <span class="ot">=</span> <span class="st">"single"</span> <span class="sc">/</span> <span class="st">"total"</span> (<span class="at">defaul =</span> <span class="st">"total"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">width</span>(<span class="at">default =</span> <span class="fl">0.9</span>) refers to dodging width</span>
+<span id="cb59-2"><a href=""></a>preserve <span class="ot">=</span> <span class="st">"single"</span> <span class="sc">/</span> <span class="st">"total"</span> (<span class="at">defaul =</span> <span class="st">"total"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">fill =</span> <span class="fu">factor</span>(vs))) <span class="sc">+</span> </span>
-<span id="cb62-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
-<span id="cb62-3"><a href=""></a>           <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="dv">1</span>)) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">fill =</span> <span class="fu">factor</span>(vs))) <span class="sc">+</span> </span>
+<span id="cb60-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb60-3"><a href=""></a>           <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="dv">1</span>)) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-74-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-67-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2029,18 +1862,18 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li><p>preserves the vertical position of a geom while adjusting the horizontal position.</p></li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="fu">width</span>(<span class="at">default =</span> <span class="fl">0.9</span>) refers to dodging width</span>
-<span id="cb63-2"><a href=""></a>preserve <span class="ot">=</span> <span class="st">"single"</span> <span class="sc">/</span> <span class="st">"total"</span> (<span class="at">defaul =</span> <span class="st">"total"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">width</span>(<span class="at">default =</span> <span class="fl">0.9</span>) refers to dodging width</span>
+<span id="cb61-2"><a href=""></a>preserve <span class="ot">=</span> <span class="st">"single"</span> <span class="sc">/</span> <span class="st">"total"</span> (<span class="at">defaul =</span> <span class="st">"total"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb64" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">fill =</span> <span class="fu">factor</span>(vs))) <span class="sc">+</span> </span>
-<span id="cb64-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
-<span id="cb64-3"><a href=""></a>           <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="dv">1</span>,</span>
-<span id="cb64-4"><a href=""></a>                                     <span class="at">preserve =</span> <span class="st">"single"</span>)) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href=""></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">fill =</span> <span class="fu">factor</span>(vs))) <span class="sc">+</span> </span>
+<span id="cb62-2"><a href=""></a>  <span class="fu">geom_bar</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb62-3"><a href=""></a>           <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="dv">1</span>,</span>
+<span id="cb62-4"><a href=""></a>                                     <span class="at">preserve =</span> <span class="st">"single"</span>)) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-75-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-68-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2054,17 +1887,17 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="column" style="width:50%;">
 <p>Use the code below to generate a hypothetical dataset and recreate the barplot on the right.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a><span class="co"># Create some data</span></span>
-<span id="cb65-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">supp=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"VC"</span>, <span class="st">"OJ"</span>), <span class="at">each=</span><span class="dv">3</span>),</span>
-<span id="cb65-3"><a href=""></a>                <span class="at">dose=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"0.5"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>),<span class="dv">2</span>),</span>
-<span id="cb65-4"><a href=""></a>                <span class="at">len=</span><span class="fu">c</span>(<span class="fl">6.8</span>, <span class="dv">15</span>, <span class="dv">33</span>, <span class="fl">4.2</span>, <span class="dv">10</span>, <span class="fl">29.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a><span class="co"># Create some data</span></span>
+<span id="cb63-2"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">supp=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"VC"</span>, <span class="st">"OJ"</span>), <span class="at">each=</span><span class="dv">3</span>),</span>
+<span id="cb63-3"><a href=""></a>                <span class="at">dose=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"0.5"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>),<span class="dv">2</span>),</span>
+<span id="cb63-4"><a href=""></a>                <span class="at">len=</span><span class="fu">c</span>(<span class="fl">6.8</span>, <span class="dv">15</span>, <span class="dv">33</span>, <span class="fl">4.2</span>, <span class="dv">10</span>, <span class="fl">29.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-77-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-70-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2115,13 +1948,13 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul></li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-80-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-73-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2149,15 +1982,15 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul></li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb68" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a>p <span class="sc">+</span> </span>
-<span id="cb68-2"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb66" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb66-2"><a href=""></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-81-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-74-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2185,15 +2018,15 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul></li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb70" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a>p <span class="sc">+</span> </span>
-<span id="cb70-2"><a href=""></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb68" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb68-2"><a href=""></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-82-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-75-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2221,15 +2054,15 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul></li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb72" data-codeline-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a>p <span class="sc">+</span> </span>
-<span id="cb72-2"><a href=""></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb70" data-codeline-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb70-2"><a href=""></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-83-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-76-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2257,16 +2090,16 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul></li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>xlim, ylim, expand, clip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb74" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href=""></a>p <span class="sc">+</span> </span>
-<span id="cb74-2"><a href=""></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb74-3"><a href=""></a>                  <span class="at">clip =</span> <span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb72" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb72-2"><a href=""></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb72-3"><a href=""></a>                  <span class="at">clip =</span> <span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-84-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-77-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2283,13 +2116,13 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li><p>Useful to draw plots in horizontal mode without having to change the aesthetic mappings.</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb75" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a>p <span class="sc">+</span> </span>
-<span id="cb75-2"><a href=""></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb73" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a>p <span class="sc">+</span> </span>
+<span id="cb73-2"><a href=""></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-85-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-78-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2305,17 +2138,17 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>Apply a polar coordinate system to the plot</li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
-<span id="cb76-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
-<span id="cb76-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
+<span id="cb74-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
+<span id="cb74-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb77" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> </span>
-<span id="cb77-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb75" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> </span>
+<span id="cb75-2"><a href=""></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-86-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-79-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2331,17 +2164,17 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>Apply a pola coordinate system to the plot</li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
-<span id="cb78-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
-<span id="cb78-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
+<span id="cb76-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
+<span id="cb76-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb79" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb79-2"><a href=""></a>  <span class="fu">coord_polar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb77" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb77-2"><a href=""></a>  <span class="fu">coord_polar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-87-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-80-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2357,17 +2190,17 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>Apply a pola coordinate system to the plot</li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
-<span id="cb80-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
-<span id="cb80-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
+<span id="cb78-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
+<span id="cb78-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb81" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb81-2"><a href=""></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb79" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb79-2"><a href=""></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-88-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-81-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2383,18 +2216,18 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>Apply a pola coordinate system to the plot</li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
-<span id="cb82-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
-<span id="cb82-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
+<span id="cb80-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
+<span id="cb80-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb83" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb83-2"><a href=""></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>,</span>
-<span id="cb83-3"><a href=""></a>              <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb81" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb81-2"><a href=""></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>,</span>
+<span id="cb81-3"><a href=""></a>              <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-89-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-82-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2410,18 +2243,18 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>Apply a pola coordinate system to the plot</li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
-<span id="cb84-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
-<span id="cb84-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a>theta <span class="sc">:</span> map angle to x or y</span>
+<span id="cb82-2"><a href=""></a>direction<span class="sc">:</span> <span class="dv">1</span> (clockwise) <span class="sc">-</span><span class="dv">1</span> (anticlockwise)</span>
+<span id="cb82-3"><a href=""></a>start<span class="sc">:</span> offset of starting point <span class="cf">in</span> radian</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb85" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb85-2"><a href=""></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>,</span>
-<span id="cb85-3"><a href=""></a>              <span class="at">start =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb83" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb83-2"><a href=""></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>,</span>
+<span id="cb83-3"><a href=""></a>              <span class="at">start =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-90-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-83-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2465,18 +2298,18 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>useful if you have a variable with many levels</li>
 </ul>
 <p><strong>Parameters</strong></p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a>ncol</span>
-<span id="cb86-2"><a href=""></a>nrow</span>
-<span id="cb86-3"><a href=""></a>scales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href=""></a>ncol</span>
+<span id="cb84-2"><a href=""></a>nrow</span>
+<span id="cb84-3"><a href=""></a>scales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
-<span id="cb87-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
-<span id="cb87-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb85-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
+<span id="cb85-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-94-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-87-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2492,19 +2325,19 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <li>“wraps” a 1d ribbon of panels into 2d</li>
 <li>useful if you have a variable with many levels</li>
 </ul>
-<div class="sourceCode" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a>ncol</span>
-<span id="cb88-2"><a href=""></a>nrow</span>
-<span id="cb88-3"><a href=""></a>scales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a>ncol</span>
+<span id="cb86-2"><a href=""></a>nrow</span>
+<span id="cb86-3"><a href=""></a>scales</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
-<span id="cb89-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
-<span id="cb89-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb89-4"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> class) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb87-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
+<span id="cb87-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb87-4"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> class) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-95-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-88-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2524,14 +2357,14 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
-<span id="cb90-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
-<span id="cb90-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb90-4"><a href=""></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> cyl) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb88-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
+<span id="cb88-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb88-4"><a href=""></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> cyl) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-96-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-89-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2551,14 +2384,14 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-figalign="center">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
-<span id="cb91-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
-<span id="cb91-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb91-4"><a href=""></a>  <span class="fu">facet_grid</span>(drv <span class="sc">~</span> .) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb89-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
+<span id="cb89-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb89-4"><a href=""></a>  <span class="fu">facet_grid</span>(drv <span class="sc">~</span> .) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-97-1.png" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-90-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2578,14 +2411,14 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
-<span id="cb92-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
-<span id="cb92-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb92-4"><a href=""></a>  <span class="fu">facet_grid</span>(drv <span class="sc">~</span> cyl) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href=""></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, hwy)) <span class="sc">+</span> </span>
+<span id="cb90-2"><a href=""></a>  <span class="fu">geom_blank</span>() <span class="sc">+</span> </span>
+<span id="cb90-3"><a href=""></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb90-4"><a href=""></a>  <span class="fu">facet_grid</span>(drv <span class="sc">~</span> cyl) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-98-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-91-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2637,7 +2470,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-101-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-94-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2665,7 +2498,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-102-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-95-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2693,7 +2526,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-103-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-96-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2721,7 +2554,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-104-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-97-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2748,7 +2581,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-105-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-98-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2775,7 +2608,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-106-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-99-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2802,7 +2635,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-107-1.png" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-100-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2829,7 +2662,7 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-108-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-101-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
@@ -2851,18 +2684,22 @@ $ prop &lt;dbl&gt; 0.07238359, 0.02667896, 0.02052149, 0.01986579, 0.01788843, 0
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-110-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-103-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
+</section></section>
+<section>
+<section id="section" class="title-slide slide level1 center">
+<h1></h1>
+
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
+<section id="thank-you" class="slide level2">
+<h2>Thank you!</h2>
 
-
-<img data-src="img/econ106-logo.png" class="quarto-figure quarto-figure-center r-stretch" width="322"></section></section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
