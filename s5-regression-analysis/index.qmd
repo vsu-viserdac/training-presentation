@@ -57,11 +57,11 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
 A way of predicting the value of one variable from another.
 
--   
+- 
 
-    -   it is a hypothetical model of the relationship between two variables.
-    -   the model used is linear.
-    -   we describe the relationship using the equation of a straight line.
+  - it is a hypothetical model of the relationship between two variables.
+  - the model used is linear.
+  - we describe the relationship using the equation of a straight line.
 
 ## Simple linear regression
 
@@ -121,15 +121,15 @@ $$
 Y_i = \beta_0 + \beta_iX_i + \epsilon_i
 $$
 
--   
+- 
 
-    -   $\beta_i$
-        -   regression coefficient for the predictor
-        -   gradient or slope of the regression line
-        -   direction/strength of the relationship
-    -   $\beta_0$
-        -   intercept
-        -   point at which the regression line crosses the Y-axis
+  - $\beta_i$
+    - regression coefficient for the predictor
+    - gradient or slope of the regression line
+    - direction/strength of the relationship
+  - $\beta_0$
+    - intercept
+    - point at which the regression line crosses the Y-axis
 :::
 
 ## Simple linear regression (a quick review)
@@ -140,31 +140,31 @@ knitr::include_graphics("plot/simle-linear-reg.png")
 
 ## Deriving the Ordinary Least Squares (OLS) estimators
 
--   In order to estimate the regression model one needs data
+- In order to estimate the regression model one needs data
 
--   A random sample of $n$ observations
+- A random sample of $n$ observations
 
-    -   $(x_1, y_1)$ ← first observation
-    -   $(x_2, y_2)$ ← second observation
-    -   $(x_3, y_3)$ ← third observation
-    -   ...
-    -   $(x_n, y_n)$ ← nth observation
+  - $(x_1, y_1)$ ← first observation
+  - $(x_2, y_2)$ ← second observation
+  - $(x_3, y_3)$ ← third observation
+  - ...
+  - $(x_n, y_n)$ ← nth observation
 
 ## Deriving the Ordinary Least Squares (OLS) estimators
 
--   Defining regression residuals
-    -   $\hat{u_i} = y_i - \hat{y_i} = y_i - (\hat{\beta_0} + \hat{\beta_1}x_i)$
+- Defining regression residuals
+  - $\hat{u_i} = y_i - \hat{y_i} = y_i - (\hat{\beta_0} + \hat{\beta_1}x_i)$
 
 <br>
 
--   Minimize the sum of squared residuals (SSR)
-    -   $\text{min} \Sigma_{i=1}^n \hat{u_i}^2$ → $\hat{\beta_0}, \hat{\beta_1}$
+- Minimize the sum of squared residuals (SSR)
+  - $\text{min} \Sigma_{i=1}^n \hat{u_i}^2$ → $\hat{\beta_0}, \hat{\beta_1}$
 
 <br>
 
--   OLS estimator
-    -   $\hat{\beta_1} = \frac{Cov(X,Y)}{Var(X)} = \frac{\Sigma_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\Sigma_{i=1}^n (x_i - \bar{x})^2}$
-    -   $\hat{\beta_0} = \bar{y} - \hat{\beta_1}\bar{x}$
+- OLS estimator
+  - $\hat{\beta_1} = \frac{Cov(X,Y)}{Var(X)} = \frac{\Sigma_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\Sigma_{i=1}^n (x_i - \bar{x})^2}$
+  - $\hat{\beta_0} = \bar{y} - \hat{\beta_1}\bar{x}$
 
 ## Simple linear regression model
 
@@ -180,11 +180,11 @@ Source: Wooldridge, J. M. (2020). Introductory Econometrics: A Modern Approach (
 
 ## Simple regression model
 
--   Wage and education
-    -   $wage = \beta_0 + \beta_1 educ + u$
--   fitted regression
-    -   $\hat{wage} = -0.90 + 0.54 educ$
-    -   Interpretation: in the sample, one more year of education was associated with an increase in hourly wage by \$0.54.
+- Wage and education
+  - $wage = \beta_0 + \beta_1 educ + u$
+- fitted regression
+  - $\hat{wage} = -0.90 + 0.54 educ$
+  - Interpretation: in the sample, one more year of education was associated with an increase in hourly wage by \$0.54.
 
 ```{r}
 #| echo: true
@@ -326,25 +326,25 @@ summary(model)
 ::: {.column width="50%"}
 Step 3: Interpret results
 
--   y-intercept (a): 558.28
+- y-intercept (a): 558.28
 
-    -   estimated average value of $y$ when all $x_i = 0$
+  - estimated average value of $y$ when all $x_i = 0$
 
--   slope (b): -24.03
+- slope (b): -24.03
 
-    -   estimates the average value of y changes by $b_i$ units for each 1 unit increase in $x_i$ holding other variables constant.
+  - estimates the average value of y changes by $b_i$ units for each 1 unit increase in $x_i$ holding other variables constant.
 
-    -   example: a 1 unit increase in price decreases the pie sales by 24.03 pies per week.
+  - example: a 1 unit increase in price decreases the pie sales by 24.03 pies per week.
 :::
 :::::
 
 ## Multiple linear regression
 
--   
+- 
 
-    -   a linear regression with one or more independent variable (explanatory variable), and one dependent variable (response variable).
+  - a linear regression with one or more independent variable (explanatory variable), and one dependent variable (response variable).
 
-    -   multiple regression model
+  - multiple regression model
 
 $$
 y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + b_k x_k
@@ -487,13 +487,13 @@ summary(model)
 ::: {.column width="50%"}
 Step 4: Interpret results
 
--   $\beta_1$ (Price): -24.98
+- $\beta_1$ (Price): -24.98
 
-    -   pie sales will decrease, on average, by 24.98 pies per week for each 1 unit increase in selling price, net of the effects of changes due to advertising.
+  - pie sales will decrease, on average, by 24.98 pies per week for each 1 unit increase in selling price, net of the effects of changes due to advertising.
 
--   $\beta_2$ (Advertising): 74.13
+- $\beta_2$ (Advertising): 74.13
 
-    -   sales will increase, on average, by 74.13 pies per week for each \$1 increase in advertising, net of the effects of changes due to price.
+  - sales will increase, on average, by 74.13 pies per week for each \$1 increase in advertising, net of the effects of changes due to price.
 :::
 :::::
 
@@ -619,43 +619,43 @@ df |>
 
 ## What is the primary goal of linear regression analysis? {.quiz-question}
 
--   To determine the strength of the relationship between two categorical variables.
+- To determine the strength of the relationship between two categorical variables.
 
--   [To predict the value of a dependent variable based on one or more independent variables]{.correct}
+- [To predict the value of a dependent variable based on one or more independent variables]{.correct}
 
--   To compare the means of two or more groups.
+- To compare the means of two or more groups.
 
--   To analyze the frequency of occurrences within categories.
+- To analyze the frequency of occurrences within categories.
 
 ## In simple linear regression, what does the slope of the regression line represent? {.quiz-question}
 
--   The average value of the dependent variable.
+- The average value of the dependent variable.
 
--   [The change in the dependent variable for a one-unit increase in the independent variable]{.correct}
+- [The change in the dependent variable for a one-unit increase in the independent variable]{.correct}
 
--   The correlation between the two variables.
+- The correlation between the two variables.
 
--   The predicted value of the dependent variable when the independent variable is zero.
+- The predicted value of the dependent variable when the independent variable is zero.
 
 ## How does multiple linear regression differ from simple linear regression? {.quiz-question}
 
--   Multiple linear regression uses only one independent variable.
+- Multiple linear regression uses only one independent variable.
 
--   [Multiple linear regression uses two or more independent variables]{.correct}
+- [Multiple linear regression uses two or more independent variables]{.correct}
 
--   Multiple linear regression analyzes categorical variables.
+- Multiple linear regression analyzes categorical variables.
 
--   Multiple linear regression does not involve a dependent variable.
+- Multiple linear regression does not involve a dependent variable.
 
 ## What is the coefficient of determination (R-squared) in the context of regression analysis? {.quiz-question}
 
--   [A measure of the strength of the linear relationship between the variables]{.correct}
+- [A measure of the strength of the linear relationship between the variables]{.correct}
 
--   The probability of making a correct prediction.
+- The probability of making a correct prediction.
 
--   The difference between the observed and predicted values.
+- The difference between the observed and predicted values.
 
--   he slope of the regression line.
+- he slope of the regression line.
 
 ## How good is the model?
 
@@ -664,12 +664,12 @@ df |>
 ::: {.callout-warning style="font-size: 2.0em;"}
 ## Take note!
 
--   
+- 
 
-    -   The regression line is only a model based on a data.
-    -   This model might not reflect the reality.
-        -   We need some way of testing how well the model fits the observed data.
-        -   how?
+  - The regression line is only a model based on a data.
+  - This model might not reflect the reality.
+    - We need some way of testing how well the model fits the observed data.
+    - how?
 :::
 
 ## Sum of Squares
@@ -678,10 +678,10 @@ df |>
 
 ::::: columns
 ::: {.column width="40%"}
--   
+- 
 
-    -   $SS_T = \Sigma(y_i - \bar{y})^2$
-        -   uses the differences between the observed data and the mean value of Y
+  - $SS_T = \Sigma(y_i - \bar{y})^2$
+    - uses the differences between the observed data and the mean value of Y
 :::
 
 ::: {.column width="60%"}
@@ -697,10 +697,10 @@ p_sst
 
 ::::: columns
 ::: {.column width="40%"}
--   
+- 
 
-    -   $SS_R = \Sigma(y_i - \hat{y_i})^2$
-        -   uses the differences between the observed data and regression line
+  - $SS_R = \Sigma(y_i - \hat{y_i})^2$
+    - uses the differences between the observed data and regression line
 :::
 
 ::: {.column width="60%"}
@@ -715,9 +715,9 @@ p_ssr
 ::: {.callout-note style="font-size: 2.0em;"}
 ## R-squared ($R^2$)
 
--   
+- 
 
-    -   reports the proportion of total variation of in $y$ explained by all $x$ variables taken together
+  - reports the proportion of total variation of in $y$ explained by all $x$ variables taken together
 
 $$
 R^2 = \frac{\text{SSR}}{SST} = \frac{\text{Sum of squares regression}}{\text{Total sum of squares}}
@@ -726,10 +726,10 @@ $$
 
 ## Multiple coefficient of determination (R-squared)
 
--   **Adjusted R-squared (**$R^2$)
+- **Adjusted R-squared (**$R^2$)
 
-    -   $R^2$ never decreases when new $x$ variable is added to the model.
-    -   This can be disadvantage when comparing models
+  - $R^2$ never decreases when new $x$ variable is added to the model.
+  - This can be disadvantage when comparing models
 
 <br>
 
@@ -737,10 +737,10 @@ $$
 ::: {.callout-warning style="font-size: 2.0em;"}
 ## What is the effect of adding a new variable?
 
--   
+- 
 
-    -   We lose a degree of freedom when a new $x$ variable is added.
-    -   Did the new $x$ variable add enough explanatory power to offset the loss of one degree of freedom?
+  - We lose a degree of freedom when a new $x$ variable is added.
+  - Did the new $x$ variable add enough explanatory power to offset the loss of one degree of freedom?
 :::
 ::::
 
@@ -753,20 +753,20 @@ $$
 R^2_{adj} = 1 - (1 - R^2)(\frac{n-1}{n-k-1})
 $$
 
--   where
-    -   $n$ = sample size
-    -   $k$ = number of independent variables
+- where
+  - $n$ = sample size
+  - $k$ = number of independent variables
 :::
 
--   
+- 
 
-    -   shows the proportion of variation in $y$ explained by all $x$ variables adjusted for the number of $x$ variables used.
+  - shows the proportion of variation in $y$ explained by all $x$ variables adjusted for the number of $x$ variables used.
 
-    -   where excessive use of unimportant independent variables
+  - where excessive use of unimportant independent variables
 
-    -   smaller then $R^2$
+  - smaller then $R^2$
 
-    -   useful in comparing among models
+  - useful in comparing among models
 
 ## Example in R
 
@@ -834,13 +834,13 @@ cat("Manual Adjusted R-squared:", adj_r_squared_manual, "\n")
 
 ## Linearity assumption
 
--   
+- 
 
-    -   linear regression model relates the outcome to the predictors via a linear fashion.
+  - linear regression model relates the outcome to the predictors via a linear fashion.
 
-    -   departure from linearity can be checked by using a scatter plot and a line overlaid to the plots
+  - departure from linearity can be checked by using a scatter plot and a line overlaid to the plots
 
-    -   if linearity is not satisfied, transformation may be needed
+  - if linearity is not satisfied, transformation may be needed
 
 ## Linearity assumption
 
@@ -848,9 +848,9 @@ cat("Manual Adjusted R-squared:", adj_r_squared_manual, "\n")
 
 ## Normality of errors
 
--   
+- 
 
-    -   confidence intervals for regression and related hypothesis tests are based on the assumption that the coeffcient estimates have normal distribution.
+  - confidence intervals for regression and related hypothesis tests are based on the assumption that the coeffcient estimates have normal distribution.
 
 ## Homoscedasticity of error variance
 
