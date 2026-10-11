@@ -1041,9 +1041,6 @@ positive, statistically significant, and large (difference = 4.40, 95% CI
 </div>
 </div>
 </div>
-<ul>
-<li>is a non-parametric test used to compare the medians of two independent groups when the assumptions of the independent samples t-test are not met (e.g., non-normal distribution).</li>
-</ul>
 </section>
 <section id="mann-whitney-u-test-3" class="slide level2">
 <h2>Mann Whitney U-test</h2>
@@ -1078,34 +1075,240 @@ positive, statistically significant, and large (difference = 4.40, 95% CI
 </section>
 <section id="mann-whitney-u-test-4" class="slide level2">
 <h2>Mann Whitney U-test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Step 1: State the hypotheses</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><ul>
+<li><span class="math inline">\(H_o\)</span>: Monthly incomes for teachers at School A and B are the same</li>
+<li><span class="math inline">\(H_o\)</span>: <span class="math inline">\(\mu_{School A} = \mu_{School B}\)</span></li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li><ul>
+<li><span class="math inline">\(H_a\)</span>: Monthly incomes for teachers at School A and B are different</li>
+<li><span class="math inline">\(H_a\)</span>: <span class="math inline">\(\mu_{School A} \neq \mu_{School B}\)</span></li>
+</ul></li>
+</ul>
 </section>
 <section id="mann-whitney-u-test-5" class="slide level2">
-<h2>Mann-Whitney U test</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="" aria-label="1"></a><span class="fu">wilcox.test</span>(hwy <span class="sc">~</span> cyl, <span class="at">data =</span> mpg_dta, <span class="at">exact =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="r-activity-mann-whitney-u-test" class="slide level2">
-<h2>R Activity: Mann-Whitney U test</h2>
+<h2>Mann Whitney U-test</h2>
 <div style="font-size: 2.0em;">
-<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Instructions</strong></p>
+<p><strong>Step 2: Specify the decision rule and the level of statistical significance</strong></p>
 </div>
 <div class="callout-content">
+<ul>
+<li>Significance level: <span class="math inline">\(\alpha = 0.05\)</span> (two-sided)</li>
+<li>Reject <span class="math inline">\(H_o\)</span> if p-value <span class="math inline">\(&lt; 0.05\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mann-whitney-u-test-6" class="slide level2">
+<h2>Mann Whitney U-test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 3: Test the assumptions and identify the appropriate test</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
 <ol type="1">
-<li><p>Load the diamonds dataset from the <code>ggplot2</code> package. Filter the data to include only “Very Good” and “Premium” cut diamonds. Sample 1000 observations from each group to ensure the Shapiro-Wilk test can be applied.</p></li>
-<li><p>Checking Assumptions: Normality and Homogeneity of Variance</p></li>
-<li><p>Conduct the Mann-Whitney U test to compare the median prices of the two groups.</p></li>
-<li><p>Interpret the result</p></li>
+<li>Normality test using the Shapiro-Wilk test:</li>
 </ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="" aria-label="1"></a>sample_data2 <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="" aria-label="2"></a>  <span class="fu">group_by</span>(school) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="" aria-label="3"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb15-4"><a href="" aria-label="4"></a>    <span class="at">shapiro_test =</span> <span class="fu">shapiro.test</span>(income)<span class="sc">$</span>statistic,</span>
+<span id="cb15-5"><a href="" aria-label="5"></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(income)<span class="sc">$</span>p.value</span>
+<span id="cb15-6"><a href="" aria-label="6"></a>  )</span>
+<span id="cb15-7"><a href="" aria-label="7"></a><span class="co"># A tibble: 2 × 3</span></span>
+<span id="cb15-8"><a href="" aria-label="8"></a>  school   shapiro_test p_value</span>
+<span id="cb15-9"><a href="" aria-label="9"></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span>           <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb15-10"><a href="" aria-label="10"></a><span class="dv">1</span> School A        <span class="fl">0.966</span>  <span class="fl">0.856</span> </span>
+<span id="cb15-11"><a href="" aria-label="11"></a><span class="dv">2</span> School B        <span class="fl">0.854</span>  <span class="fl">0.0415</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>School A’s Shapiro-Wilk result is <span class="math inline">\(p = 0.856\)</span>, while School B’s is <span class="math inline">\(p = 0.042\)</span>. At <span class="math inline">\(\alpha = 0.05\)</span>, normality is not rejected for School A but is rejected for School B. This supports using the Mann-Whitney U test as a nonparametric comparison.</p>
 </div>
 </div>
 </div>
+</div>
+</section>
+<section id="mann-whitney-u-test-7" class="slide level2">
+<h2>Mann Whitney U-test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 3: Test the assumptions and identify the appropriate test</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<p>Visual inspection of income distributions by school:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="" aria-label="1"></a>sample_data2 <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="" aria-label="2"></a>  <span class="fu">tidyplot</span>(<span class="at">x =</span> income, <span class="at">color =</span> school) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="" aria-label="3"></a>  <span class="fu">add_histogram</span>(</span>
+<span id="cb16-4"><a href="" aria-label="4"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)),</span>
+<span id="cb16-5"><a href="" aria-label="5"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb16-6"><a href="" aria-label="6"></a>    <span class="at">bins =</span> <span class="dv">6</span></span>
+<span id="cb16-7"><a href="" aria-label="7"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb16-8"><a href="" aria-label="8"></a>  <span class="fu">add</span>(<span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb16-9"><a href="" aria-label="9"></a>  <span class="fu">split_plot</span>(<span class="at">by =</span> school)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="plot/normality_test_mann-whitney-u-test.png" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="mann-whitney-u-test-8" class="slide level2">
+<h2>Mann Whitney U-test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 3: Test the assumptions and identify the appropriate test</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<p>Q-Q plots by school:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="" aria-label="1"></a>sample_data2 <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="" aria-label="2"></a>  <span class="fu">tidyplot</span>(<span class="at">sample =</span> income, <span class="at">color =</span> school) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="" aria-label="3"></a>  <span class="fu">add</span>(<span class="fu">stat_qq</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb17-4"><a href="" aria-label="4"></a>  <span class="fu">add</span>(<span class="fu">stat_qq_line</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb17-5"><a href="" aria-label="5"></a>  <span class="fu">split_plot</span>(<span class="at">by =</span> school) <span class="sc">|&gt;</span></span>
+<span id="cb17-6"><a href="" aria-label="6"></a>  <span class="fu">save_plot</span>(</span>
+<span id="cb17-7"><a href="" aria-label="7"></a>    <span class="at">filename =</span> <span class="st">"plot/qq_normality_test_mann-whitney-u-test.png"</span></span>
+<span id="cb17-8"><a href="" aria-label="8"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="plot/qq_normality_test_mann-whitney-u-test.png" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="mann-whitney-u-test-9" class="slide level2">
+<h2>Mann Whitney U-test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 4: Compute the statistic and p-value</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="" aria-label="1"></a>mann_whitney_u_test <span class="ot">&lt;-</span></span>
+<span id="cb18-2"><a href="" aria-label="2"></a>  <span class="fu">wilcox.test</span>(</span>
+<span id="cb18-3"><a href="" aria-label="3"></a>    sample_data2<span class="sc">$</span>income <span class="sc">~</span> sample_data2<span class="sc">$</span>school,</span>
+<span id="cb18-4"><a href="" aria-label="4"></a>    <span class="at">exact =</span> <span class="cn">FALSE</span></span>
+<span id="cb18-5"><a href="" aria-label="5"></a>  )</span>
+<span id="cb18-6"><a href="" aria-label="6"></a></span>
+<span id="cb18-7"><a href="" aria-label="7"></a>mann_whitney_u_test</span>
+<span id="cb18-8"><a href="" aria-label="8"></a></span>
+<span id="cb18-9"><a href="" aria-label="9"></a>    Wilcoxon rank sum test with continuity correction</span>
+<span id="cb18-10"><a href="" aria-label="10"></a></span>
+<span id="cb18-11"><a href="" aria-label="11"></a>data<span class="sc">:</span>  sample_data2<span class="sc">$</span>income by sample_data2<span class="sc">$</span>school</span>
+<span id="cb18-12"><a href="" aria-label="12"></a>W <span class="ot">=</span> <span class="dv">15</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.006167</span></span>
+<span id="cb18-13"><a href="" aria-label="13"></a>alternative hypothesis<span class="sc">:</span> true location shift is not equal to <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="mann-whitney-u-test-10" class="slide level2">
+<h2>Mann Whitney U-test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 5: Conclusion and interpretation</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="" aria-label="1"></a><span class="fu">library</span>(report)</span>
+<span id="cb19-2"><a href="" aria-label="2"></a><span class="fu">report</span>(mann_whitney_u_test)</span>
+<span id="cb19-3"><a href="" aria-label="3"></a>Effect sizes were labelled following Funder<span class="st">'s (2019) recommendations.</span></span>
+<span id="cb19-4"><a href="" aria-label="4"></a></span>
+<span id="cb19-5"><a href="" aria-label="5"></a><span class="st">The Wilcoxon rank sum test with continuity correction testing the difference in</span></span>
+<span id="cb19-6"><a href="" aria-label="6"></a><span class="st">ranks between sample_data2$income and sample_data2$school suggests that the</span></span>
+<span id="cb19-7"><a href="" aria-label="7"></a><span class="st">effect is negative, statistically significant, and very large (W = 15.00, p =</span></span>
+<span id="cb19-8"><a href="" aria-label="8"></a><span class="st">0.006; r (rank biserial) = -0.72, 95% CI [-0.89, -0.38])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -1185,8 +1388,192 @@ positive, statistically significant, and large (difference = 4.40, 95% CI
 </div>
 </div>
 </section>
-<section id="dependent-t-test-2" class="slide level2">
-<h2>Dependent t-test</h2>
+<section id="paired-samples-t-test" class="slide level2">
+<h2>## Paired-samples t-test</h2>
+<ul>
+<li>also known as the dependent t-test</li>
+<li>is used to compare the means of two related groups. - commonly used in situations where the same subjects are measured before and after an intervention or treatment.</li>
+</ul>
+</section>
+<section id="paired-samples-t-test-1" class="slide level2">
+<h2>Paired-samples t-test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Assumptions</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>two sets of data must be obtained from (1) the same subjects or (2) matched subjects</li>
+<li>Sampling distribution should be normal</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="paired-samples-t-test-2" class="slide level2">
+<h2>Paired-samples t-test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Example</strong></p>
+</div>
+<div class="callout-content">
+<p>A researcher designed an experiment to test the effect of drug X on eating behavior. The amount of food eaten by a group of rats in a one-week period, prior to ingesting drug X, was recorded. The rats were then given drug X, and the amount of food eaten in a one-week period was again recorded. The following amounts of food in grams were eaten during the “before” and “after” conditions.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="" aria-label="1"></a>sample_data3 <span class="ot">&lt;-</span></span>
+<span id="cb20-2"><a href="" aria-label="2"></a>  <span class="fu">read_sav</span>(<span class="st">"data-sets/EX5.sav"</span>)</span>
+<span id="cb20-3"><a href="" aria-label="3"></a></span>
+<span id="cb20-4"><a href="" aria-label="4"></a><span class="fu">head</span>(sample_data3, <span class="dv">5</span>)</span>
+<span id="cb20-5"><a href="" aria-label="5"></a><span class="co"># A tibble: 5 × 2</span></span>
+<span id="cb20-6"><a href="" aria-label="6"></a>  before after</span>
+<span id="cb20-7"><a href="" aria-label="7"></a>   <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb20-8"><a href="" aria-label="8"></a><span class="dv">1</span>    <span class="dv">100</span>    <span class="dv">60</span></span>
+<span id="cb20-9"><a href="" aria-label="9"></a><span class="dv">2</span>    <span class="dv">180</span>    <span class="dv">80</span></span>
+<span id="cb20-10"><a href="" aria-label="10"></a><span class="dv">3</span>    <span class="dv">160</span>   <span class="dv">110</span></span>
+<span id="cb20-11"><a href="" aria-label="11"></a><span class="dv">4</span>    <span class="dv">220</span>   <span class="dv">140</span></span>
+<span id="cb20-12"><a href="" aria-label="12"></a><span class="dv">5</span>    <span class="dv">140</span>   <span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="paired-samples-t-test-3" class="slide level2">
+<h2>Paired-samples t-test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Step 1: State the hypotheses</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><span class="math inline">\(H_o\)</span>: Drug X does not change the mean amount of food eaten by the rats</li>
+<li><span class="math inline">\(H_a\)</span>: Drug X changes the mean amount of food eaten by the rats</li>
+<li>In symbols: <span class="math inline">\(H_o: \mu_{before-after} = 0\)</span>; <span class="math inline">\(H_a: \mu_{before-after} \neq 0\)</span></li>
+</ul>
+</section>
+<section id="paired-samples-t-test-4" class="slide level2">
+<h2>Paired-samples t-test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 2: Specify the decision rule and significance level</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Significance level: <span class="math inline">\(\alpha = 0.05\)</span> (two-sided)</li>
+<li>Reject <span class="math inline">\(H_o\)</span> if the p-value is less than 0.05</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="paired-samples-t-test-5" class="slide level2">
+<h2>Paired-samples t-test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Step 3: Check assumptions and select the test</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><ol type="1">
+<li>The paired t-test assumes the within-rat differences are approximately normally distributed. Check those differences with Shapiro-Wilk:</li>
+</ol></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="" aria-label="1"></a>sample_data3 <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="" aria-label="2"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb21-3"><a href="" aria-label="3"></a>    <span class="at">shapiro_test =</span> <span class="fu">shapiro.test</span>(after <span class="sc">-</span> before)<span class="sc">$</span>statistic,</span>
+<span id="cb21-4"><a href="" aria-label="4"></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(after <span class="sc">-</span> before)<span class="sc">$</span>p.value</span>
+<span id="cb21-5"><a href="" aria-label="5"></a>  )</span>
+<span id="cb21-6"><a href="" aria-label="6"></a><span class="co"># A tibble: 1 × 2</span></span>
+<span id="cb21-7"><a href="" aria-label="7"></a>  shapiro_test p_value</span>
+<span id="cb21-8"><a href="" aria-label="8"></a>         <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb21-9"><a href="" aria-label="9"></a><span class="dv">1</span>        <span class="fl">0.906</span>   <span class="fl">0.253</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>The test of normality is applied to the paired differences, not separately to before and after scores. A non-significant Shapiro-Wilk result does not provide evidence against normality.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="paired-samples-t-test-6" class="slide level2">
+<h2>Paired-samples t-test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Step 4: Compute the statistic and p-value</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="" aria-label="1"></a><span class="fu">t.test</span>(</span>
+<span id="cb22-2"><a href="" aria-label="2"></a>  sample_data3<span class="sc">$</span>before,</span>
+<span id="cb22-3"><a href="" aria-label="3"></a>  sample_data3<span class="sc">$</span>after,</span>
+<span id="cb22-4"><a href="" aria-label="4"></a>  <span class="at">paired =</span> <span class="cn">TRUE</span></span>
+<span id="cb22-5"><a href="" aria-label="5"></a>)</span>
+<span id="cb22-6"><a href="" aria-label="6"></a></span>
+<span id="cb22-7"><a href="" aria-label="7"></a>    Paired t<span class="sc">-</span>test</span>
+<span id="cb22-8"><a href="" aria-label="8"></a></span>
+<span id="cb22-9"><a href="" aria-label="9"></a>data<span class="sc">:</span>  sample_data3<span class="sc">$</span>before and sample_data3<span class="sc">$</span>after</span>
+<span id="cb22-10"><a href="" aria-label="10"></a>t <span class="ot">=</span> <span class="fl">5.0765</span>, df <span class="ot">=</span> <span class="dv">9</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.000666</span></span>
+<span id="cb22-11"><a href="" aria-label="11"></a>alternative hypothesis<span class="sc">:</span> true mean difference is not equal to <span class="dv">0</span></span>
+<span id="cb22-12"><a href="" aria-label="12"></a><span class="dv">95</span> percent confidence interval<span class="sc">:</span></span>
+<span id="cb22-13"><a href="" aria-label="13"></a> <span class="fl">29.38239</span> <span class="fl">76.61761</span></span>
+<span id="cb22-14"><a href="" aria-label="14"></a>sample estimates<span class="sc">:</span></span>
+<span id="cb22-15"><a href="" aria-label="15"></a>mean difference </span>
+<span id="cb22-16"><a href="" aria-label="16"></a>             <span class="dv">53</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="paired-samples-t-test-7" class="slide level2">
+<h2>Paired-samples t-test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Step 5: Compare the p-value with alpha and interpret</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<p>The paired t-test gives <span class="math inline">\(t(9) = 5.08\)</span>, <span class="math inline">\(p &lt; 0.001\)</span>. Since <span class="math inline">\(p &lt; 0.05\)</span>, reject <span class="math inline">\(H_o\)</span>. Before drug X, rats ate an average of 53 grams more per week than after taking the drug (95% CI for before-minus-after: 29.38 to 76.62 grams). In this sample, food consumption was lower after treatment.</p>
+</section>
+<section id="paired-samples-t-test-8" class="slide level2">
+<h2>Paired samples t-test</h2>
 <div style="font-size: 2.0em;">
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -1203,105 +1590,105 @@ positive, statistically significant, and large (difference = 4.40, 95% CI
 </div>
 </div>
 </section>
-<section id="dependent-t-test-3" class="slide level2">
+<section id="dependent-t-test-2" class="slide level2">
 <h2>Dependent t-test</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Step 1: Import data and data management</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="" aria-label="1"></a><span class="do">## using a synthetic dataset</span></span>
-<span id="cb16-2"><a href="" aria-label="2"></a>before <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">12.2</span>, <span class="fl">14.6</span>, <span class="fl">13.4</span>, <span class="fl">11.2</span>, <span class="fl">12.7</span>, <span class="fl">10.4</span>, <span class="fl">15.8</span>, <span class="fl">13.9</span>, <span class="fl">9.5</span>, <span class="fl">14.2</span>)</span>
-<span id="cb16-3"><a href="" aria-label="3"></a>after <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">13.5</span>, <span class="fl">15.2</span>, <span class="fl">13.6</span>, <span class="fl">12.8</span>, <span class="fl">13.7</span>, <span class="fl">11.3</span>, <span class="fl">16.5</span>, <span class="fl">13.4</span>, <span class="fl">8.7</span>, <span class="fl">14.6</span>)</span>
-<span id="cb16-4"><a href="" aria-label="4"></a></span>
-<span id="cb16-5"><a href="" aria-label="5"></a>training_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb16-6"><a href="" aria-label="6"></a>  <span class="at">subject =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="dv">2</span>),</span>
-<span id="cb16-7"><a href="" aria-label="7"></a>  <span class="at">time =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"before"</span>, <span class="st">"after"</span>), <span class="at">each =</span> <span class="dv">10</span>),</span>
-<span id="cb16-8"><a href="" aria-label="8"></a>  <span class="at">score =</span> <span class="fu">c</span>(before, after)</span>
-<span id="cb16-9"><a href="" aria-label="9"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb16-10"><a href="" aria-label="10"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">as_factor</span>(time))</span>
-<span id="cb16-11"><a href="" aria-label="11"></a></span>
-<span id="cb16-12"><a href="" aria-label="12"></a><span class="fu">head</span>(training_data)</span>
-<span id="cb16-13"><a href="" aria-label="13"></a><span class="co"># A tibble: 6 × 3</span></span>
-<span id="cb16-14"><a href="" aria-label="14"></a>  subject time   score</span>
-<span id="cb16-15"><a href="" aria-label="15"></a>    <span class="sc">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb16-16"><a href="" aria-label="16"></a><span class="dv">1</span>       <span class="dv">1</span> before  <span class="fl">12.2</span></span>
-<span id="cb16-17"><a href="" aria-label="17"></a><span class="dv">2</span>       <span class="dv">2</span> before  <span class="fl">14.6</span></span>
-<span id="cb16-18"><a href="" aria-label="18"></a><span class="dv">3</span>       <span class="dv">3</span> before  <span class="fl">13.4</span></span>
-<span id="cb16-19"><a href="" aria-label="19"></a><span class="dv">4</span>       <span class="dv">4</span> before  <span class="fl">11.2</span></span>
-<span id="cb16-20"><a href="" aria-label="20"></a><span class="dv">5</span>       <span class="dv">5</span> before  <span class="fl">12.7</span></span>
-<span id="cb16-21"><a href="" aria-label="21"></a><span class="dv">6</span>       <span class="dv">6</span> before  <span class="fl">10.4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="" aria-label="1"></a><span class="do">## using a synthetic dataset</span></span>
+<span id="cb23-2"><a href="" aria-label="2"></a>before <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">12.2</span>, <span class="fl">14.6</span>, <span class="fl">13.4</span>, <span class="fl">11.2</span>, <span class="fl">12.7</span>, <span class="fl">10.4</span>, <span class="fl">15.8</span>, <span class="fl">13.9</span>, <span class="fl">9.5</span>, <span class="fl">14.2</span>)</span>
+<span id="cb23-3"><a href="" aria-label="3"></a>after <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">13.5</span>, <span class="fl">15.2</span>, <span class="fl">13.6</span>, <span class="fl">12.8</span>, <span class="fl">13.7</span>, <span class="fl">11.3</span>, <span class="fl">16.5</span>, <span class="fl">13.4</span>, <span class="fl">8.7</span>, <span class="fl">14.6</span>)</span>
+<span id="cb23-4"><a href="" aria-label="4"></a></span>
+<span id="cb23-5"><a href="" aria-label="5"></a>training_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb23-6"><a href="" aria-label="6"></a>  <span class="at">subject =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="dv">2</span>),</span>
+<span id="cb23-7"><a href="" aria-label="7"></a>  <span class="at">time =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"before"</span>, <span class="st">"after"</span>), <span class="at">each =</span> <span class="dv">10</span>),</span>
+<span id="cb23-8"><a href="" aria-label="8"></a>  <span class="at">score =</span> <span class="fu">c</span>(before, after)</span>
+<span id="cb23-9"><a href="" aria-label="9"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb23-10"><a href="" aria-label="10"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">as_factor</span>(time))</span>
+<span id="cb23-11"><a href="" aria-label="11"></a></span>
+<span id="cb23-12"><a href="" aria-label="12"></a><span class="fu">head</span>(training_data)</span>
+<span id="cb23-13"><a href="" aria-label="13"></a><span class="co"># A tibble: 6 × 3</span></span>
+<span id="cb23-14"><a href="" aria-label="14"></a>  subject time   score</span>
+<span id="cb23-15"><a href="" aria-label="15"></a>    <span class="sc">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>fct<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb23-16"><a href="" aria-label="16"></a><span class="dv">1</span>       <span class="dv">1</span> before  <span class="fl">12.2</span></span>
+<span id="cb23-17"><a href="" aria-label="17"></a><span class="dv">2</span>       <span class="dv">2</span> before  <span class="fl">14.6</span></span>
+<span id="cb23-18"><a href="" aria-label="18"></a><span class="dv">3</span>       <span class="dv">3</span> before  <span class="fl">13.4</span></span>
+<span id="cb23-19"><a href="" aria-label="19"></a><span class="dv">4</span>       <span class="dv">4</span> before  <span class="fl">11.2</span></span>
+<span id="cb23-20"><a href="" aria-label="20"></a><span class="dv">5</span>       <span class="dv">5</span> before  <span class="fl">12.7</span></span>
+<span id="cb23-21"><a href="" aria-label="21"></a><span class="dv">6</span>       <span class="dv">6</span> before  <span class="fl">10.4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p>Step 2: Test of normality</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="" aria-label="1"></a>training_data <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="" aria-label="2"></a>  <span class="fu">group_by</span>(time) <span class="sc">|&gt;</span></span>
-<span id="cb17-3"><a href="" aria-label="3"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb17-4"><a href="" aria-label="4"></a>    <span class="at">shapiro_test =</span> <span class="fu">shapiro.test</span>(score)<span class="sc">$</span>statistic,</span>
-<span id="cb17-5"><a href="" aria-label="5"></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(score)<span class="sc">$</span>p.value</span>
-<span id="cb17-6"><a href="" aria-label="6"></a>  )</span>
-<span id="cb17-7"><a href="" aria-label="7"></a><span class="co"># A tibble: 2 × 3</span></span>
-<span id="cb17-8"><a href="" aria-label="8"></a>  time   shapiro_test p_value</span>
-<span id="cb17-9"><a href="" aria-label="9"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>         <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb17-10"><a href="" aria-label="10"></a><span class="dv">1</span> before        <span class="fl">0.977</span>   <span class="fl">0.945</span></span>
-<span id="cb17-11"><a href="" aria-label="11"></a><span class="dv">2</span> after         <span class="fl">0.927</span>   <span class="fl">0.423</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="" aria-label="1"></a>training_data <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="" aria-label="2"></a>  <span class="fu">group_by</span>(time) <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a href="" aria-label="3"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb24-4"><a href="" aria-label="4"></a>    <span class="at">shapiro_test =</span> <span class="fu">shapiro.test</span>(score)<span class="sc">$</span>statistic,</span>
+<span id="cb24-5"><a href="" aria-label="5"></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(score)<span class="sc">$</span>p.value</span>
+<span id="cb24-6"><a href="" aria-label="6"></a>  )</span>
+<span id="cb24-7"><a href="" aria-label="7"></a><span class="co"># A tibble: 2 × 3</span></span>
+<span id="cb24-8"><a href="" aria-label="8"></a>  time   shapiro_test p_value</span>
+<span id="cb24-9"><a href="" aria-label="9"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>         <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb24-10"><a href="" aria-label="10"></a><span class="dv">1</span> before        <span class="fl">0.977</span>   <span class="fl">0.945</span></span>
+<span id="cb24-11"><a href="" aria-label="11"></a><span class="dv">2</span> after         <span class="fl">0.927</span>   <span class="fl">0.423</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="dependent-t-test-3" class="slide level2">
+<h2>Dependent t-test</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Step 3: Test of homogeneity of variance</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="" aria-label="1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(<span class="at">data =</span> training_data, score <span class="sc">~</span> time, <span class="at">center =</span> mean)</span>
+<span id="cb25-2"><a href="" aria-label="2"></a>Levene<span class="st">'s Test for Homogeneity of Variance (center = mean)</span></span>
+<span id="cb25-3"><a href="" aria-label="3"></a><span class="st">      Df F value Pr(&gt;F)</span></span>
+<span id="cb25-4"><a href="" aria-label="4"></a><span class="st">group  1  0.0679 0.7974</span></span>
+<span id="cb25-5"><a href="" aria-label="5"></a><span class="st">      18               </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Step 4: Perform dependent sample t-test</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="" aria-label="1"></a><span class="fu">t.test</span>(</span>
+<span id="cb26-2"><a href="" aria-label="2"></a>  training_data<span class="sc">$</span>score[training_data<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"before"</span>],</span>
+<span id="cb26-3"><a href="" aria-label="3"></a>  training_data<span class="sc">$</span>score[training_data<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"after"</span>],</span>
+<span id="cb26-4"><a href="" aria-label="4"></a>  <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb26-5"><a href="" aria-label="5"></a>  <span class="at">na.rm =</span> <span class="cn">TRUE</span></span>
+<span id="cb26-6"><a href="" aria-label="6"></a>)</span>
+<span id="cb26-7"><a href="" aria-label="7"></a></span>
+<span id="cb26-8"><a href="" aria-label="8"></a>    Paired t<span class="sc">-</span>test</span>
+<span id="cb26-9"><a href="" aria-label="9"></a></span>
+<span id="cb26-10"><a href="" aria-label="10"></a>data<span class="sc">:</span>  training_data<span class="sc">$</span>score[training_data<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"before"</span>] and training_data<span class="sc">$</span>score[training_data<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"after"</span>]</span>
+<span id="cb26-11"><a href="" aria-label="11"></a>t <span class="ot">=</span> <span class="sc">-</span><span class="fl">2.272</span>, df <span class="ot">=</span> <span class="dv">9</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.0492</span></span>
+<span id="cb26-12"><a href="" aria-label="12"></a>alternative hypothesis<span class="sc">:</span> true mean difference is not equal to <span class="dv">0</span></span>
+<span id="cb26-13"><a href="" aria-label="13"></a><span class="dv">95</span> percent confidence interval<span class="sc">:</span></span>
+<span id="cb26-14"><a href="" aria-label="14"></a> <span class="sc">-</span><span class="fl">1.077655745</span> <span class="sc">-</span><span class="fl">0.002344255</span></span>
+<span id="cb26-15"><a href="" aria-label="15"></a>sample estimates<span class="sc">:</span></span>
+<span id="cb26-16"><a href="" aria-label="16"></a>mean difference </span>
+<span id="cb26-17"><a href="" aria-label="17"></a>          <span class="sc">-</span><span class="fl">0.54</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
 <section id="dependent-t-test-4" class="slide level2">
 <h2>Dependent t-test</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p>Step 3: Test of homogeneity of variance</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="" aria-label="1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(<span class="at">data =</span> training_data, score <span class="sc">~</span> time, <span class="at">center =</span> mean)</span>
-<span id="cb18-2"><a href="" aria-label="2"></a>Levene<span class="st">'s Test for Homogeneity of Variance (center = mean)</span></span>
-<span id="cb18-3"><a href="" aria-label="3"></a><span class="st">      Df F value Pr(&gt;F)</span></span>
-<span id="cb18-4"><a href="" aria-label="4"></a><span class="st">group  1  0.0679 0.7974</span></span>
-<span id="cb18-5"><a href="" aria-label="5"></a><span class="st">      18               </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div><div class="column" style="width:50%;">
-<p>Step 4: Perform dependent sample t-test</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="" aria-label="1"></a><span class="fu">t.test</span>(</span>
-<span id="cb19-2"><a href="" aria-label="2"></a>  training_data<span class="sc">$</span>score[training_data<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"before"</span>],</span>
-<span id="cb19-3"><a href="" aria-label="3"></a>  training_data<span class="sc">$</span>score[training_data<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"after"</span>],</span>
-<span id="cb19-4"><a href="" aria-label="4"></a>  <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb19-5"><a href="" aria-label="5"></a>  <span class="at">na.rm =</span> <span class="cn">TRUE</span></span>
-<span id="cb19-6"><a href="" aria-label="6"></a>)</span>
-<span id="cb19-7"><a href="" aria-label="7"></a></span>
-<span id="cb19-8"><a href="" aria-label="8"></a>    Paired t<span class="sc">-</span>test</span>
-<span id="cb19-9"><a href="" aria-label="9"></a></span>
-<span id="cb19-10"><a href="" aria-label="10"></a>data<span class="sc">:</span>  training_data<span class="sc">$</span>score[training_data<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"before"</span>] and training_data<span class="sc">$</span>score[training_data<span class="sc">$</span>time <span class="sc">==</span> <span class="st">"after"</span>]</span>
-<span id="cb19-11"><a href="" aria-label="11"></a>t <span class="ot">=</span> <span class="sc">-</span><span class="fl">2.272</span>, df <span class="ot">=</span> <span class="dv">9</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.0492</span></span>
-<span id="cb19-12"><a href="" aria-label="12"></a>alternative hypothesis<span class="sc">:</span> true mean difference is not equal to <span class="dv">0</span></span>
-<span id="cb19-13"><a href="" aria-label="13"></a><span class="dv">95</span> percent confidence interval<span class="sc">:</span></span>
-<span id="cb19-14"><a href="" aria-label="14"></a> <span class="sc">-</span><span class="fl">1.077655745</span> <span class="sc">-</span><span class="fl">0.002344255</span></span>
-<span id="cb19-15"><a href="" aria-label="15"></a>sample estimates<span class="sc">:</span></span>
-<span id="cb19-16"><a href="" aria-label="16"></a>mean difference </span>
-<span id="cb19-17"><a href="" aria-label="17"></a>          <span class="sc">-</span><span class="fl">0.54</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div></div>
-</section>
-<section id="dependent-t-test-5" class="slide level2">
-<h2>Dependent t-test</h2>
-<div class="columns">
 <div class="column" style="width:30%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="" aria-label="1"></a><span class="do">## plot paired sample t test using ggbetweenstats</span></span>
-<span id="cb20-2"><a href="" aria-label="2"></a><span class="fu">ggwithinstats</span>(</span>
-<span id="cb20-3"><a href="" aria-label="3"></a>  <span class="at">data =</span> training_data,</span>
-<span id="cb20-4"><a href="" aria-label="4"></a>  <span class="at">x =</span> time,</span>
-<span id="cb20-5"><a href="" aria-label="5"></a>  <span class="at">y =</span> score,</span>
-<span id="cb20-6"><a href="" aria-label="6"></a>  <span class="at">title =</span> <span class="st">"Paired Samples T-Test"</span>,</span>
-<span id="cb20-7"><a href="" aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="" aria-label="1"></a><span class="do">## plot paired sample t test using ggbetweenstats</span></span>
+<span id="cb27-2"><a href="" aria-label="2"></a><span class="fu">ggwithinstats</span>(</span>
+<span id="cb27-3"><a href="" aria-label="3"></a>  <span class="at">data =</span> training_data,</span>
+<span id="cb27-4"><a href="" aria-label="4"></a>  <span class="at">x =</span> time,</span>
+<span id="cb27-5"><a href="" aria-label="5"></a>  <span class="at">y =</span> score,</span>
+<span id="cb27-6"><a href="" aria-label="6"></a>  <span class="at">title =</span> <span class="st">"Paired Samples T-Test"</span>,</span>
+<span id="cb27-7"><a href="" aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:70%;">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-32-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-41-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1443,73 +1830,73 @@ statistical significance.</p></li>
 <div class="column" style="width:50%;">
 <p>Step 1: Import data and data management</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="" aria-label="1"></a><span class="co"># Create the dataframe</span></span>
-<span id="cb21-2"><a href="" aria-label="2"></a>exam_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb21-3"><a href="" aria-label="3"></a>  <span class="at">group =</span> <span class="fu">c</span>(</span>
-<span id="cb21-4"><a href="" aria-label="4"></a>    <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>),</span>
-<span id="cb21-5"><a href="" aria-label="5"></a>    <span class="fu">rep</span>(<span class="dv">2</span>, <span class="dv">10</span>),</span>
-<span id="cb21-6"><a href="" aria-label="6"></a>    <span class="fu">rep</span>(<span class="dv">3</span>, <span class="dv">10</span>)</span>
-<span id="cb21-7"><a href="" aria-label="7"></a>  ),</span>
-<span id="cb21-8"><a href="" aria-label="8"></a>  <span class="at">exam =</span> <span class="fu">c</span>(</span>
-<span id="cb21-9"><a href="" aria-label="9"></a>    <span class="dv">50</span>,</span>
-<span id="cb21-10"><a href="" aria-label="10"></a>    <span class="dv">45</span>,</span>
-<span id="cb21-11"><a href="" aria-label="11"></a>    <span class="dv">48</span>,</span>
-<span id="cb21-12"><a href="" aria-label="12"></a>    <span class="dv">47</span>,</span>
-<span id="cb21-13"><a href="" aria-label="13"></a>    <span class="dv">45</span>,</span>
-<span id="cb21-14"><a href="" aria-label="14"></a>    <span class="dv">49</span>,</span>
-<span id="cb21-15"><a href="" aria-label="15"></a>    <span class="dv">50</span>,</span>
-<span id="cb21-16"><a href="" aria-label="16"></a>    <span class="dv">54</span>,</span>
-<span id="cb21-17"><a href="" aria-label="17"></a>    <span class="dv">57</span>,</span>
-<span id="cb21-18"><a href="" aria-label="18"></a>    <span class="dv">55</span>, <span class="co"># Group 1</span></span>
-<span id="cb21-19"><a href="" aria-label="19"></a>    <span class="dv">63</span>,</span>
-<span id="cb21-20"><a href="" aria-label="20"></a>    <span class="dv">55</span>,</span>
-<span id="cb21-21"><a href="" aria-label="21"></a>    <span class="dv">54</span>,</span>
-<span id="cb21-22"><a href="" aria-label="22"></a>    <span class="dv">49</span>,</span>
-<span id="cb21-23"><a href="" aria-label="23"></a>    <span class="dv">65</span>,</span>
-<span id="cb21-24"><a href="" aria-label="24"></a>    <span class="dv">46</span>,</span>
-<span id="cb21-25"><a href="" aria-label="25"></a>    <span class="dv">53</span>,</span>
-<span id="cb21-26"><a href="" aria-label="26"></a>    <span class="dv">67</span>,</span>
-<span id="cb21-27"><a href="" aria-label="27"></a>    <span class="dv">58</span>,</span>
-<span id="cb21-28"><a href="" aria-label="28"></a>    <span class="dv">50</span>, <span class="co"># Group 2</span></span>
-<span id="cb21-29"><a href="" aria-label="29"></a>    <span class="dv">71</span>,</span>
-<span id="cb21-30"><a href="" aria-label="30"></a>    <span class="dv">67</span>,</span>
-<span id="cb21-31"><a href="" aria-label="31"></a>    <span class="dv">68</span>,</span>
-<span id="cb21-32"><a href="" aria-label="32"></a>    <span class="dv">62</span>,</span>
-<span id="cb21-33"><a href="" aria-label="33"></a>    <span class="dv">65</span>,</span>
-<span id="cb21-34"><a href="" aria-label="34"></a>    <span class="dv">58</span>,</span>
-<span id="cb21-35"><a href="" aria-label="35"></a>    <span class="dv">63</span>,</span>
-<span id="cb21-36"><a href="" aria-label="36"></a>    <span class="dv">69</span>,</span>
-<span id="cb21-37"><a href="" aria-label="37"></a>    <span class="dv">70</span>,</span>
-<span id="cb21-38"><a href="" aria-label="38"></a>    <span class="dv">61</span> <span class="co"># Group 3</span></span>
-<span id="cb21-39"><a href="" aria-label="39"></a>  )</span>
-<span id="cb21-40"><a href="" aria-label="40"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb21-41"><a href="" aria-label="41"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">as_factor</span>(group))</span>
-<span id="cb21-42"><a href="" aria-label="42"></a></span>
-<span id="cb21-43"><a href="" aria-label="43"></a><span class="co"># View the dataframe</span></span>
-<span id="cb21-44"><a href="" aria-label="44"></a><span class="fu">head</span>(exam_data)</span>
-<span id="cb21-45"><a href="" aria-label="45"></a>  group exam</span>
-<span id="cb21-46"><a href="" aria-label="46"></a><span class="dv">1</span>     <span class="dv">1</span>   <span class="dv">50</span></span>
-<span id="cb21-47"><a href="" aria-label="47"></a><span class="dv">2</span>     <span class="dv">1</span>   <span class="dv">45</span></span>
-<span id="cb21-48"><a href="" aria-label="48"></a><span class="dv">3</span>     <span class="dv">1</span>   <span class="dv">48</span></span>
-<span id="cb21-49"><a href="" aria-label="49"></a><span class="dv">4</span>     <span class="dv">1</span>   <span class="dv">47</span></span>
-<span id="cb21-50"><a href="" aria-label="50"></a><span class="dv">5</span>     <span class="dv">1</span>   <span class="dv">45</span></span>
-<span id="cb21-51"><a href="" aria-label="51"></a><span class="dv">6</span>     <span class="dv">1</span>   <span class="dv">49</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="" aria-label="1"></a><span class="co"># Create the dataframe</span></span>
+<span id="cb28-2"><a href="" aria-label="2"></a>exam_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb28-3"><a href="" aria-label="3"></a>  <span class="at">group =</span> <span class="fu">c</span>(</span>
+<span id="cb28-4"><a href="" aria-label="4"></a>    <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>),</span>
+<span id="cb28-5"><a href="" aria-label="5"></a>    <span class="fu">rep</span>(<span class="dv">2</span>, <span class="dv">10</span>),</span>
+<span id="cb28-6"><a href="" aria-label="6"></a>    <span class="fu">rep</span>(<span class="dv">3</span>, <span class="dv">10</span>)</span>
+<span id="cb28-7"><a href="" aria-label="7"></a>  ),</span>
+<span id="cb28-8"><a href="" aria-label="8"></a>  <span class="at">exam =</span> <span class="fu">c</span>(</span>
+<span id="cb28-9"><a href="" aria-label="9"></a>    <span class="dv">50</span>,</span>
+<span id="cb28-10"><a href="" aria-label="10"></a>    <span class="dv">45</span>,</span>
+<span id="cb28-11"><a href="" aria-label="11"></a>    <span class="dv">48</span>,</span>
+<span id="cb28-12"><a href="" aria-label="12"></a>    <span class="dv">47</span>,</span>
+<span id="cb28-13"><a href="" aria-label="13"></a>    <span class="dv">45</span>,</span>
+<span id="cb28-14"><a href="" aria-label="14"></a>    <span class="dv">49</span>,</span>
+<span id="cb28-15"><a href="" aria-label="15"></a>    <span class="dv">50</span>,</span>
+<span id="cb28-16"><a href="" aria-label="16"></a>    <span class="dv">54</span>,</span>
+<span id="cb28-17"><a href="" aria-label="17"></a>    <span class="dv">57</span>,</span>
+<span id="cb28-18"><a href="" aria-label="18"></a>    <span class="dv">55</span>, <span class="co"># Group 1</span></span>
+<span id="cb28-19"><a href="" aria-label="19"></a>    <span class="dv">63</span>,</span>
+<span id="cb28-20"><a href="" aria-label="20"></a>    <span class="dv">55</span>,</span>
+<span id="cb28-21"><a href="" aria-label="21"></a>    <span class="dv">54</span>,</span>
+<span id="cb28-22"><a href="" aria-label="22"></a>    <span class="dv">49</span>,</span>
+<span id="cb28-23"><a href="" aria-label="23"></a>    <span class="dv">65</span>,</span>
+<span id="cb28-24"><a href="" aria-label="24"></a>    <span class="dv">46</span>,</span>
+<span id="cb28-25"><a href="" aria-label="25"></a>    <span class="dv">53</span>,</span>
+<span id="cb28-26"><a href="" aria-label="26"></a>    <span class="dv">67</span>,</span>
+<span id="cb28-27"><a href="" aria-label="27"></a>    <span class="dv">58</span>,</span>
+<span id="cb28-28"><a href="" aria-label="28"></a>    <span class="dv">50</span>, <span class="co"># Group 2</span></span>
+<span id="cb28-29"><a href="" aria-label="29"></a>    <span class="dv">71</span>,</span>
+<span id="cb28-30"><a href="" aria-label="30"></a>    <span class="dv">67</span>,</span>
+<span id="cb28-31"><a href="" aria-label="31"></a>    <span class="dv">68</span>,</span>
+<span id="cb28-32"><a href="" aria-label="32"></a>    <span class="dv">62</span>,</span>
+<span id="cb28-33"><a href="" aria-label="33"></a>    <span class="dv">65</span>,</span>
+<span id="cb28-34"><a href="" aria-label="34"></a>    <span class="dv">58</span>,</span>
+<span id="cb28-35"><a href="" aria-label="35"></a>    <span class="dv">63</span>,</span>
+<span id="cb28-36"><a href="" aria-label="36"></a>    <span class="dv">69</span>,</span>
+<span id="cb28-37"><a href="" aria-label="37"></a>    <span class="dv">70</span>,</span>
+<span id="cb28-38"><a href="" aria-label="38"></a>    <span class="dv">61</span> <span class="co"># Group 3</span></span>
+<span id="cb28-39"><a href="" aria-label="39"></a>  )</span>
+<span id="cb28-40"><a href="" aria-label="40"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb28-41"><a href="" aria-label="41"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">as_factor</span>(group))</span>
+<span id="cb28-42"><a href="" aria-label="42"></a></span>
+<span id="cb28-43"><a href="" aria-label="43"></a><span class="co"># View the dataframe</span></span>
+<span id="cb28-44"><a href="" aria-label="44"></a><span class="fu">head</span>(exam_data)</span>
+<span id="cb28-45"><a href="" aria-label="45"></a>  group exam</span>
+<span id="cb28-46"><a href="" aria-label="46"></a><span class="dv">1</span>     <span class="dv">1</span>   <span class="dv">50</span></span>
+<span id="cb28-47"><a href="" aria-label="47"></a><span class="dv">2</span>     <span class="dv">1</span>   <span class="dv">45</span></span>
+<span id="cb28-48"><a href="" aria-label="48"></a><span class="dv">3</span>     <span class="dv">1</span>   <span class="dv">48</span></span>
+<span id="cb28-49"><a href="" aria-label="49"></a><span class="dv">4</span>     <span class="dv">1</span>   <span class="dv">47</span></span>
+<span id="cb28-50"><a href="" aria-label="50"></a><span class="dv">5</span>     <span class="dv">1</span>   <span class="dv">45</span></span>
+<span id="cb28-51"><a href="" aria-label="51"></a><span class="dv">6</span>     <span class="dv">1</span>   <span class="dv">49</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p>Step 2: Test of normality</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="" aria-label="1"></a>exam_data <span class="sc">|&gt;</span></span>
-<span id="cb22-2"><a href="" aria-label="2"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
-<span id="cb22-3"><a href="" aria-label="3"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb22-4"><a href="" aria-label="4"></a>    <span class="at">shapiro_test =</span> <span class="fu">shapiro.test</span>(exam)<span class="sc">$</span>statistic,</span>
-<span id="cb22-5"><a href="" aria-label="5"></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(exam)<span class="sc">$</span>p.value</span>
-<span id="cb22-6"><a href="" aria-label="6"></a>  )</span>
-<span id="cb22-7"><a href="" aria-label="7"></a><span class="co"># A tibble: 3 × 3</span></span>
-<span id="cb22-8"><a href="" aria-label="8"></a>  group shapiro_test p_value</span>
-<span id="cb22-9"><a href="" aria-label="9"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>        <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb22-10"><a href="" aria-label="10"></a><span class="dv">1</span> <span class="dv">1</span>            <span class="fl">0.929</span>   <span class="fl">0.437</span></span>
-<span id="cb22-11"><a href="" aria-label="11"></a><span class="dv">2</span> <span class="dv">2</span>            <span class="fl">0.949</span>   <span class="fl">0.652</span></span>
-<span id="cb22-12"><a href="" aria-label="12"></a><span class="dv">3</span> <span class="dv">3</span>            <span class="fl">0.956</span>   <span class="fl">0.741</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="" aria-label="1"></a>exam_data <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href="" aria-label="2"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
+<span id="cb29-3"><a href="" aria-label="3"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb29-4"><a href="" aria-label="4"></a>    <span class="at">shapiro_test =</span> <span class="fu">shapiro.test</span>(exam)<span class="sc">$</span>statistic,</span>
+<span id="cb29-5"><a href="" aria-label="5"></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(exam)<span class="sc">$</span>p.value</span>
+<span id="cb29-6"><a href="" aria-label="6"></a>  )</span>
+<span id="cb29-7"><a href="" aria-label="7"></a><span class="co"># A tibble: 3 × 3</span></span>
+<span id="cb29-8"><a href="" aria-label="8"></a>  group shapiro_test p_value</span>
+<span id="cb29-9"><a href="" aria-label="9"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>        <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb29-10"><a href="" aria-label="10"></a><span class="dv">1</span> <span class="dv">1</span>            <span class="fl">0.929</span>   <span class="fl">0.437</span></span>
+<span id="cb29-11"><a href="" aria-label="11"></a><span class="dv">2</span> <span class="dv">2</span>            <span class="fl">0.949</span>   <span class="fl">0.652</span></span>
+<span id="cb29-12"><a href="" aria-label="12"></a><span class="dv">3</span> <span class="dv">3</span>            <span class="fl">0.956</span>   <span class="fl">0.741</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -1519,24 +1906,24 @@ statistical significance.</p></li>
 <div class="column" style="width:50%;">
 <p>Step 3: Test of homogeneity of variance</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="" aria-label="1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(<span class="at">data =</span> exam_data, exam <span class="sc">~</span> group, <span class="at">center =</span> mean)</span>
-<span id="cb23-2"><a href="" aria-label="2"></a>Levene<span class="st">'s Test for Homogeneity of Variance (center = mean)</span></span>
-<span id="cb23-3"><a href="" aria-label="3"></a><span class="st">      Df F value  Pr(&gt;F)  </span></span>
-<span id="cb23-4"><a href="" aria-label="4"></a><span class="st">group  2  2.5689 0.09521 .</span></span>
-<span id="cb23-5"><a href="" aria-label="5"></a><span class="st">      27                  </span></span>
-<span id="cb23-6"><a href="" aria-label="6"></a><span class="st">---</span></span>
-<span id="cb23-7"><a href="" aria-label="7"></a><span class="st">Signif. codes:  0 '</span><span class="sc">**</span><span class="er">*</span><span class="st">' 0.001 '</span><span class="sc">**</span><span class="st">' 0.01 '</span><span class="sc">*</span><span class="st">' 0.05 '</span>.<span class="st">' 0.1 '</span> <span class="st">' 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="" aria-label="1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(<span class="at">data =</span> exam_data, exam <span class="sc">~</span> group, <span class="at">center =</span> mean)</span>
+<span id="cb30-2"><a href="" aria-label="2"></a>Levene<span class="st">'s Test for Homogeneity of Variance (center = mean)</span></span>
+<span id="cb30-3"><a href="" aria-label="3"></a><span class="st">      Df F value  Pr(&gt;F)  </span></span>
+<span id="cb30-4"><a href="" aria-label="4"></a><span class="st">group  2  2.5689 0.09521 .</span></span>
+<span id="cb30-5"><a href="" aria-label="5"></a><span class="st">      27                  </span></span>
+<span id="cb30-6"><a href="" aria-label="6"></a><span class="st">---</span></span>
+<span id="cb30-7"><a href="" aria-label="7"></a><span class="st">Signif. codes:  0 '</span><span class="sc">**</span><span class="er">*</span><span class="st">' 0.001 '</span><span class="sc">**</span><span class="st">' 0.01 '</span><span class="sc">*</span><span class="st">' 0.05 '</span>.<span class="st">' 0.1 '</span> <span class="st">' 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p>Step 4: Perform one-way Anova</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="" aria-label="1"></a>aov_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(exam <span class="sc">~</span> group, <span class="at">data =</span> exam_data)</span>
-<span id="cb24-2"><a href="" aria-label="2"></a><span class="fu">summary</span>(aov_result)</span>
-<span id="cb24-3"><a href="" aria-label="3"></a>            Df Sum Sq Mean Sq F value   <span class="fu">Pr</span>(<span class="sc">&gt;</span>F)    </span>
-<span id="cb24-4"><a href="" aria-label="4"></a>group        <span class="dv">2</span> <span class="fl">1205.1</span>   <span class="fl">602.5</span>   <span class="fl">21.01</span> <span class="fl">3.15e-06</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb24-5"><a href="" aria-label="5"></a>Residuals   <span class="dv">27</span>  <span class="fl">774.4</span>    <span class="fl">28.7</span>                     </span>
-<span id="cb24-6"><a href="" aria-label="6"></a><span class="sc">---</span></span>
-<span id="cb24-7"><a href="" aria-label="7"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="" aria-label="1"></a>aov_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(exam <span class="sc">~</span> group, <span class="at">data =</span> exam_data)</span>
+<span id="cb31-2"><a href="" aria-label="2"></a><span class="fu">summary</span>(aov_result)</span>
+<span id="cb31-3"><a href="" aria-label="3"></a>            Df Sum Sq Mean Sq F value   <span class="fu">Pr</span>(<span class="sc">&gt;</span>F)    </span>
+<span id="cb31-4"><a href="" aria-label="4"></a>group        <span class="dv">2</span> <span class="fl">1205.1</span>   <span class="fl">602.5</span>   <span class="fl">21.01</span> <span class="fl">3.15e-06</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb31-5"><a href="" aria-label="5"></a>Residuals   <span class="dv">27</span>  <span class="fl">774.4</span>    <span class="fl">28.7</span>                     </span>
+<span id="cb31-6"><a href="" aria-label="6"></a><span class="sc">---</span></span>
+<span id="cb31-7"><a href="" aria-label="7"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -1546,28 +1933,28 @@ statistical significance.</p></li>
 <div class="column" style="width:50%;">
 <p>Step 5: Post-hoc test</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="" aria-label="1"></a><span class="fu">TukeyHSD</span>(aov_result)</span>
-<span id="cb25-2"><a href="" aria-label="2"></a>  Tukey multiple comparisons of means</span>
-<span id="cb25-3"><a href="" aria-label="3"></a>    <span class="dv">95</span>% family<span class="sc">-</span>wise confidence level</span>
-<span id="cb25-4"><a href="" aria-label="4"></a></span>
-<span id="cb25-5"><a href="" aria-label="5"></a>Fit<span class="sc">:</span> <span class="fu">aov</span>(<span class="at">formula =</span> exam <span class="sc">~</span> group, <span class="at">data =</span> exam_data)</span>
-<span id="cb25-6"><a href="" aria-label="6"></a></span>
-<span id="cb25-7"><a href="" aria-label="7"></a><span class="sc">$</span>group</span>
-<span id="cb25-8"><a href="" aria-label="8"></a>    diff        lwr      upr     p adj</span>
-<span id="cb25-9"><a href="" aria-label="9"></a><span class="dv">2-1</span>  <span class="fl">6.0</span> <span class="fl">0.06165421</span> <span class="fl">11.93835</span> <span class="fl">0.0472996</span></span>
-<span id="cb25-10"><a href="" aria-label="10"></a><span class="dv">3-1</span> <span class="fl">15.4</span> <span class="fl">9.46165421</span> <span class="fl">21.33835</span> <span class="fl">0.0000020</span></span>
-<span id="cb25-11"><a href="" aria-label="11"></a><span class="dv">3-2</span>  <span class="fl">9.4</span> <span class="fl">3.46165421</span> <span class="fl">15.33835</span> <span class="fl">0.0015175</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="" aria-label="1"></a><span class="fu">TukeyHSD</span>(aov_result)</span>
+<span id="cb32-2"><a href="" aria-label="2"></a>  Tukey multiple comparisons of means</span>
+<span id="cb32-3"><a href="" aria-label="3"></a>    <span class="dv">95</span>% family<span class="sc">-</span>wise confidence level</span>
+<span id="cb32-4"><a href="" aria-label="4"></a></span>
+<span id="cb32-5"><a href="" aria-label="5"></a>Fit<span class="sc">:</span> <span class="fu">aov</span>(<span class="at">formula =</span> exam <span class="sc">~</span> group, <span class="at">data =</span> exam_data)</span>
+<span id="cb32-6"><a href="" aria-label="6"></a></span>
+<span id="cb32-7"><a href="" aria-label="7"></a><span class="sc">$</span>group</span>
+<span id="cb32-8"><a href="" aria-label="8"></a>    diff        lwr      upr     p adj</span>
+<span id="cb32-9"><a href="" aria-label="9"></a><span class="dv">2-1</span>  <span class="fl">6.0</span> <span class="fl">0.06165421</span> <span class="fl">11.93835</span> <span class="fl">0.0472996</span></span>
+<span id="cb32-10"><a href="" aria-label="10"></a><span class="dv">3-1</span> <span class="fl">15.4</span> <span class="fl">9.46165421</span> <span class="fl">21.33835</span> <span class="fl">0.0000020</span></span>
+<span id="cb32-11"><a href="" aria-label="11"></a><span class="dv">3-2</span>  <span class="fl">9.4</span> <span class="fl">3.46165421</span> <span class="fl">15.33835</span> <span class="fl">0.0015175</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:50%;">
 <p>Step 6: Interpretation</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="" aria-label="1"></a>report<span class="sc">::</span><span class="fu">report</span>(aov_result)</span>
-<span id="cb26-2"><a href="" aria-label="2"></a>The <span class="fu">ANOVA</span> (formula<span class="sc">:</span> exam <span class="sc">~</span> group) suggests that<span class="sc">:</span></span>
-<span id="cb26-3"><a href="" aria-label="3"></a></span>
-<span id="cb26-4"><a href="" aria-label="4"></a>  <span class="sc">-</span> The main effect of group is statistically significant and <span class="fu">large</span> (<span class="fu">F</span>(<span class="dv">2</span>, <span class="dv">27</span>) <span class="ot">=</span></span>
-<span id="cb26-5"><a href="" aria-label="5"></a><span class="fl">21.01</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>; <span class="at">Eta2 =</span> <span class="fl">0.61</span>, <span class="dv">95</span>% CI [<span class="fl">0.39</span>, <span class="fl">1.00</span>])</span>
-<span id="cb26-6"><a href="" aria-label="6"></a></span>
-<span id="cb26-7"><a href="" aria-label="7"></a>Effect sizes were labelled following Field<span class="st">'s (2013) recommendations.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="" aria-label="1"></a>report<span class="sc">::</span><span class="fu">report</span>(aov_result)</span>
+<span id="cb33-2"><a href="" aria-label="2"></a>The <span class="fu">ANOVA</span> (formula<span class="sc">:</span> exam <span class="sc">~</span> group) suggests that<span class="sc">:</span></span>
+<span id="cb33-3"><a href="" aria-label="3"></a></span>
+<span id="cb33-4"><a href="" aria-label="4"></a>  <span class="sc">-</span> The main effect of group is statistically significant and <span class="fu">large</span> (<span class="fu">F</span>(<span class="dv">2</span>, <span class="dv">27</span>) <span class="ot">=</span></span>
+<span id="cb33-5"><a href="" aria-label="5"></a><span class="fl">21.01</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>; <span class="at">Eta2 =</span> <span class="fl">0.61</span>, <span class="dv">95</span>% CI [<span class="fl">0.39</span>, <span class="fl">1.00</span>])</span>
+<span id="cb33-6"><a href="" aria-label="6"></a></span>
+<span id="cb33-7"><a href="" aria-label="7"></a>Effect sizes were labelled following Field<span class="st">'s (2013) recommendations.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 

@@ -701,7 +701,6 @@ knitr::include_graphics("plot/idependent-t-tst.png")
 - Underlying of the dependent variable is continuous in nature
 :::
 
-- is a non-parametric test used to compare the medians of two independent groups when the assumptions of the independent samples t-test are not met (e.g., non-normal distribution).
 
 
 ## Mann Whitney U-test
@@ -725,65 +724,177 @@ head(sample_data2, 5)
 
 ## Mann Whitney U-test
 
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Step 1: State the hypotheses
+:::
+- 
+  - $H_o$: Monthly incomes for teachers at School A and B are the same
+  - $H_o$: $\mu_{School A} = \mu_{School B}$
 
+<br>
 
+- 
+  - $H_a$: Monthly incomes for teachers at School A and B are different
+  - $H_a$: $\mu_{School A} \neq \mu_{School B}$
 
+## Mann Whitney U-test
 
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 2: Specify the decision rule and the level of statistical significance
 
+- Significance level: $\alpha = 0.05$ (two-sided)
+- Reject $H_o$ if p-value $< 0.05$
+:::
 
+## Mann Whitney U-test
 
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 3: Test the assumptions and identify the appropriate test
+:::
 
-
-## Mann-Whitney U test
+1. Normality test using the Shapiro-Wilk test:
 
 ```{r}
 #| echo: true
-#| eval: false
-wilcox.test(hwy ~ cyl, data = mpg_dta, exact = FALSE)
+
+sample_data2 |>
+  group_by(school) |>
+  summarise(
+    shapiro_test = shapiro.test(income)$statistic,
+    p_value = shapiro.test(income)$p.value
+  )
 ```
 
-## R Activity: Mann-Whitney U test
+::: {.callout-note appearance="simple" icon="false" style="font-size: 2.0em;"}
+School A's Shapiro-Wilk result is $p = 0.856$, while School B's is $p = 0.042$. At $\alpha = 0.05$, normality is not rejected for School A but is rejected for School B. This supports using the Mann-Whitney U test as a nonparametric comparison.
+:::
 
-::: {.callout-tip style="font-size: 2.0em;"}
-## Instructions
 
-1.  Load the diamonds dataset from the `ggplot2` package. Filter the data to include only "Very Good" and "Premium" cut diamonds. Sample 1000 observations from each group to ensure the Shapiro-Wilk test can be applied.
+## Mann Whitney U-test
 
-2.  Checking Assumptions: Normality and Homogeneity of Variance
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 3: Test the assumptions and identify the appropriate test
+:::
 
-3.  Conduct the Mann-Whitney U test to compare the median prices of the two groups.
+Visual inspection of income distributions by school:
 
-4.  Interpret the result
+::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: false
+
+sample_data2 |>
+  tidyplot(x = income, color = school) |>
+  add_histogram(
+    mapping = aes(y = after_stat(density)),
+    alpha = 0.5,
+    bins = 6
+  ) |>
+  add(geom_density(alpha = 0.7)) |>
+  split_plot(by = school)
+```
+
+
+:::
+
+::: {.column width="60%"}
+```{r}
+#| eval: false
+
+sample_data2 |>
+  tidyplot(x = income, color = school) |>
+  add_histogram(
+    mapping = aes(y = after_stat(density)),
+    alpha = 0.5,
+    bins = 6
+  ) |>
+  add(geom_density(alpha = 0.7)) |>
+  split_plot(by = school) |>
+  save_plot(
+    filename = "plot/normality_test_mann-whitney-u-test.png"
+  )
+```
+
+```{r}
+#| fig-align: right
+#| out-width: 100%
+
+## display plot
+knitr::include_graphics("plot/normality_test_mann-whitney-u-test.png")
+```
+:::
+:::
+
+## Mann Whitney U-test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 3: Test the assumptions and identify the appropriate test
+:::
+
+Q-Q plots by school:
+
+::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: false
+
+sample_data2 |>
+  tidyplot(sample = income, color = school) |>
+  add(stat_qq()) |>
+  add(stat_qq_line()) |>
+  split_plot(by = school) |>
+  save_plot(
+    filename = "plot/qq_normality_test_mann-whitney-u-test.png"
+  )
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| fig-align: right
+#| out-width: 100%
+
+## display plot
+knitr::include_graphics("plot/qq_normality_test_mann-whitney-u-test.png")
+```
+:::
+
+:::
+
+## Mann Whitney U-test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 4: Compute the statistic and p-value
 :::
 
 ```{r}
-#| echo: false
-#| eval: false
-
-## answer key to the exercises
-diamond_dataset <-
-  ggplot2::diamonds |>
-  filter(cut %in% c("Very Good", "Premium")) |>
-  mutate(cut = as_factor(cut)) |>
-  mutate(price = as.numeric(price)) |>
-  group_by(cut) |>
-  sample_n(1000) |>
-  ungroup()
-
-## normality test
-diamond_dataset |>
-  group_by(cut) |>
-  summarise(
-    shapiro_test = shapiro.test(price)$statistic,
-    p_value = shapiro.test(price)$p.value
+#| echo: true
+mann_whitney_u_test <-
+  wilcox.test(
+    sample_data2$income ~ sample_data2$school,
+    exact = FALSE
   )
 
-## homogeneity of variance
-car::leveneTest(data = diamond_dataset, price ~ cut, center = mean)
-
-## mann-whitney u test
-wilcox.test(price ~ cut, data = diamond_dataset, exact = FALSE)
+mann_whitney_u_test
 ```
+
+
+## Mann Whitney U-test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 5: Conclusion and interpretation
+:::
+
+```{r}
+#| echo: true
+library(report)
+report(mann_whitney_u_test)
+```
+
 
 # Check up quiz
 
@@ -853,7 +964,115 @@ wilcox.test(price ~ cut, data = diamond_dataset, exact = FALSE)
   6.  Conclusion.
 :::
 
-## Dependent t-test
+
+
+
+## Paired-samples t-test
+- 
+  - also known as the dependent t-test
+  - is used to compare the means of two related groups. - commonly used in situations where the same subjects are measured before and after an intervention or treatment.
+
+## Paired-samples t-test
+
+::: {.callout-tip icon="false" style="font-size: 2.0em;"}
+## Assumptions
+- two sets of data must be obtained from (1) the same subjects or (2) matched subjects
+- Sampling distribution should be normal
+:::
+
+
+## Paired-samples t-test
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Example
+A researcher designed an experiment to test the effect of drug X on eating behavior. The amount of food eaten by a group of rats in a one-week period, prior to ingesting drug X, was recorded. The rats were then given drug X, and the amount of food eaten in a one-week period was again recorded. The following amounts of food in grams were eaten during the “before” and “after” conditions.
+:::
+
+```{r}
+#| echo: true
+sample_data3 <-
+  read_sav("data-sets/EX5.sav")
+
+head(sample_data3, 5)
+```
+
+
+## Paired-samples t-test
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Step 1: State the hypotheses
+:::
+
+- $H_o$: Drug X does not change the mean amount of food eaten by the rats
+- $H_a$: Drug X changes the mean amount of food eaten by the rats
+- In symbols: $H_o: \mu_{before-after} = 0$; $H_a: \mu_{before-after} \neq 0$
+
+## Paired-samples t-test
+
+::: {.callout-tip style="font-size: 2.0em;"}
+## Step 2: Specify the decision rule and significance level
+
+- Significance level: $\alpha = 0.05$ (two-sided)
+- Reject $H_o$ if the p-value is less than 0.05
+:::
+
+
+## Paired-samples t-test
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Step 3: Check assumptions and select the test
+:::
+
+- 1. The paired t-test assumes the within-rat differences are approximately normally distributed. Check those differences with Shapiro-Wilk:
+
+```{r}
+#| echo: true
+
+sample_data3 |>
+  summarise(
+    shapiro_test = shapiro.test(after - before)$statistic,
+    p_value = shapiro.test(after - before)$p.value
+  )
+```
+
+::: {.callout-note appearance="simple" icon="false" style="font-size: 2.0em;"}
+The test of normality is applied to the paired differences, not separately to before and after scores. A non-significant Shapiro-Wilk result does not provide evidence against normality.
+:::
+
+
+## Paired-samples t-test
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Step 4: Compute the statistic and p-value
+:::
+```{r}
+#| echo: true
+
+t.test(
+  sample_data3$before,
+  sample_data3$after,
+  paired = TRUE
+)
+```
+
+## Paired-samples t-test
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Step 5: Compare the p-value with alpha and interpret
+:::
+
+The paired t-test gives $t(9) = 5.08$, $p < 0.001$. Since $p < 0.05$, reject $H_o$. Before drug X, rats ate an average of 53 grams more per week than after taking the drug (95% CI for before-minus-after: 29.38 to 76.62 grams). In this sample, food consumption was lower after treatment.
+
+
+
+
+
+
+
+
+
+
+## Paired samples t-test
 
 ::: {.callout-tip style="font-size: 2.0em;"}
 ## Activity: Dependent t-test
