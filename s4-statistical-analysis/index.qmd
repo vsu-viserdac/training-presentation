@@ -938,39 +938,13 @@ report(mann_whitney_u_test)
 
 - The assumptions of the test are not met
 
-## Dependent t-test
-
-- Used to compare the means of two related groups.
-
-- Example: Comparing test scores before and after a training program.
-
-- Assumptions: Normality, homogeneity of variance, and dependent observations.
-
-## Dependent t-test
-
-::: {.callout-tip style="font-size: 2.0em;"}
-- Steps in hypothesis testing:
-
-  1.  State the hypotheses.
-
-  2.  Specify the level of statistical significance (α).
-
-  3.  Test assumptions and identify the appropriate test.
-
-  4.  Compute the statistic and p-value.
-
-  5.  Decision: Compare p-value and alpha value.
-
-  6.  Conclusion.
-:::
-
-
-
 
 ## Paired-samples t-test
+
 - 
   - also known as the dependent t-test
-  - is used to compare the means of two related groups. - commonly used in situations where the same subjects are measured before and after an intervention or treatment.
+  - is used to compare the means of two related groups. 
+  - commonly used in situations where the same subjects are measured before and after an intervention or treatment.
 
 ## Paired-samples t-test
 
@@ -1002,7 +976,6 @@ head(sample_data3, 5)
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Step 1: State the hypotheses
 :::
-
 - $H_o$: Drug X does not change the mean amount of food eaten by the rats
 - $H_a$: Drug X changes the mean amount of food eaten by the rats
 - In symbols: $H_o: \mu_{before-after} = 0$; $H_a: \mu_{before-after} \neq 0$
@@ -1011,7 +984,6 @@ head(sample_data3, 5)
 
 ::: {.callout-tip style="font-size: 2.0em;"}
 ## Step 2: Specify the decision rule and significance level
-
 - Significance level: $\alpha = 0.05$ (two-sided)
 - Reject $H_o$ if the p-value is less than 0.05
 :::
@@ -1048,141 +1020,134 @@ The test of normality is applied to the paired differences, not separately to be
 ```{r}
 #| echo: true
 
-t.test(
-  sample_data3$before,
-  sample_data3$after,
-  paired = TRUE
-)
+paired_t_test <-
+  t.test(
+    sample_data3$before,
+    sample_data3$after,
+    paired = TRUE
+  )
+
+paired_t_test
 ```
 
 ## Paired-samples t-test
 
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
-## Step 5: Compare the p-value with alpha and interpret
+## Step 5: Conclusion and interpretation
+
 :::
-
-The paired t-test gives $t(9) = 5.08$, $p < 0.001$. Since $p < 0.05$, reject $H_o$. Before drug X, rats ate an average of 53 grams more per week than after taking the drug (95% CI for before-minus-after: 29.38 to 76.62 grams). In this sample, food consumption was lower after treatment.
-
-
-
-
-
-
-
-
-
-
-## Paired samples t-test
-
-::: {.callout-tip style="font-size: 2.0em;"}
-## Activity: Dependent t-test
-
-Using the a synthetic data on training scores of before and after a training program, test whether there is a statistically significant difference in the scores before and after the training program.
-:::
-
-## Dependent t-test
-
-::::: columns
-::: {.column width="50%"}
-Step 1: Import data and data management
 
 ```{r}
 #| echo: true
-## using a synthetic dataset
-before <- c(12.2, 14.6, 13.4, 11.2, 12.7, 10.4, 15.8, 13.9, 9.5, 14.2)
-after <- c(13.5, 15.2, 13.6, 12.8, 13.7, 11.3, 16.5, 13.4, 8.7, 14.6)
-
-training_data <- tibble(
-  subject = rep(c(1:10), 2),
-  time = rep(c("before", "after"), each = 10),
-  score = c(before, after)
-) |>
-  mutate(time = as_factor(time))
-
-head(training_data)
+report(paired_t_test)
 ```
-:::
 
-::: {.column width="50%"}
-Step 2: Test of normality
 
-```{r}
-#| echo: true
-training_data |>
-  group_by(time) |>
-  summarise(
-    shapiro_test = shapiro.test(score)$statistic,
-    p_value = shapiro.test(score)$p.value
-  )
-```
-:::
-:::::
+## Paired-samples t-test
 
-## Dependent t-test
 
-::::: columns
-::: {.column width="50%"}
-Step 3: Test of homogeneity of variance
+::: {.columns}
 
-```{r}
-#| echo: true
+::: {.column width="40%"}
 
-car::leveneTest(data = training_data, score ~ time, center = mean)
-```
-:::
-
-::: {.column width="50%"}
-Step 4: Perform dependent sample t-test
-
-```{r}
-#| echo: true
-
-t.test(
-  training_data$score[training_data$time == "before"],
-  training_data$score[training_data$time == "after"],
-  paired = TRUE,
-  na.rm = TRUE
-)
-```
-:::
-:::::
-
-## Dependent t-test
-
-::::: columns
-::: {.column width="30%"}
 ```{r}
 #| echo: true
 #| eval: false
+sample_data3_longer <-
+  sample_data3 |>
+  pivot_longer(
+    cols = c(before, after),
+    names_to = "time",
+    values_to = "score"
+  )
 
-## plot paired sample t test using ggbetweenstats
 ggwithinstats(
-  data = training_data,
+  data = sample_data3_longer,
   x = time,
   y = score,
   title = "Paired Samples T-Test",
 )
 ```
+
+
 :::
 
-::: {.column width="70%"}
+::: {.column width="60%"}
+
 ```{r}
 #| echo: false
-#| fig-width: 10
-#| fig-height: 8
+sample_data3_longer <-
+  sample_data3 |>
+  pivot_longer(
+    cols = c(before, after),
+    names_to = "time",
+    values_to = "score"
+  ) |>
+  mutate(time = factor(time, levels = c("before", "after")))
 
-## plot paired sample t test using ggbetweenstats
-ggwithinstats(
-  data = training_data,
-  x = time,
-  y = score,
-  title = "Paired Samples T-Test",
-) +
-  theme_minimal(base_size = 18) +
-  theme(legend.position = "none")
+p_paired_t_test <-
+  ggwithinstats(
+    data = sample_data3_longer,
+    x = time,
+    y = score,
+    title = "Paired Samples T-Test",
+  )
+
+ggsave(
+  filename = "plot/paired-sample-t-test.png",
+  plot = p_paired_t_test,
+  width = 8,
+  height = 6
+)
 ```
+
+```{r}
+#| fig-align: right
+#| out-width: 100%
+
+## display plot
+knitr::include_graphics("plot/paired-sample-t-test.png")
+```
+
 :::
-:::::
+
+:::
+
+
+## Paired-samples t-test
+
+
+::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: false
+tidy_paired_samples_t_test <-
+  sample_data3_longer |>
+  tidyplot(x = time, y = score, color = time) |>
+  add_violin(alpha = 0.3) |>
+  add_data_points_beeswarm(white_border = TRUE) |>
+  add_test_asterisks(hide_info = TRUE) |>
+  add_data_points_jitter(alpha = 0.5) |>
+  save_plot(
+    filename = "plot/tidy_paired-sample-t-test.png"
+  )
+```
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+knitr::include_graphics("plot/tidy_paired-sample-t-test.png")
+```
+
+:::
+
+:::
+
 
 # Check-up quiz
 
