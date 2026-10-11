@@ -184,7 +184,11 @@ theme_set(theme_minimal()) +
 
 ## Parametric and non-parametric tests
 
-| Parametric                | Non-parametric            |
+- parametric tests rely on the assumptions regarding the functional shape of underlying population probability distribution (i.e., normal distribution)
+
+- non-parametric are distribution-free statistical procedure that do not rely on assumptions that the data originates from a specific family of probability distributions
+
+| Parametric tests          | Non-parametric tests      |
 |---------------------------|---------------------------|
 | Independent sample t-test | Mann-Whitney U test       |
 | Paired samples t-test     | Wilcoxon signed rank test |
