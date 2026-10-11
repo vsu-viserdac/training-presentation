@@ -673,9 +673,57 @@ knitr::include_graphics("plot/tidy_independent-sample-t-test.png")
 :::
 
 
+## Mann-Whitney U test
+
+::: {.callout-caution style="font-size: 2.0em;"}
+## Note
+Supposed normality test fails, the Mann-Whitney U test (also known as the Wilcoxon rank-sum test) can be used as a non-parametric alternative to the independent samples t-test. 
+:::
+
+```{r}
+knitr::include_graphics("plot/idependent-t-tst.png")
+```
 
 
+## Mann-Whitney U test
 
+- also known as the Wilcoxon rank-sum test
+
+- is a non-parametric test used to compare the medians of two independent groups when the assumptions of the independent samples t-test are not met (e.g., non-normal distribution).
+
+
+## Mann-Whitney U test
+
+::: {.callout-tip icon="false" style="font-size: 2.0em;"}
+## Assumptions
+- Data must be from independent samples
+- Data must be continuous or at least at the ordinal level
+- Underlying of the dependent variable is continuous in nature
+:::
+
+- is a non-parametric test used to compare the medians of two independent groups when the assumptions of the independent samples t-test are not met (e.g., non-normal distribution).
+
+
+## Mann Whitney U-test
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Example
+Suppose that the following data have been collected representing monthly incomes for teachers employed in two different private schools (School A and School B). The researcher wishes to determine whether there is a substantial difference between these incomes.
+:::
+
+```{r}
+#| echo: true
+
+sample_data2 <-
+  read_sav("data-sets/EX19b.sav") |>
+  mutate(school = as.character(school)) |>
+  mutate(school = if_else(school == "1", "School A", "School B"))
+
+head(sample_data2, 5)
+```
+
+
+## Mann Whitney U-test
 
 
 
