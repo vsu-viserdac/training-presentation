@@ -46,8 +46,6 @@ theme_set(theme_minimal()) +
 - Independent sample t-test
 - Paired sample t-test
 - One-way ANOVA
-- Two-way ANOVA
-- Chi-square test of independence
 
 # Lesson 1: Introduction to hypothesis testing?
 
