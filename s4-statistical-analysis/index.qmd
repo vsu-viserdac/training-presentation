@@ -1375,25 +1375,6 @@ knitr::include_graphics("plot/tidy_wilcoxon-signed-rank-test.png")
 |                                                         | - homogeneity of variance: the variances of the group should be equal.                    |                                                                                                  |
 +---------------------------------------------------------+-------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
 
-## One-way Anova
-
-::: {.callout-tip style="font-size: 2.0em;"}
-## Steps in Hypothesis testing
-
-1.  State the hypotheses
-
-2.  Specify the decision rule and the level of\
-    statistical significance.
-
-3.  Test the assumptions and Identify the appropriate test.
-
-4.  Compute for the statistic and p-value
-
-5.  Decision: Compare p-value and alpha value.
-
-6.  Conclusion
-:::
-
 
 ## One-way Anova
 
@@ -1721,3 +1702,230 @@ knitr::include_graphics("plot/tidy_one-way-anova.png")
 - t-tests do not assume normality
 
 - ANOVA has higher power only when the sample sizes are equal
+
+
+
+## Kruskal-Wallis H test
+
+::: {.callout-caution icon="false" style="font-size: 2.0em;"}
+## Note
+Supposed normality test fails, the Kruskal-Wallis H test can be used as a non-parametric alternative to the one-way ANOVA.
+:::
+- 
+  - a non-parametric statistical procedure used to determine if there are statistically significant differences between three or more independent groups on an ordinal or continuous outcome variable.
+
+
+## Kruskal-Wallis H test
+
+::: {.callout-tip icon="false" style="font-size: 2.0em;"}
+## Assumptions
+- Data must be from independent random samples
+- Data must be measured at least at the ordinal level
+- There must be at least five scores in each sample to use the chi-squared approximation
+:::
+
+
+## Kruskal-Wallis H test
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Note
+Suppose that an educational psychologist is interested in determining the effectiveness of three different methods of instruction in the basic principles of arithmetic. A total of 29 primary grade children was randomly assigned to the three “methods of instruction” conditions. The scores recorded below are the number of correct answers obtained following completion of their instruction.
+:::
+
+```{r}
+#| echo: true
+
+sample_data6 <-
+  read_sav("data-sets/EX19c.sav") |>
+  mutate(instruction = as_factor(instruction))
+
+head(sample_data6, 5)
+```
+
+## Kruskal-Wallis H test
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Step 1: State the hypotheses
+:::
+- 
+  - $H_o$: The distribution of scores is the same across the three methods of instruction
+  - $H_a$: The distribution of scores differs for at least one method of instruction
+
+## Kruskal-Wallis H test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 2: Specify the decision rule and the level of statistical significance
+
+- Significance level: $\alpha = 0.05$
+- Reject $H_o$ if p-value $< 0.05$
+:::
+
+## Kruskal-Wallis H test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 3: Test the assumptions and identify the appropriate test
+:::
+
+1. Normality test within each group using the Shapiro-Wilk test:
+
+```{r}
+#| echo: true
+sample_data6 |>
+  group_by(instruction) |>
+  summarise(
+    shapiro_test = shapiro.test(scores)$statistic,
+    p_value = shapiro.test(scores)$p.value
+  )
+```
+
+## Kruskal-Wallis H test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 3: Test the assumptions and identify the appropriate test
+:::
+
+Visual inspection of scores by method of instruction:
+
+::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: false
+
+sample_data6 |>
+  tidyplot(x = scores, color = instruction) |>
+  add_histogram(
+    mapping = aes(y = after_stat(density)),
+    alpha = 0.5,
+    bins = 5
+  ) |>
+  add(geom_density(alpha = 0.7)) |>
+  split_plot(by = instruction) |>
+  save_plot(
+    filename = "plot/normality_test_kruskal-wallis-test.png"
+  )
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| fig-align: right
+#| out-width: 100%
+
+## display plot
+knitr::include_graphics("plot/normality_test_kruskal-wallis-test.png")
+```
+:::
+:::
+
+## Kruskal-Wallis H test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 3: Test the assumptions and identify the appropriate test
+:::
+
+Q-Q plots by method of instruction:
+
+::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: false
+
+sample_data6 |>
+  tidyplot(sample = scores, color = instruction) |>
+  add(stat_qq()) |>
+  add(stat_qq_line()) |>
+  split_plot(by = instruction) |>
+  save_plot(
+    filename = "plot/qq_normality_test_kruskal-wallis-test.png"
+  )
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| fig-align: right
+#| out-width: 100%
+
+## display plot
+knitr::include_graphics("plot/qq_normality_test_kruskal-wallis-test.png")
+```
+:::
+
+:::
+
+## Kruskal-Wallis H test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 4: Compute the statistic and p-value
+:::
+
+```{r}
+#| echo: true
+kruskal_wallis_test <-
+  kruskal.test(scores ~ instruction, data = sample_data6)
+
+kruskal_wallis_test
+```
+
+## Kruskal-Wallis H test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 5: Conclusion and interpretation
+:::
+
+```{r}
+#| echo: true
+report(kruskal_wallis_test, data = sample_data6)
+```
+
+## Kruskal-Wallis H test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Post-hoc test: Dunn's test
+:::
+
+A significant Kruskal-Wallis test only shows that at least one group differs. Dunn's test compares all pairs of groups using rank sums, with a Bonferroni adjustment to control the family-wise error rate.
+
+```{r}
+#| echo: true
+rstatix::dunn_test(
+  sample_data6,
+  scores ~ instruction,
+  p.adjust.method = "bonferroni"
+)
+```
+
+## Kruskal-Wallis H test
+
+::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: false
+sample_data6 |>
+  tidyplot(x = instruction, y = scores, color = instruction) |>
+  add_violin(alpha = 0.3) |>
+  add_data_points_beeswarm(white_border = TRUE) |>
+  save_plot(
+    filename = "plot/tidy_kruskal-wallis-test.png"
+  )
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| fig-align: right
+#| out-width: 100%
+
+## display plot
+knitr::include_graphics("plot/tidy_kruskal-wallis-test.png")
+```
+:::
+
+:::
+
