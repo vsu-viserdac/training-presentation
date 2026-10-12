@@ -47,7 +47,13 @@ theme_set(theme_minimal()) +
 - Paired sample t-test
 - One-way ANOVA
 
-# Lesson 1: Introduction to hypothesis testing?
+# Introduction to hypothesis testing?
+
+## 
+
+```{r}
+knitr::include_graphics("img/about-hypothesis-testing.png")
+```
 
 ## What is hypothesis testing?
 
@@ -195,7 +201,6 @@ theme_set(theme_minimal()) +
 | Independent sample t-test | Mann-Whitney U test       |
 | Paired samples t-test     | Wilcoxon signed rank test |
 | One-way ANOVA             | Kruskal-Wallis test       |
-|                           | Chi-squared tests         |
 
 ## Statistical tests for comparing two groups
 
@@ -208,6 +213,12 @@ theme_set(theme_minimal()) +
 |                                                                                                                                   | - Ordinal data (e.g., satisfaction rating, ranks)                  | - Comparing means when groups have unequal variances (e.g., salaries across department)                      |
 |                                                                                                                                   | - Assumptions about data (normality, equal variances) vary by test | - Comparing medians of two groups when data isn’t normally distributed (e.g., customer satisfaction scores). |
 +-----------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
+
+## 
+
+```{r}
+knitr::include_graphics("img/about-independent-sample-t-test.png")
+```
 
 ## Independent samples t-test
 
@@ -903,6 +914,12 @@ report(mann_whitney_u_test)
 
 - The assumptions of the test are not met
 
+## 
+
+```{r}
+knitr::include_graphics("img/about-paired-sample-t-test.png")
+```
+
 ## Paired-samples t-test
 
 - 
@@ -1363,6 +1380,12 @@ knitr::include_graphics("plot/tidy_wilcoxon-signed-rank-test.png")
 |                                                                                                                                          | - Assumptions about data (normality, equal variances) vary by test |                                                                                                                                                                 |
 +------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+## 
+
+```{r}
+knitr::include_graphics("img/about-anova.png")
+```
+
 ## One-way Anova
 
 <br>
@@ -1374,7 +1397,6 @@ knitr::include_graphics("plot/tidy_wilcoxon-signed-rank-test.png")
 |                                                         | - normality: data should be approximately normally distributed.                           |                                                                                                  |
 |                                                         | - homogeneity of variance: the variances of the group should be equal.                    |                                                                                                  |
 +---------------------------------------------------------+-------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
-
 
 ## One-way Anova
 
@@ -1398,13 +1420,16 @@ head(sample_data5, 5)
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Step 1: State the hypotheses
 :::
+
 - 
+
   - $H_o$: Mean solving time is the same across the three shock conditions
   - $H_o$: $\mu_{Low} = \mu_{Medium} = \mu_{High}$
 
 <br>
 
 - 
+
   - $H_a$: At least one shock condition has a different mean solving time
   - $H_a$: Not all $\mu$ are equal
 
@@ -1423,7 +1448,7 @@ head(sample_data5, 5)
 ## Step 3: Test the assumptions and identify the appropriate test
 :::
 
-1. Normality test within each group using the Shapiro-Wilk test:
+1.  Normality test within each group using the Shapiro-Wilk test:
 
 ```{r}
 #| echo: true
@@ -1444,8 +1469,7 @@ sample_data5 |>
 
 Visual inspection of solving time by shock condition:
 
-::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: true
@@ -1475,7 +1499,7 @@ sample_data5 |>
 knitr::include_graphics("plot/normality_test_one-way-anova.png")
 ```
 :::
-:::
+:::::
 
 ## One-way Anova
 
@@ -1485,8 +1509,7 @@ knitr::include_graphics("plot/normality_test_one-way-anova.png")
 
 Q-Q plots by shock condition:
 
-::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: true
@@ -1512,8 +1535,7 @@ sample_data5 |>
 knitr::include_graphics("plot/qq_normality_test_one-way-anova.png")
 ```
 :::
-
-:::
+:::::
 
 ## One-way Anova
 
@@ -1521,7 +1543,7 @@ knitr::include_graphics("plot/qq_normality_test_one-way-anova.png")
 ## Step 3: Test the assumptions and identify the appropriate test
 :::
 
-2. Homogeneity of variance using Levene's test:
+2.  Homogeneity of variance using Levene's test:
 
 ```{r}
 #| echo: true
@@ -1572,8 +1594,7 @@ TukeyHSD(one_way_anova)
 ## Post-hoc test: Tukey HSD
 :::
 
-::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: true
@@ -1607,13 +1628,11 @@ ggplot(tukey_df, aes(x = diff, y = comparison)) +
 knitr::include_graphics("plot/tukey-hsd-one-way-anova.png")
 ```
 :::
-
-:::
+:::::
 
 ## One-way Anova
 
-::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: true
@@ -1637,9 +1656,7 @@ sample_data5 |>
 knitr::include_graphics("plot/tidy_one-way-anova.png")
 ```
 :::
-
-:::
-
+:::::
 
 # Check-up quiz
 
@@ -1703,32 +1720,33 @@ knitr::include_graphics("plot/tidy_one-way-anova.png")
 
 - ANOVA has higher power only when the sample sizes are equal
 
-
-
 ## Kruskal-Wallis H test
 
 ::: {.callout-caution icon="false" style="font-size: 2.0em;"}
 ## Note
+
 Supposed normality test fails, the Kruskal-Wallis H test can be used as a non-parametric alternative to the one-way ANOVA.
 :::
-- 
-  - a non-parametric statistical procedure used to determine if there are statistically significant differences between three or more independent groups on an ordinal or continuous outcome variable.
 
+- 
+
+  - a non-parametric statistical procedure used to determine if there are statistically significant differences between three or more independent groups on an ordinal or continuous outcome variable.
 
 ## Kruskal-Wallis H test
 
 ::: {.callout-tip icon="false" style="font-size: 2.0em;"}
 ## Assumptions
+
 - Data must be from independent random samples
 - Data must be measured at least at the ordinal level
 - There must be at least five scores in each sample to use the chi-squared approximation
 :::
 
-
 ## Kruskal-Wallis H test
 
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Note
+
 Suppose that an educational psychologist is interested in determining the effectiveness of three different methods of instruction in the basic principles of arithmetic. A total of 29 primary grade children was randomly assigned to the three “methods of instruction” conditions. The scores recorded below are the number of correct answers obtained following completion of their instruction.
 :::
 
@@ -1747,7 +1765,9 @@ head(sample_data6, 5)
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Step 1: State the hypotheses
 :::
+
 - 
+
   - $H_o$: The distribution of scores is the same across the three methods of instruction
   - $H_a$: The distribution of scores differs for at least one method of instruction
 
@@ -1766,7 +1786,7 @@ head(sample_data6, 5)
 ## Step 3: Test the assumptions and identify the appropriate test
 :::
 
-1. Normality test within each group using the Shapiro-Wilk test:
+1.  Normality test within each group using the Shapiro-Wilk test:
 
 ```{r}
 #| echo: true
@@ -1786,8 +1806,7 @@ sample_data6 |>
 
 Visual inspection of scores by method of instruction:
 
-::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: true
@@ -1817,7 +1836,7 @@ sample_data6 |>
 knitr::include_graphics("plot/normality_test_kruskal-wallis-test.png")
 ```
 :::
-:::
+:::::
 
 ## Kruskal-Wallis H test
 
@@ -1827,8 +1846,7 @@ knitr::include_graphics("plot/normality_test_kruskal-wallis-test.png")
 
 Q-Q plots by method of instruction:
 
-::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: true
@@ -1854,8 +1872,7 @@ sample_data6 |>
 knitr::include_graphics("plot/qq_normality_test_kruskal-wallis-test.png")
 ```
 :::
-
-:::
+:::::
 
 ## Kruskal-Wallis H test
 
@@ -1901,8 +1918,7 @@ rstatix::dunn_test(
 
 ## Kruskal-Wallis H test
 
-::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: true
@@ -1926,6 +1942,4 @@ sample_data6 |>
 knitr::include_graphics("plot/tidy_kruskal-wallis-test.png")
 ```
 :::
-
-:::
-
+:::::
