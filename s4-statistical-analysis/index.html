@@ -1641,6 +1641,334 @@ positive, statistically significant, and large (difference = 4.40, 95% CI
 <li><p><code>aov()</code></p></li>
 <li><p><code>cor.test()</code></p></li>
 </ul>
+</section>
+<section id="wilcoxon-signed-rank-test" class="slide level2">
+<h2>Wilcoxon signed-rank test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Supposed normality test fails, the Wilcoxon signed-rank test can be used as a non-parametric alternative to the paired samples t-test.</p>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>a non-parapmetric test used to compare two related samples, matched samples, or repeated measurements on a single sample to assess whether their population mean ranks differ.</li>
+</ul>
+</section>
+<section id="wilcoxon-signed-rank-test-1" class="slide level2">
+<h2>Wilcoxon signed-rank test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Assumptions</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>scale measurement within each pair must be at least ordinal in nature</li>
+<li>the difference in scores must also constitute an ordinal scale</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="wilcoxon-signed-rank-test-2" class="slide level2">
+<h2>Wilcoxon signed-rank test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Example:</strong></p>
+</div>
+<div class="callout-content">
+<p>Suppose a researcher is interested in whether a drug claimed by its manufacturer to improve problem-solving skills accomplished that goal. The researcher selects a sample of seven individuals and measured their problem-solving skills before and after they have taken that drug. The number of correct responses is recorded below.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="" aria-label="1"></a>sample_data4 <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"data-sets/EX19d.sav"</span>)</span>
+<span id="cb26-2"><a href="" aria-label="2"></a></span>
+<span id="cb26-3"><a href="" aria-label="3"></a><span class="fu">head</span>(sample_data4, <span class="dv">5</span>)</span>
+<span id="cb26-4"><a href="" aria-label="4"></a><span class="co"># A tibble: 5 × 2</span></span>
+<span id="cb26-5"><a href="" aria-label="5"></a>  before after</span>
+<span id="cb26-6"><a href="" aria-label="6"></a>   <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb26-7"><a href="" aria-label="7"></a><span class="dv">1</span>     <span class="dv">69</span>    <span class="dv">71</span></span>
+<span id="cb26-8"><a href="" aria-label="8"></a><span class="dv">2</span>     <span class="dv">76</span>    <span class="dv">75</span></span>
+<span id="cb26-9"><a href="" aria-label="9"></a><span class="dv">3</span>     <span class="dv">80</span>    <span class="dv">84</span></span>
+<span id="cb26-10"><a href="" aria-label="10"></a><span class="dv">4</span>     <span class="dv">74</span>    <span class="dv">83</span></span>
+<span id="cb26-11"><a href="" aria-label="11"></a><span class="dv">5</span>     <span class="dv">87</span>    <span class="dv">90</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="wilcoxon-signed-rank-test-3" class="slide level2">
+<h2>Wilcoxon signed-rank test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Step 1: State the hypotheses</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><ul>
+<li><span class="math inline">\(H_o\)</span>: The drug has no effect on problem-solving skills (median difference = 0)</li>
+<li><span class="math inline">\(H_a\)</span>: The drug changes problem-solving skills (median difference <span class="math inline">\(\neq\)</span> 0)</li>
+</ul></li>
+</ul>
+</section>
+<section id="wilcoxon-signed-rank-test-4" class="slide level2">
+<h2>Wilcoxon signed-rank test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 2: Specify the decision rule and the level of statistical significance</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Significance level: <span class="math inline">\(\alpha = 0.05\)</span> (two-sided)</li>
+<li>Reject <span class="math inline">\(H_o\)</span> if p-value <span class="math inline">\(&lt; 0.05\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="wilcoxon-signed-rank-test-5" class="slide level2">
+<h2>Wilcoxon signed-rank test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 3: Test the assumptions and identify the appropriate test</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<ol type="1">
+<li>Normality test of the paired differences using the Shapiro-Wilk test:</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="" aria-label="1"></a>sample_data4 <span class="ot">&lt;-</span></span>
+<span id="cb27-2"><a href="" aria-label="2"></a>  sample_data4 <span class="sc">|&gt;</span></span>
+<span id="cb27-3"><a href="" aria-label="3"></a>  <span class="fu">mutate</span>(<span class="at">difference =</span> after <span class="sc">-</span> before)</span>
+<span id="cb27-4"><a href="" aria-label="4"></a></span>
+<span id="cb27-5"><a href="" aria-label="5"></a>sample_data4 <span class="sc">|&gt;</span></span>
+<span id="cb27-6"><a href="" aria-label="6"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb27-7"><a href="" aria-label="7"></a>    <span class="at">shapiro_test =</span> <span class="fu">shapiro.test</span>(difference)<span class="sc">$</span>statistic,</span>
+<span id="cb27-8"><a href="" aria-label="8"></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(difference)<span class="sc">$</span>p.value</span>
+<span id="cb27-9"><a href="" aria-label="9"></a>  )</span>
+<span id="cb27-10"><a href="" aria-label="10"></a><span class="co"># A tibble: 1 × 2</span></span>
+<span id="cb27-11"><a href="" aria-label="11"></a>  shapiro_test p_value</span>
+<span id="cb27-12"><a href="" aria-label="12"></a>         <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb27-13"><a href="" aria-label="13"></a><span class="dv">1</span>        <span class="fl">0.943</span>   <span class="fl">0.666</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="wilcoxon-signed-rank-test-6" class="slide level2">
+<h2>Wilcoxon signed-rank test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 3: Test the assumptions and identify the appropriate test</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<p>Visual inspection of the paired differences:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="" aria-label="1"></a>sample_data4 <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a href="" aria-label="2"></a>  <span class="fu">tidyplot</span>(<span class="at">x =</span> difference) <span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a href="" aria-label="3"></a>  <span class="fu">add_histogram</span>(</span>
+<span id="cb28-4"><a href="" aria-label="4"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)),</span>
+<span id="cb28-5"><a href="" aria-label="5"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb28-6"><a href="" aria-label="6"></a>    <span class="at">bins =</span> <span class="dv">6</span></span>
+<span id="cb28-7"><a href="" aria-label="7"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb28-8"><a href="" aria-label="8"></a>  <span class="fu">add</span>(<span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb28-9"><a href="" aria-label="9"></a>  <span class="fu">save_plot</span>(</span>
+<span id="cb28-10"><a href="" aria-label="10"></a>    <span class="at">filename =</span> <span class="st">"plot/normality_test_wilcoxon-signed-rank-test.png"</span></span>
+<span id="cb28-11"><a href="" aria-label="11"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="plot/normality_test_wilcoxon-signed-rank-test.png" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="wilcoxon-signed-rank-test-7" class="slide level2">
+<h2>Wilcoxon signed-rank test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 3: Test the assumptions and identify the appropriate test</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<p>Q-Q plot of the paired differences:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="" aria-label="1"></a>sample_data4 <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href="" aria-label="2"></a>  <span class="fu">tidyplot</span>(<span class="at">sample =</span> difference) <span class="sc">|&gt;</span></span>
+<span id="cb29-3"><a href="" aria-label="3"></a>  <span class="fu">add</span>(<span class="fu">stat_qq</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb29-4"><a href="" aria-label="4"></a>  <span class="fu">add</span>(<span class="fu">stat_qq_line</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb29-5"><a href="" aria-label="5"></a>  <span class="fu">save_plot</span>(</span>
+<span id="cb29-6"><a href="" aria-label="6"></a>    <span class="at">filename =</span> <span class="st">"plot/qq_normality_test_wilcoxon-signed-rank-test.png"</span></span>
+<span id="cb29-7"><a href="" aria-label="7"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="plot/qq_normality_test_wilcoxon-signed-rank-test.png" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="wilcoxon-signed-rank-test-8" class="slide level2">
+<h2>Wilcoxon signed-rank test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 4: Compute the statistic and p-value</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="" aria-label="1"></a>wilcoxon_signed_rank_test <span class="ot">&lt;-</span></span>
+<span id="cb30-2"><a href="" aria-label="2"></a>  <span class="fu">wilcox.test</span>(</span>
+<span id="cb30-3"><a href="" aria-label="3"></a>    sample_data4<span class="sc">$</span>after,</span>
+<span id="cb30-4"><a href="" aria-label="4"></a>    sample_data4<span class="sc">$</span>before,</span>
+<span id="cb30-5"><a href="" aria-label="5"></a>    <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb30-6"><a href="" aria-label="6"></a>    <span class="at">exact =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb30-7"><a href="" aria-label="7"></a>    <span class="at">correct =</span> <span class="cn">FALSE</span></span>
+<span id="cb30-8"><a href="" aria-label="8"></a>  )</span>
+<span id="cb30-9"><a href="" aria-label="9"></a></span>
+<span id="cb30-10"><a href="" aria-label="10"></a>wilcoxon_signed_rank_test</span>
+<span id="cb30-11"><a href="" aria-label="11"></a></span>
+<span id="cb30-12"><a href="" aria-label="12"></a>    Wilcoxon signed rank test</span>
+<span id="cb30-13"><a href="" aria-label="13"></a></span>
+<span id="cb30-14"><a href="" aria-label="14"></a>data<span class="sc">:</span>  sample_data4<span class="sc">$</span>after and sample_data4<span class="sc">$</span>before</span>
+<span id="cb30-15"><a href="" aria-label="15"></a>V <span class="ot">=</span> <span class="fl">20.5</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="fl">0.2702</span></span>
+<span id="cb30-16"><a href="" aria-label="16"></a>alternative hypothesis<span class="sc">:</span> true location shift is not equal to <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="wilcoxon-signed-rank-test-9" class="slide level2">
+<h2>Wilcoxon signed-rank test</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 5: Conclusion and interpretation</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="" aria-label="1"></a><span class="fu">report</span>(wilcoxon_signed_rank_test)</span>
+<span id="cb31-2"><a href="" aria-label="2"></a>Effect sizes were labelled following Funder<span class="st">'s (2019) recommendations.</span></span>
+<span id="cb31-3"><a href="" aria-label="3"></a></span>
+<span id="cb31-4"><a href="" aria-label="4"></a><span class="st">The Wilcoxon signed rank test testing the difference in ranks between</span></span>
+<span id="cb31-5"><a href="" aria-label="5"></a><span class="st">sample_data4$after and sample_data4$before suggests that the effect is</span></span>
+<span id="cb31-6"><a href="" aria-label="6"></a><span class="st">positive, statistically not significant, and very large (W = 20.50, p = 0.270;</span></span>
+<span id="cb31-7"><a href="" aria-label="7"></a><span class="st">r (rank biserial) = 0.46, 95% CI [-0.31, 0.87])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="wilcoxon-signed-rank-test-10" class="slide level2">
+<h2>Wilcoxon signed-rank test</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="" aria-label="1"></a>sample_data4_longer <span class="ot">&lt;-</span></span>
+<span id="cb32-2"><a href="" aria-label="2"></a>  sample_data4 <span class="sc">|&gt;</span></span>
+<span id="cb32-3"><a href="" aria-label="3"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb32-4"><a href="" aria-label="4"></a>    <span class="at">cols =</span> <span class="fu">c</span>(before, after),</span>
+<span id="cb32-5"><a href="" aria-label="5"></a>    <span class="at">names_to =</span> <span class="st">"time"</span>,</span>
+<span id="cb32-6"><a href="" aria-label="6"></a>    <span class="at">values_to =</span> <span class="st">"score"</span></span>
+<span id="cb32-7"><a href="" aria-label="7"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb32-8"><a href="" aria-label="8"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">factor</span>(time, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"before"</span>, <span class="st">"after"</span>)))</span>
+<span id="cb32-9"><a href="" aria-label="9"></a></span>
+<span id="cb32-10"><a href="" aria-label="10"></a>sample_data4_longer <span class="sc">|&gt;</span></span>
+<span id="cb32-11"><a href="" aria-label="11"></a>  <span class="fu">tidyplot</span>(<span class="at">x =</span> time, <span class="at">y =</span> score, <span class="at">color =</span> time) <span class="sc">|&gt;</span></span>
+<span id="cb32-12"><a href="" aria-label="12"></a>  <span class="fu">add_violin</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb32-13"><a href="" aria-label="13"></a>  <span class="fu">add_data_points_beeswarm</span>(<span class="at">white_border =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb32-14"><a href="" aria-label="14"></a>  <span class="fu">save_plot</span>(</span>
+<span id="cb32-15"><a href="" aria-label="15"></a>    <span class="at">filename =</span> <span class="st">"plot/tidy_wilcoxon-signed-rank-test.png"</span></span>
+<span id="cb32-16"><a href="" aria-label="16"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="plot/tidy_wilcoxon-signed-rank-test.png" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
 </section></section>
 <section>
 <section id="statistical-tests-for-comparing-more-than-two-groups" class="title-slide slide level1 center">
@@ -1702,7 +2030,7 @@ positive, statistically significant, and large (difference = 4.40, 95% CI
 <li>Comparing means of at least three independent groups.</li>
 </ul></td>
 <td><ul>
-<li>two variables: i continuous variable, 1 categorical/discrete with at least 3 categories</li>
+<li>two variables: 1 continuous variable, 1 categorical/discrete with at least 3 categories</li>
 <li>normality: data should be approximately normally distributed.</li>
 <li>homogeneity of variance: the variances of the group should be equal.</li>
 </ul></td>
@@ -1741,137 +2069,455 @@ statistical significance.</p></li>
 </section>
 <section id="one-way-anova-2" class="slide level2">
 <h2>One-way Anova</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Step 1: Import data and data management</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="" aria-label="1"></a><span class="co"># Create the dataframe</span></span>
-<span id="cb26-2"><a href="" aria-label="2"></a>exam_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb26-3"><a href="" aria-label="3"></a>  <span class="at">group =</span> <span class="fu">c</span>(</span>
-<span id="cb26-4"><a href="" aria-label="4"></a>    <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>),</span>
-<span id="cb26-5"><a href="" aria-label="5"></a>    <span class="fu">rep</span>(<span class="dv">2</span>, <span class="dv">10</span>),</span>
-<span id="cb26-6"><a href="" aria-label="6"></a>    <span class="fu">rep</span>(<span class="dv">3</span>, <span class="dv">10</span>)</span>
-<span id="cb26-7"><a href="" aria-label="7"></a>  ),</span>
-<span id="cb26-8"><a href="" aria-label="8"></a>  <span class="at">exam =</span> <span class="fu">c</span>(</span>
-<span id="cb26-9"><a href="" aria-label="9"></a>    <span class="dv">50</span>,</span>
-<span id="cb26-10"><a href="" aria-label="10"></a>    <span class="dv">45</span>,</span>
-<span id="cb26-11"><a href="" aria-label="11"></a>    <span class="dv">48</span>,</span>
-<span id="cb26-12"><a href="" aria-label="12"></a>    <span class="dv">47</span>,</span>
-<span id="cb26-13"><a href="" aria-label="13"></a>    <span class="dv">45</span>,</span>
-<span id="cb26-14"><a href="" aria-label="14"></a>    <span class="dv">49</span>,</span>
-<span id="cb26-15"><a href="" aria-label="15"></a>    <span class="dv">50</span>,</span>
-<span id="cb26-16"><a href="" aria-label="16"></a>    <span class="dv">54</span>,</span>
-<span id="cb26-17"><a href="" aria-label="17"></a>    <span class="dv">57</span>,</span>
-<span id="cb26-18"><a href="" aria-label="18"></a>    <span class="dv">55</span>, <span class="co"># Group 1</span></span>
-<span id="cb26-19"><a href="" aria-label="19"></a>    <span class="dv">63</span>,</span>
-<span id="cb26-20"><a href="" aria-label="20"></a>    <span class="dv">55</span>,</span>
-<span id="cb26-21"><a href="" aria-label="21"></a>    <span class="dv">54</span>,</span>
-<span id="cb26-22"><a href="" aria-label="22"></a>    <span class="dv">49</span>,</span>
-<span id="cb26-23"><a href="" aria-label="23"></a>    <span class="dv">65</span>,</span>
-<span id="cb26-24"><a href="" aria-label="24"></a>    <span class="dv">46</span>,</span>
-<span id="cb26-25"><a href="" aria-label="25"></a>    <span class="dv">53</span>,</span>
-<span id="cb26-26"><a href="" aria-label="26"></a>    <span class="dv">67</span>,</span>
-<span id="cb26-27"><a href="" aria-label="27"></a>    <span class="dv">58</span>,</span>
-<span id="cb26-28"><a href="" aria-label="28"></a>    <span class="dv">50</span>, <span class="co"># Group 2</span></span>
-<span id="cb26-29"><a href="" aria-label="29"></a>    <span class="dv">71</span>,</span>
-<span id="cb26-30"><a href="" aria-label="30"></a>    <span class="dv">67</span>,</span>
-<span id="cb26-31"><a href="" aria-label="31"></a>    <span class="dv">68</span>,</span>
-<span id="cb26-32"><a href="" aria-label="32"></a>    <span class="dv">62</span>,</span>
-<span id="cb26-33"><a href="" aria-label="33"></a>    <span class="dv">65</span>,</span>
-<span id="cb26-34"><a href="" aria-label="34"></a>    <span class="dv">58</span>,</span>
-<span id="cb26-35"><a href="" aria-label="35"></a>    <span class="dv">63</span>,</span>
-<span id="cb26-36"><a href="" aria-label="36"></a>    <span class="dv">69</span>,</span>
-<span id="cb26-37"><a href="" aria-label="37"></a>    <span class="dv">70</span>,</span>
-<span id="cb26-38"><a href="" aria-label="38"></a>    <span class="dv">61</span> <span class="co"># Group 3</span></span>
-<span id="cb26-39"><a href="" aria-label="39"></a>  )</span>
-<span id="cb26-40"><a href="" aria-label="40"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb26-41"><a href="" aria-label="41"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">as_factor</span>(group))</span>
-<span id="cb26-42"><a href="" aria-label="42"></a></span>
-<span id="cb26-43"><a href="" aria-label="43"></a><span class="co"># View the dataframe</span></span>
-<span id="cb26-44"><a href="" aria-label="44"></a><span class="fu">head</span>(exam_data)</span>
-<span id="cb26-45"><a href="" aria-label="45"></a>  group exam</span>
-<span id="cb26-46"><a href="" aria-label="46"></a><span class="dv">1</span>     <span class="dv">1</span>   <span class="dv">50</span></span>
-<span id="cb26-47"><a href="" aria-label="47"></a><span class="dv">2</span>     <span class="dv">1</span>   <span class="dv">45</span></span>
-<span id="cb26-48"><a href="" aria-label="48"></a><span class="dv">3</span>     <span class="dv">1</span>   <span class="dv">48</span></span>
-<span id="cb26-49"><a href="" aria-label="49"></a><span class="dv">4</span>     <span class="dv">1</span>   <span class="dv">47</span></span>
-<span id="cb26-50"><a href="" aria-label="50"></a><span class="dv">5</span>     <span class="dv">1</span>   <span class="dv">45</span></span>
-<span id="cb26-51"><a href="" aria-label="51"></a><span class="dv">6</span>     <span class="dv">1</span>   <span class="dv">49</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Example:</strong></p>
 </div>
-</div><div class="column" style="width:50%;">
-<p>Step 2: Test of normality</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="" aria-label="1"></a>exam_data <span class="sc">|&gt;</span></span>
-<span id="cb27-2"><a href="" aria-label="2"></a>  <span class="fu">group_by</span>(group) <span class="sc">|&gt;</span></span>
-<span id="cb27-3"><a href="" aria-label="3"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb27-4"><a href="" aria-label="4"></a>    <span class="at">shapiro_test =</span> <span class="fu">shapiro.test</span>(exam)<span class="sc">$</span>statistic,</span>
-<span id="cb27-5"><a href="" aria-label="5"></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(exam)<span class="sc">$</span>p.value</span>
-<span id="cb27-6"><a href="" aria-label="6"></a>  )</span>
-<span id="cb27-7"><a href="" aria-label="7"></a><span class="co"># A tibble: 3 × 3</span></span>
-<span id="cb27-8"><a href="" aria-label="8"></a>  group shapiro_test p_value</span>
-<span id="cb27-9"><a href="" aria-label="9"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>        <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb27-10"><a href="" aria-label="10"></a><span class="dv">1</span> <span class="dv">1</span>            <span class="fl">0.929</span>   <span class="fl">0.437</span></span>
-<span id="cb27-11"><a href="" aria-label="11"></a><span class="dv">2</span> <span class="dv">2</span>            <span class="fl">0.949</span>   <span class="fl">0.652</span></span>
-<span id="cb27-12"><a href="" aria-label="12"></a><span class="dv">3</span> <span class="dv">3</span>            <span class="fl">0.956</span>   <span class="fl">0.741</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout-content">
+<p>A researcher is interested in finding out whether intensity of electric shock will affect the time required to solve a set of difficult problems. Eighteen subjects are randomly assigned to the three experimental conditions of “Low Shock,” “Medium Shock,” and “High Shock.” The total time (in minutes) required to solve all the problems is the measure recorded for each subject.</p>
 </div>
-</div></div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="" aria-label="1"></a>sample_data5 <span class="ot">&lt;-</span></span>
+<span id="cb33-2"><a href="" aria-label="2"></a>  <span class="fu">read_sav</span>(<span class="st">"data-sets/EX6.sav"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb33-3"><a href="" aria-label="3"></a>  <span class="fu">mutate</span>(<span class="at">shock =</span> <span class="fu">as_factor</span>(shock))</span>
+<span id="cb33-4"><a href="" aria-label="4"></a></span>
+<span id="cb33-5"><a href="" aria-label="5"></a><span class="fu">head</span>(sample_data5, <span class="dv">5</span>)</span>
+<span id="cb33-6"><a href="" aria-label="6"></a><span class="co"># A tibble: 5 × 2</span></span>
+<span id="cb33-7"><a href="" aria-label="7"></a>  shock      time</span>
+<span id="cb33-8"><a href="" aria-label="8"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb33-9"><a href="" aria-label="9"></a><span class="dv">1</span> LOW SHOCK    <span class="dv">15</span></span>
+<span id="cb33-10"><a href="" aria-label="10"></a><span class="dv">2</span> LOW SHOCK    <span class="dv">10</span></span>
+<span id="cb33-11"><a href="" aria-label="11"></a><span class="dv">3</span> LOW SHOCK    <span class="dv">25</span></span>
+<span id="cb33-12"><a href="" aria-label="12"></a><span class="dv">4</span> LOW SHOCK    <span class="dv">15</span></span>
+<span id="cb33-13"><a href="" aria-label="13"></a><span class="dv">5</span> LOW SHOCK    <span class="dv">20</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="one-way-anova-3" class="slide level2">
 <h2>One-way Anova</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Step 3: Test of homogeneity of variance</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="" aria-label="1"></a>car<span class="sc">::</span><span class="fu">leveneTest</span>(<span class="at">data =</span> exam_data, exam <span class="sc">~</span> group, <span class="at">center =</span> mean)</span>
-<span id="cb28-2"><a href="" aria-label="2"></a>Levene<span class="st">'s Test for Homogeneity of Variance (center = mean)</span></span>
-<span id="cb28-3"><a href="" aria-label="3"></a><span class="st">      Df F value  Pr(&gt;F)  </span></span>
-<span id="cb28-4"><a href="" aria-label="4"></a><span class="st">group  2  2.5689 0.09521 .</span></span>
-<span id="cb28-5"><a href="" aria-label="5"></a><span class="st">      27                  </span></span>
-<span id="cb28-6"><a href="" aria-label="6"></a><span class="st">---</span></span>
-<span id="cb28-7"><a href="" aria-label="7"></a><span class="st">Signif. codes:  0 '</span><span class="sc">**</span><span class="er">*</span><span class="st">' 0.001 '</span><span class="sc">**</span><span class="st">' 0.01 '</span><span class="sc">*</span><span class="st">' 0.05 '</span>.<span class="st">' 0.1 '</span> <span class="st">' 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Step 1: State the hypotheses</strong></p>
 </div>
-</div><div class="column" style="width:50%;">
-<p>Step 4: Perform one-way Anova</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="" aria-label="1"></a>aov_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(exam <span class="sc">~</span> group, <span class="at">data =</span> exam_data)</span>
-<span id="cb29-2"><a href="" aria-label="2"></a><span class="fu">summary</span>(aov_result)</span>
-<span id="cb29-3"><a href="" aria-label="3"></a>            Df Sum Sq Mean Sq F value   <span class="fu">Pr</span>(<span class="sc">&gt;</span>F)    </span>
-<span id="cb29-4"><a href="" aria-label="4"></a>group        <span class="dv">2</span> <span class="fl">1205.1</span>   <span class="fl">602.5</span>   <span class="fl">21.01</span> <span class="fl">3.15e-06</span> <span class="sc">**</span><span class="er">*</span></span>
-<span id="cb29-5"><a href="" aria-label="5"></a>Residuals   <span class="dv">27</span>  <span class="fl">774.4</span>    <span class="fl">28.7</span>                     </span>
-<span id="cb29-6"><a href="" aria-label="6"></a><span class="sc">---</span></span>
-<span id="cb29-7"><a href="" aria-label="7"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout-content">
+
 </div>
-</div></div>
+</div>
+</div>
+</div>
+<ul>
+<li><ul>
+<li><span class="math inline">\(H_o\)</span>: Mean solving time is the same across the three shock conditions</li>
+<li><span class="math inline">\(H_o\)</span>: <span class="math inline">\(\mu_{Low} = \mu_{Medium} = \mu_{High}\)</span></li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li><ul>
+<li><span class="math inline">\(H_a\)</span>: At least one shock condition has a different mean solving time</li>
+<li><span class="math inline">\(H_a\)</span>: Not all <span class="math inline">\(\mu\)</span> are equal</li>
+</ul></li>
+</ul>
 </section>
 <section id="one-way-anova-4" class="slide level2">
 <h2>One-way Anova</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Step 5: Post-hoc test</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="" aria-label="1"></a><span class="fu">TukeyHSD</span>(aov_result)</span>
-<span id="cb30-2"><a href="" aria-label="2"></a>  Tukey multiple comparisons of means</span>
-<span id="cb30-3"><a href="" aria-label="3"></a>    <span class="dv">95</span>% family<span class="sc">-</span>wise confidence level</span>
-<span id="cb30-4"><a href="" aria-label="4"></a></span>
-<span id="cb30-5"><a href="" aria-label="5"></a>Fit<span class="sc">:</span> <span class="fu">aov</span>(<span class="at">formula =</span> exam <span class="sc">~</span> group, <span class="at">data =</span> exam_data)</span>
-<span id="cb30-6"><a href="" aria-label="6"></a></span>
-<span id="cb30-7"><a href="" aria-label="7"></a><span class="sc">$</span>group</span>
-<span id="cb30-8"><a href="" aria-label="8"></a>    diff        lwr      upr     p adj</span>
-<span id="cb30-9"><a href="" aria-label="9"></a><span class="dv">2-1</span>  <span class="fl">6.0</span> <span class="fl">0.06165421</span> <span class="fl">11.93835</span> <span class="fl">0.0472996</span></span>
-<span id="cb30-10"><a href="" aria-label="10"></a><span class="dv">3-1</span> <span class="fl">15.4</span> <span class="fl">9.46165421</span> <span class="fl">21.33835</span> <span class="fl">0.0000020</span></span>
-<span id="cb30-11"><a href="" aria-label="11"></a><span class="dv">3-2</span>  <span class="fl">9.4</span> <span class="fl">3.46165421</span> <span class="fl">15.33835</span> <span class="fl">0.0015175</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</div><div class="column" style="width:50%;">
-<p>Step 6: Interpretation</p>
+<p><strong>Step 2: Specify the decision rule and the level of statistical significance</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Significance level: <span class="math inline">\(\alpha = 0.05\)</span></li>
+<li>Reject <span class="math inline">\(H_o\)</span> if p-value <span class="math inline">\(&lt; 0.05\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="one-way-anova-5" class="slide level2">
+<h2>One-way Anova</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 3: Test the assumptions and identify the appropriate test</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<ol type="1">
+<li>Normality test within each group using the Shapiro-Wilk test:</li>
+</ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="" aria-label="1"></a>report<span class="sc">::</span><span class="fu">report</span>(aov_result)</span>
-<span id="cb31-2"><a href="" aria-label="2"></a>The <span class="fu">ANOVA</span> (formula<span class="sc">:</span> exam <span class="sc">~</span> group) suggests that<span class="sc">:</span></span>
-<span id="cb31-3"><a href="" aria-label="3"></a></span>
-<span id="cb31-4"><a href="" aria-label="4"></a>  <span class="sc">-</span> The main effect of group is statistically significant and <span class="fu">large</span> (<span class="fu">F</span>(<span class="dv">2</span>, <span class="dv">27</span>) <span class="ot">=</span></span>
-<span id="cb31-5"><a href="" aria-label="5"></a><span class="fl">21.01</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>; <span class="at">Eta2 =</span> <span class="fl">0.61</span>, <span class="dv">95</span>% CI [<span class="fl">0.39</span>, <span class="fl">1.00</span>])</span>
-<span id="cb31-6"><a href="" aria-label="6"></a></span>
-<span id="cb31-7"><a href="" aria-label="7"></a>Effect sizes were labelled following Field<span class="st">'s (2013) recommendations.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="" aria-label="1"></a>sample_data5 <span class="sc">|&gt;</span></span>
+<span id="cb34-2"><a href="" aria-label="2"></a>  <span class="fu">group_by</span>(shock) <span class="sc">|&gt;</span></span>
+<span id="cb34-3"><a href="" aria-label="3"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb34-4"><a href="" aria-label="4"></a>    <span class="at">shapiro_test =</span> <span class="fu">shapiro.test</span>(time)<span class="sc">$</span>statistic,</span>
+<span id="cb34-5"><a href="" aria-label="5"></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(time)<span class="sc">$</span>p.value</span>
+<span id="cb34-6"><a href="" aria-label="6"></a>  )</span>
+<span id="cb34-7"><a href="" aria-label="7"></a><span class="co"># A tibble: 3 × 3</span></span>
+<span id="cb34-8"><a href="" aria-label="8"></a>  shock        shapiro_test p_value</span>
+<span id="cb34-9"><a href="" aria-label="9"></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>               <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb34-10"><a href="" aria-label="10"></a><span class="dv">1</span> LOW SHOCK           <span class="fl">0.978</span>   <span class="fl">0.942</span></span>
+<span id="cb34-11"><a href="" aria-label="11"></a><span class="dv">2</span> MEDIUM SHOCK        <span class="fl">0.978</span>   <span class="fl">0.942</span></span>
+<span id="cb34-12"><a href="" aria-label="12"></a><span class="dv">3</span> HIGH SHOCK          <span class="fl">0.978</span>   <span class="fl">0.942</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="one-way-anova-6" class="slide level2">
+<h2>One-way Anova</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 3: Test the assumptions and identify the appropriate test</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<p>Visual inspection of solving time by shock condition:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="" aria-label="1"></a>sample_data5 <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="" aria-label="2"></a>  <span class="fu">tidyplot</span>(<span class="at">x =</span> time, <span class="at">color =</span> shock) <span class="sc">|&gt;</span></span>
+<span id="cb35-3"><a href="" aria-label="3"></a>  <span class="fu">add_histogram</span>(</span>
+<span id="cb35-4"><a href="" aria-label="4"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)),</span>
+<span id="cb35-5"><a href="" aria-label="5"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb35-6"><a href="" aria-label="6"></a>    <span class="at">bins =</span> <span class="dv">5</span></span>
+<span id="cb35-7"><a href="" aria-label="7"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb35-8"><a href="" aria-label="8"></a>  <span class="fu">add</span>(<span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb35-9"><a href="" aria-label="9"></a>  <span class="fu">split_plot</span>(<span class="at">by =</span> shock) <span class="sc">|&gt;</span></span>
+<span id="cb35-10"><a href="" aria-label="10"></a>  <span class="fu">save_plot</span>(</span>
+<span id="cb35-11"><a href="" aria-label="11"></a>    <span class="at">filename =</span> <span class="st">"plot/normality_test_one-way-anova.png"</span></span>
+<span id="cb35-12"><a href="" aria-label="12"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="plot/normality_test_one-way-anova.png" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
 </div>
 </div></div>
+</section>
+<section id="one-way-anova-7" class="slide level2">
+<h2>One-way Anova</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 3: Test the assumptions and identify the appropriate test</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<p>Q-Q plots by shock condition:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="" aria-label="1"></a>sample_data5 <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="" aria-label="2"></a>  <span class="fu">tidyplot</span>(<span class="at">sample =</span> time, <span class="at">color =</span> shock) <span class="sc">|&gt;</span></span>
+<span id="cb36-3"><a href="" aria-label="3"></a>  <span class="fu">add</span>(<span class="fu">stat_qq</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb36-4"><a href="" aria-label="4"></a>  <span class="fu">add</span>(<span class="fu">stat_qq_line</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb36-5"><a href="" aria-label="5"></a>  <span class="fu">split_plot</span>(<span class="at">by =</span> shock) <span class="sc">|&gt;</span></span>
+<span id="cb36-6"><a href="" aria-label="6"></a>  <span class="fu">save_plot</span>(</span>
+<span id="cb36-7"><a href="" aria-label="7"></a>    <span class="at">filename =</span> <span class="st">"plot/qq_normality_test_one-way-anova.png"</span></span>
+<span id="cb36-8"><a href="" aria-label="8"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="plot/qq_normality_test_one-way-anova.png" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="one-way-anova-8" class="slide level2">
+<h2>One-way Anova</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 3: Test the assumptions and identify the appropriate test</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Homogeneity of variance using Levene’s test:</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="" aria-label="1"></a><span class="fu">library</span>(car)</span>
+<span id="cb37-2"><a href="" aria-label="2"></a><span class="fu">leveneTest</span>(time <span class="sc">~</span> shock, <span class="at">data =</span> sample_data5)</span>
+<span id="cb37-3"><a href="" aria-label="3"></a>Levene<span class="st">'s Test for Homogeneity of Variance (center = median)</span></span>
+<span id="cb37-4"><a href="" aria-label="4"></a><span class="st">      Df F value Pr(&gt;F)</span></span>
+<span id="cb37-5"><a href="" aria-label="5"></a><span class="st">group  2       0      1</span></span>
+<span id="cb37-6"><a href="" aria-label="6"></a><span class="st">      15               </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="one-way-anova-9" class="slide level2">
+<h2>One-way Anova</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 4: Compute the statistic and p-value</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="" aria-label="1"></a>one_way_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(time <span class="sc">~</span> shock, <span class="at">data =</span> sample_data5)</span>
+<span id="cb38-2"><a href="" aria-label="2"></a></span>
+<span id="cb38-3"><a href="" aria-label="3"></a><span class="fu">summary</span>(one_way_anova)</span>
+<span id="cb38-4"><a href="" aria-label="4"></a>            Df Sum Sq Mean Sq F value   <span class="fu">Pr</span>(<span class="sc">&gt;</span>F)    </span>
+<span id="cb38-5"><a href="" aria-label="5"></a>shock        <span class="dv">2</span> <span class="fl">2100.0</span>  <span class="fl">1050.0</span>   <span class="fl">40.13</span> <span class="fl">9.53e-07</span> <span class="sc">**</span><span class="er">*</span></span>
+<span id="cb38-6"><a href="" aria-label="6"></a>Residuals   <span class="dv">15</span>  <span class="fl">392.5</span>    <span class="fl">26.2</span>                     </span>
+<span id="cb38-7"><a href="" aria-label="7"></a><span class="sc">---</span></span>
+<span id="cb38-8"><a href="" aria-label="8"></a>Signif. codes<span class="sc">:</span>  <span class="dv">0</span> <span class="st">'***'</span> <span class="fl">0.001</span> <span class="st">'**'</span> <span class="fl">0.01</span> <span class="st">'*'</span> <span class="fl">0.05</span> <span class="st">'.'</span> <span class="fl">0.1</span> <span class="st">' '</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="one-way-anova-10" class="slide level2">
+<h2>One-way Anova</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Step 5: Conclusion and interpretation</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="" aria-label="1"></a><span class="fu">report</span>(one_way_anova)</span>
+<span id="cb39-2"><a href="" aria-label="2"></a>The <span class="fu">ANOVA</span> (formula<span class="sc">:</span> time <span class="sc">~</span> shock) suggests that<span class="sc">:</span></span>
+<span id="cb39-3"><a href="" aria-label="3"></a></span>
+<span id="cb39-4"><a href="" aria-label="4"></a>  <span class="sc">-</span> The main effect of shock is statistically significant and <span class="fu">large</span> (<span class="fu">F</span>(<span class="dv">2</span>, <span class="dv">15</span>) <span class="ot">=</span></span>
+<span id="cb39-5"><a href="" aria-label="5"></a><span class="fl">40.13</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>; <span class="at">Eta2 =</span> <span class="fl">0.84</span>, <span class="dv">95</span>% CI [<span class="fl">0.68</span>, <span class="fl">1.00</span>])</span>
+<span id="cb39-6"><a href="" aria-label="6"></a></span>
+<span id="cb39-7"><a href="" aria-label="7"></a>Effect sizes were labelled following Field<span class="st">'s (2013) recommendations.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="one-way-anova-11" class="slide level2">
+<h2>One-way Anova</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Post-hoc test: Tukey HSD</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<p>A significant F-test only shows that at least one mean differs. Tukey’s HSD compares all pairs of groups while controlling the family-wise error rate.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="" aria-label="1"></a><span class="fu">TukeyHSD</span>(one_way_anova)</span>
+<span id="cb40-2"><a href="" aria-label="2"></a>  Tukey multiple comparisons of means</span>
+<span id="cb40-3"><a href="" aria-label="3"></a>    <span class="dv">95</span>% family<span class="sc">-</span>wise confidence level</span>
+<span id="cb40-4"><a href="" aria-label="4"></a></span>
+<span id="cb40-5"><a href="" aria-label="5"></a>Fit<span class="sc">:</span> <span class="fu">aov</span>(<span class="at">formula =</span> time <span class="sc">~</span> shock, <span class="at">data =</span> sample_data5)</span>
+<span id="cb40-6"><a href="" aria-label="6"></a></span>
+<span id="cb40-7"><a href="" aria-label="7"></a><span class="sc">$</span>shock</span>
+<span id="cb40-8"><a href="" aria-label="8"></a>                        diff       lwr      upr     p adj</span>
+<span id="cb40-9"><a href="" aria-label="9"></a>MEDIUM SHOCK<span class="sc">-</span>LOW SHOCK     <span class="dv">5</span> <span class="sc">-</span><span class="fl">2.671215</span> <span class="fl">12.67121</span> <span class="fl">0.2400638</span></span>
+<span id="cb40-10"><a href="" aria-label="10"></a>HIGH SHOCK<span class="sc">-</span>LOW SHOCK      <span class="dv">25</span> <span class="fl">17.328785</span> <span class="fl">32.67121</span> <span class="fl">0.0000012</span></span>
+<span id="cb40-11"><a href="" aria-label="11"></a>HIGH SHOCK<span class="sc">-</span>MEDIUM SHOCK   <span class="dv">20</span> <span class="fl">12.328785</span> <span class="fl">27.67121</span> <span class="fl">0.0000178</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="one-way-anova-12" class="slide level2">
+<h2>One-way Anova</h2>
+<div style="font-size: 2.0em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Post-hoc test: Tukey HSD</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="" aria-label="1"></a>tukey_df <span class="ot">&lt;-</span></span>
+<span id="cb41-2"><a href="" aria-label="2"></a>  <span class="fu">TukeyHSD</span>(one_way_anova)<span class="sc">$</span>shock <span class="sc">|&gt;</span></span>
+<span id="cb41-3"><a href="" aria-label="3"></a>  <span class="fu">as.data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb41-4"><a href="" aria-label="4"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="st">"comparison"</span>)</span>
+<span id="cb41-5"><a href="" aria-label="5"></a></span>
+<span id="cb41-6"><a href="" aria-label="6"></a><span class="fu">ggplot</span>(tukey_df, <span class="fu">aes</span>(<span class="at">x =</span> diff, <span class="at">y =</span> comparison)) <span class="sc">+</span></span>
+<span id="cb41-7"><a href="" aria-label="7"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb41-8"><a href="" aria-label="8"></a>  <span class="fu">geom_errorbar</span>(</span>
+<span id="cb41-9"><a href="" aria-label="9"></a>    <span class="fu">aes</span>(<span class="at">xmin =</span> lwr, <span class="at">xmax =</span> upr),</span>
+<span id="cb41-10"><a href="" aria-label="10"></a>    <span class="at">orientation =</span> <span class="st">"y"</span>,</span>
+<span id="cb41-11"><a href="" aria-label="11"></a>    <span class="at">width =</span> <span class="fl">0.2</span></span>
+<span id="cb41-12"><a href="" aria-label="12"></a>  ) <span class="sc">+</span></span>
+<span id="cb41-13"><a href="" aria-label="13"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb41-14"><a href="" aria-label="14"></a>  <span class="fu">labs</span>(</span>
+<span id="cb41-15"><a href="" aria-label="15"></a>    <span class="at">x =</span> <span class="st">"Difference in mean time (minutes), 95% family-wise CI"</span>,</span>
+<span id="cb41-16"><a href="" aria-label="16"></a>    <span class="at">y =</span> <span class="cn">NULL</span></span>
+<span id="cb41-17"><a href="" aria-label="17"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="plot/tukey-hsd-one-way-anova.png" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="one-way-anova-13" class="slide level2">
+<h2>One-way Anova</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="" aria-label="1"></a>sample_data5 <span class="sc">|&gt;</span></span>
+<span id="cb42-2"><a href="" aria-label="2"></a>  <span class="fu">tidyplot</span>(<span class="at">x =</span> shock, <span class="at">y =</span> time, <span class="at">color =</span> shock) <span class="sc">|&gt;</span></span>
+<span id="cb42-3"><a href="" aria-label="3"></a>  <span class="fu">add_violin</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb42-4"><a href="" aria-label="4"></a>  <span class="fu">add_data_points_beeswarm</span>(<span class="at">white_border =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb42-5"><a href="" aria-label="5"></a>  <span class="fu">save_plot</span>(</span>
+<span id="cb42-6"><a href="" aria-label="6"></a>    <span class="at">filename =</span> <span class="st">"plot/tidy_one-way-anova.png"</span></span>
+<span id="cb42-7"><a href="" aria-label="7"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="right">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="plot/tidy_one-way-anova.png" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="check-up-quiz-3" class="title-slide slide level1 center">
+<h1>Check-up quiz</h1>
+
+</section>
+<section id="when-is-a-one-way-anova-appropriate" class="slide level2 quiz-question">
+<h2>When is a one-way ANOVA appropriate?</h2>
+<ul>
+<li><p>Comparing the means of two independent groups</p></li>
+<li><p>Comparing the means of two related measurements</p></li>
+<li><p><span class="correct">Comparing the means of three or more independent groups</span></p></li>
+<li><p>Measuring the correlation between two continuous variables</p></li>
+</ul>
+</section>
+<section id="which-assumption-does-levenes-test-check-in-a-one-way-anova" class="slide level2 quiz-question">
+<h2>Which assumption does Levene’s test check in a one-way ANOVA?</h2>
+<ul>
+<li><p>Normality of the residuals</p></li>
+<li><p><span class="correct">Homogeneity of variance across groups</span></p></li>
+<li><p>Independence of observations</p></li>
+<li><p>Equal sample sizes across groups</p></li>
+</ul>
+</section>
+<section id="what-is-the-null-hypothesis-in-a-one-way-anova" class="slide level2 quiz-question">
+<h2>What is the null hypothesis in a one-way ANOVA?</h2>
+<ul>
+<li><p>At least one group mean is different from the others</p></li>
+<li><p><span class="correct">All group means are equal</span></p></li>
+<li><p>All group variances are different</p></li>
+<li><p>The group means are all different from each other</p></li>
+</ul>
+</section>
+<section id="if-the-f-test-in-a-one-way-anova-is-significant-what-can-we-conclude" class="slide level2 quiz-question">
+<h2>If the F-test in a one-way ANOVA is significant, what can we conclude?</h2>
+<ul>
+<li><p>All group means are different from each other</p></li>
+<li><p><span class="correct">At least one group mean differs from the others</span></p></li>
+<li><p>The group variances are unequal</p></li>
+<li><p>The data are not normally distributed</p></li>
+</ul>
+</section>
+<section id="why-is-a-post-hoc-test-such-as-tukey-hsd-used-after-a-significant-anova" class="slide level2 quiz-question">
+<h2>Why is a post-hoc test such as Tukey HSD used after a significant ANOVA?</h2>
+<ul>
+<li><p>To check the normality assumption</p></li>
+<li><p>To check the homogeneity of variance assumption</p></li>
+<li><p><span class="correct">To identify which pairs of groups differ while controlling the family-wise error rate</span></p></li>
+<li><p>To increase the sample size</p></li>
+</ul>
+</section>
+<section id="why-not-run-several-independent-samples-t-tests-instead-of-a-one-way-anova" class="slide level2 quiz-question">
+<h2>Why not run several independent-samples t-tests instead of a one-way ANOVA?</h2>
+<ul>
+<li><p>t-tests cannot be used with more than 20 observations</p></li>
+<li><p><span class="correct">Multiple tests inflate the overall Type I error rate</span></p></li>
+<li><p>t-tests do not assume normality</p></li>
+<li><p>ANOVA has higher power only when the sample sizes are equal</p></li>
+</ul>
 
 </section></section>
     </div>

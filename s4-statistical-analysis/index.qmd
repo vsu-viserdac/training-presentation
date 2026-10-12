@@ -270,7 +270,6 @@ sample_data1 <- read_sav("data-sets/EX4.sav") |>
 head(sample_data1, 5)
 ```
 
-
 ## Independent sample t-test
 
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
@@ -278,20 +277,19 @@ head(sample_data1, 5)
 :::
 
 - 
+
   - $H_o$: There is no difference in the mean number of words recalled between first year male and female students
-  - $H_o: \mu_{male} = \mu_{female}$ 
+  - $H_o: \mu_{male} = \mu_{female}$
 
 <br>
 
-  - $H_a$: There is a difference in the mean number of words recalled between first year male and female students
-  - $H_a: \mu_{male} \ne \mu_{female}$ 
-
+- $H_a$: There is a difference in the mean number of words recalled between first year male and female students
+- $H_a: \mu_{male} \ne \mu_{female}$
 
 ## Independent sample t-test
 
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Step 2: Specify the decision rule and the level of statistical significance
-
 :::
 
 ## Independent sample t-test
@@ -300,7 +298,7 @@ head(sample_data1, 5)
 ## Step 3: Test the assumptions
 :::
 
-1. Normality test using the Shapiro-Wilk test
+1.  Normality test using the Shapiro-Wilk test
 
 ```{r}
 #| echo: true
@@ -314,14 +312,13 @@ sample_data1 |>
   )
 ```
 
-
 ## Independent sample t-test
 
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Step 3: Test the assumptions
 :::
 
-1. Normality test using the Shapiro-Wilk test
+1.  Normality test using the Shapiro-Wilk test
 
 ```{r}
 #| echo: true
@@ -339,18 +336,17 @@ sample_data1 |>
 Both p-values are well above 0.05, so there's no evidence against normality in either group — the distribution of words recalled is consistent with a normal distribution for both male and female students. This supports the normality assumption required for the independent-samples t-test.
 :::
 
-
 ## Independent sample t-test
 
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Step 3: Test the assumptions
 :::
 
-1. Normality test using the visual inspection
+1.  Normality test using the visual inspection
 
 <br>
 
-::: {.columns}
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: true
@@ -366,7 +362,6 @@ sample_data1 |>
   add(geom_density(alpha = 0.7)) |>
   split_plot(by = gender)
 ```
-
 :::
 
 ::: {.column width="60%"}
@@ -398,9 +393,7 @@ p_hist_density <-
 knitr::include_graphics("plot/normality-test.png")
 ```
 :::
-
-:::
-
+:::::
 
 ## Independent sample t-test
 
@@ -408,11 +401,11 @@ knitr::include_graphics("plot/normality-test.png")
 ## Step 3: Test the assumptions
 :::
 
-1. Normality test using the visual inspection
+1.  Normality test using the visual inspection
 
 <br>
 
-::: {.columns}
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: true
@@ -426,7 +419,6 @@ sample_data1 |>
   split_plot(by = gender)
 
 ```
-
 :::
 
 ::: {.column width="60%"}
@@ -454,10 +446,7 @@ sample_data1 |>
 knitr::include_graphics("plot/qq_normality-test.png")
 ```
 :::
-
-:::
-
-
+:::::
 
 ## Independent sample t-test
 
@@ -465,7 +454,7 @@ knitr::include_graphics("plot/qq_normality-test.png")
 ## Step 3: Test the assumptions
 :::
 
-2. Homogeneity of variance
+2.  Homogeneity of variance
 
 ```{r}
 #| echo: true
@@ -473,14 +462,13 @@ library(car)
 leveneTest(words ~ gender, data = sample_data1)
 ```
 
-
 ## Independent sample t-test
 
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Step 3: Test the assumptions
 :::
 
-2. Homogeneity of variance
+2.  Homogeneity of variance
 
 ```{r}
 #| echo: true
@@ -489,11 +477,8 @@ leveneTest(words ~ gender, data = sample_data1)
 ```
 
 ::: {.callout-note appearance="simple" icon="false" style="font-size: 2.0em;"}
-Since p > 0.05, there's no evidence against the assumption of equal variances between the male and female groups — the variances of words recalled can be treated as homogeneous. This supports using the standard pooled-variance (equal variances assumed) independent-samples t-test rather than the Welch correction.
+Since p \> 0.05, there's no evidence against the assumption of equal variances between the male and female groups — the variances of words recalled can be treated as homogeneous. This supports using the standard pooled-variance (equal variances assumed) independent-samples t-test rather than the Welch correction.
 :::
-
-
-
 
 ## Independent sample t-test
 
@@ -514,9 +499,6 @@ ind_t_test_result <- t.test(
 ind_t_test_result
 ```
 
-
-
-
 ## Independent sample t-test
 
 ::: {.callout-note style="font-size: 2.0em;"}
@@ -529,12 +511,11 @@ library(report)
 report(ind_t_test_result)
 ```
 
-
-
 ## Independent sample t-test
 
 ::: {.callout-caution style="font-size: 2.0em;"}
 ## Note
+
 Supposed equal variances were not assumed, the Welch's t-test would be used instead. The results of the Welch's t-test are as follows:
 :::
 
@@ -551,11 +532,11 @@ welch_t_test_result <- t.test(
 welch_t_test_result
 ```
 
-
 ## Independent sample t-test
 
 ::: {.callout-caution style="font-size: 2.0em;"}
 ## Note
+
 Supposed equal variances were not assumed, the Welch's t-test would be used instead. The results of the Welch's t-test are as follows:
 :::
 
@@ -564,17 +545,15 @@ Supposed equal variances were not assumed, the Welch's t-test would be used inst
 report(welch_t_test_result)
 ```
 
-
-
 ## Independent sample t-test
 
 ::: {.callout-caution style="font-size: 2.0em;"}
 ## Note
+
 You can also visualize the results of the independent sample t-test using the `ggstatsplot` package, which provides a convenient way to create informative plots that include statistical test results.
 :::
 
-::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: true
@@ -610,23 +589,19 @@ ggsave(
 
 knitr::include_graphics("plot/independent-sample-t-test.png")
 ```
-
 :::
-
-:::
-
+:::::
 
 ## Independent sample t-test
 
 ::: {.callout-caution style="font-size: 2.0em;"}
 ## Note
+
 Or you can visualize the results of the independent sample t-test using the `tidyplots` package.
 :::
 
-
-::: {.columns}
+::::: columns
 ::: {.column width="40%"}
-
 ```{r}
 #| echo: true
 #| eval: false
@@ -667,23 +642,20 @@ sample_data1 |>
 ## display plot
 knitr::include_graphics("plot/tidy_independent-sample-t-test.png")
 ```
-
 :::
-
-:::
-
+:::::
 
 ## Mann-Whitney U test
 
 ::: {.callout-caution style="font-size: 2.0em;"}
 ## Note
-Supposed normality test fails, the Mann-Whitney U test (also known as the Wilcoxon rank-sum test) can be used as a non-parametric alternative to the independent samples t-test. 
+
+Supposed normality test fails, the Mann-Whitney U test (also known as the Wilcoxon rank-sum test) can be used as a non-parametric alternative to the independent samples t-test.
 :::
 
 ```{r}
 knitr::include_graphics("plot/idependent-t-tst.png")
 ```
-
 
 ## Mann-Whitney U test
 
@@ -691,22 +663,21 @@ knitr::include_graphics("plot/idependent-t-tst.png")
 
 - is a non-parametric test used to compare the medians of two independent groups when the assumptions of the independent samples t-test are not met (e.g., non-normal distribution).
 
-
 ## Mann-Whitney U test
 
 ::: {.callout-tip icon="false" style="font-size: 2.0em;"}
 ## Assumptions
+
 - Data must be from independent samples
 - Data must be continuous or at least at the ordinal level
 - Underlying of the dependent variable is continuous in nature
 :::
 
-
-
 ## Mann Whitney U-test
 
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Example
+
 Suppose that the following data have been collected representing monthly incomes for teachers employed in two different private schools (School A and School B). The researcher wishes to determine whether there is a substantial difference between these incomes.
 :::
 
@@ -721,19 +692,21 @@ sample_data2 <-
 head(sample_data2, 5)
 ```
 
-
 ## Mann Whitney U-test
 
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Step 1: State the hypotheses
 :::
+
 - 
+
   - $H_o$: Monthly incomes for teachers at School A and B are the same
   - $H_o$: $\mu_{School A} = \mu_{School B}$
 
 <br>
 
 - 
+
   - $H_a$: Monthly incomes for teachers at School A and B are different
   - $H_a$: $\mu_{School A} \neq \mu_{School B}$
 
@@ -752,7 +725,7 @@ head(sample_data2, 5)
 ## Step 3: Test the assumptions and identify the appropriate test
 :::
 
-1. Normality test using the Shapiro-Wilk test:
+1.  Normality test using the Shapiro-Wilk test:
 
 ```{r}
 #| echo: true
@@ -769,7 +742,6 @@ sample_data2 |>
 School A's Shapiro-Wilk result is $p = 0.856$, while School B's is $p = 0.042$. At $\alpha = 0.05$, normality is not rejected for School A but is rejected for School B. This supports using the Mann-Whitney U test as a nonparametric comparison.
 :::
 
-
 ## Mann Whitney U-test
 
 ::: {.callout-note style="font-size: 2.0em;"}
@@ -778,8 +750,7 @@ School A's Shapiro-Wilk result is $p = 0.856$, while School B's is $p = 0.042$. 
 
 Visual inspection of income distributions by school:
 
-::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: true
@@ -795,8 +766,6 @@ sample_data2 |>
   add(geom_density(alpha = 0.7)) |>
   split_plot(by = school)
 ```
-
-
 :::
 
 ::: {.column width="60%"}
@@ -825,7 +794,7 @@ sample_data2 |>
 knitr::include_graphics("plot/normality_test_mann-whitney-u-test.png")
 ```
 :::
-:::
+:::::
 
 ## Mann Whitney U-test
 
@@ -835,8 +804,7 @@ knitr::include_graphics("plot/normality_test_mann-whitney-u-test.png")
 
 Q-Q plots by school:
 
-::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: true
@@ -862,8 +830,7 @@ sample_data2 |>
 knitr::include_graphics("plot/qq_normality_test_mann-whitney-u-test.png")
 ```
 :::
-
-:::
+:::::
 
 ## Mann Whitney U-test
 
@@ -882,7 +849,6 @@ mann_whitney_u_test <-
 mann_whitney_u_test
 ```
 
-
 ## Mann Whitney U-test
 
 ::: {.callout-note style="font-size: 2.0em;"}
@@ -894,7 +860,6 @@ mann_whitney_u_test
 library(report)
 report(mann_whitney_u_test)
 ```
-
 
 # Check up quiz
 
@@ -938,27 +903,28 @@ report(mann_whitney_u_test)
 
 - The assumptions of the test are not met
 
-
 ## Paired-samples t-test
 
 - 
+
   - also known as the dependent t-test
-  - is used to compare the means of two related groups. 
+  - is used to compare the means of two related groups.
   - commonly used in situations where the same subjects are measured before and after an intervention or treatment.
 
 ## Paired-samples t-test
 
 ::: {.callout-tip icon="false" style="font-size: 2.0em;"}
 ## Assumptions
+
 - two sets of data must be obtained from (1) the same subjects or (2) matched subjects
 - Sampling distribution should be normal
 :::
-
 
 ## Paired-samples t-test
 
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Example
+
 A researcher designed an experiment to test the effect of drug X on eating behavior. The amount of food eaten by a group of rats in a one-week period, prior to ingesting drug X, was recorded. The rats were then given drug X, and the amount of food eaten in a one-week period was again recorded. The following amounts of food in grams were eaten during the “before” and “after” conditions.
 :::
 
@@ -970,12 +936,12 @@ sample_data3 <-
 head(sample_data3, 5)
 ```
 
-
 ## Paired-samples t-test
 
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Step 1: State the hypotheses
 :::
+
 - $H_o$: Drug X does not change the mean amount of food eaten by the rats
 - $H_a$: Drug X changes the mean amount of food eaten by the rats
 - In symbols: $H_o: \mu_{before-after} = 0$; $H_a: \mu_{before-after} \neq 0$
@@ -984,10 +950,10 @@ head(sample_data3, 5)
 
 ::: {.callout-tip style="font-size: 2.0em;"}
 ## Step 2: Specify the decision rule and significance level
+
 - Significance level: $\alpha = 0.05$ (two-sided)
 - Reject $H_o$ if the p-value is less than 0.05
 :::
-
 
 ## Paired-samples t-test
 
@@ -995,7 +961,9 @@ head(sample_data3, 5)
 ## Step 3: Check assumptions and select the test
 :::
 
-- 1. The paired t-test assumes the within-rat differences are approximately normally distributed. Check those differences with Shapiro-Wilk:
+- 
+
+  1.  The paired t-test assumes the within-rat differences are approximately normally distributed. Check those differences with Shapiro-Wilk:
 
 ```{r}
 #| echo: true
@@ -1011,12 +979,12 @@ sample_data3 |>
 The test of normality is applied to the paired differences, not separately to before and after scores. A non-significant Shapiro-Wilk result does not provide evidence against normality.
 :::
 
-
 ## Paired-samples t-test
 
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Step 4: Compute the statistic and p-value
 :::
+
 ```{r}
 #| echo: true
 
@@ -1034,7 +1002,6 @@ paired_t_test
 
 ::: {.callout-note icon="false" style="font-size: 2.0em;"}
 ## Step 5: Conclusion and interpretation
-
 :::
 
 ```{r}
@@ -1042,14 +1009,10 @@ paired_t_test
 report(paired_t_test)
 ```
 
-
 ## Paired-samples t-test
 
-
-::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
-
 ```{r}
 #| echo: true
 #| eval: false
@@ -1068,12 +1031,9 @@ ggwithinstats(
   title = "Paired Samples T-Test",
 )
 ```
-
-
 :::
 
 ::: {.column width="60%"}
-
 ```{r}
 #| echo: false
 sample_data3_longer <-
@@ -1108,17 +1068,12 @@ ggsave(
 ## display plot
 knitr::include_graphics("plot/paired-sample-t-test.png")
 ```
-
 :::
-
-:::
-
+:::::
 
 ## Paired-samples t-test
 
-
-::: {.columns}
-
+::::: columns
 ::: {.column width="40%"}
 ```{r}
 #| echo: true
@@ -1134,20 +1089,15 @@ tidy_paired_samples_t_test <-
     filename = "plot/tidy_paired-sample-t-test.png"
   )
 ```
-
 :::
 
 ::: {.column width="60%"}
-
 ```{r}
 #| echo: false
 knitr::include_graphics("plot/tidy_paired-sample-t-test.png")
 ```
-
 :::
-
-:::
-
+:::::
 
 # Check-up quiz
 
@@ -1181,6 +1131,224 @@ knitr::include_graphics("plot/tidy_paired-sample-t-test.png")
 
 - `cor.test()`
 
+## Wilcoxon signed-rank test
+
+::: {.callout-caution style="font-size: 2.0em;"}
+## Note
+
+Supposed normality test fails, the Wilcoxon signed-rank test can be used as a non-parametric alternative to the paired samples t-test.
+:::
+
+- a non-parapmetric test used to compare two related samples, matched samples, or repeated measurements on a single sample to assess whether their population mean ranks differ.
+
+## Wilcoxon signed-rank test
+
+::: {.callout-tip icon="false" style="font-size: 2.0em;"}
+## Assumptions
+
+- scale measurement within each pair must be at least ordinal in nature
+- the difference in scores must also constitute an ordinal scale
+:::
+
+## Wilcoxon signed-rank test
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Example:
+
+Suppose a researcher is interested in whether a drug claimed by its manufacturer to improve problem-solving skills accomplished that goal. The researcher selects a sample of seven individuals and measured their problem-solving skills before and after they have taken that drug. The number of correct responses is recorded below.
+:::
+
+```{r}
+#| echo: true
+sample_data4 <- read_sav("data-sets/EX19d.sav")
+
+head(sample_data4, 5)
+```
+
+## Wilcoxon signed-rank test
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Step 1: State the hypotheses
+:::
+
+- 
+
+  - $H_o$: The drug has no effect on problem-solving skills (median difference = 0)
+  - $H_a$: The drug changes problem-solving skills (median difference $\neq$ 0)
+
+## Wilcoxon signed-rank test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 2: Specify the decision rule and the level of statistical significance
+
+- Significance level: $\alpha = 0.05$ (two-sided)
+- Reject $H_o$ if p-value $< 0.05$
+:::
+
+## Wilcoxon signed-rank test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 3: Test the assumptions and identify the appropriate test
+:::
+
+1.  Normality test of the paired differences using the Shapiro-Wilk test:
+
+```{r}
+#| echo: true
+
+sample_data4 <-
+  sample_data4 |>
+  mutate(difference = after - before)
+
+sample_data4 |>
+  summarise(
+    shapiro_test = shapiro.test(difference)$statistic,
+    p_value = shapiro.test(difference)$p.value
+  )
+```
+
+## Wilcoxon signed-rank test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 3: Test the assumptions and identify the appropriate test
+:::
+
+Visual inspection of the paired differences:
+
+::::: columns
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: false
+
+sample_data4 |>
+  tidyplot(x = difference) |>
+  add_histogram(
+    mapping = aes(y = after_stat(density)),
+    alpha = 0.5,
+    bins = 6
+  ) |>
+  add(geom_density(alpha = 0.7)) |>
+  save_plot(
+    filename = "plot/normality_test_wilcoxon-signed-rank-test.png"
+  )
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| fig-align: right
+#| out-width: 100%
+
+## display plot
+knitr::include_graphics("plot/normality_test_wilcoxon-signed-rank-test.png")
+```
+:::
+:::::
+
+## Wilcoxon signed-rank test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 3: Test the assumptions and identify the appropriate test
+:::
+
+Q-Q plot of the paired differences:
+
+::::: columns
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: false
+
+sample_data4 |>
+  tidyplot(sample = difference) |>
+  add(stat_qq()) |>
+  add(stat_qq_line()) |>
+  save_plot(
+    filename = "plot/qq_normality_test_wilcoxon-signed-rank-test.png"
+  )
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| fig-align: right
+#| out-width: 100%
+
+## display plot
+knitr::include_graphics("plot/qq_normality_test_wilcoxon-signed-rank-test.png")
+```
+:::
+:::::
+
+## Wilcoxon signed-rank test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 4: Compute the statistic and p-value
+:::
+
+```{r}
+#| echo: true
+wilcoxon_signed_rank_test <-
+  wilcox.test(
+    sample_data4$after,
+    sample_data4$before,
+    paired = TRUE,
+    exact = FALSE,
+    correct = FALSE
+  )
+
+wilcoxon_signed_rank_test
+```
+
+## Wilcoxon signed-rank test
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 5: Conclusion and interpretation
+:::
+
+```{r}
+#| echo: true
+report(wilcoxon_signed_rank_test)
+```
+
+## Wilcoxon signed-rank test
+
+::::: columns
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: false
+sample_data4_longer <-
+  sample_data4 |>
+  pivot_longer(
+    cols = c(before, after),
+    names_to = "time",
+    values_to = "score"
+  ) |>
+  mutate(time = factor(time, levels = c("before", "after")))
+
+sample_data4_longer |>
+  tidyplot(x = time, y = score, color = time) |>
+  add_violin(alpha = 0.3) |>
+  add_data_points_beeswarm(white_border = TRUE) |>
+  save_plot(
+    filename = "plot/tidy_wilcoxon-signed-rank-test.png"
+  )
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| fig-align: right
+#| out-width: 100%
+
+## display plot
+knitr::include_graphics("plot/tidy_wilcoxon-signed-rank-test.png")
+```
+:::
+:::::
+
 # Statistical tests for comparing more than two groups
 
 ## comparing more than two groups
@@ -1202,7 +1370,7 @@ knitr::include_graphics("plot/tidy_paired-sample-t-test.png")
 +---------------------------------------------------------+-------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
 | Purpose                                                 | Data requirements                                                                         | Example                                                                                          |
 +=========================================================+===========================================================================================+==================================================================================================+
-| - Comparing means of at least three independent groups. | - two variables: i continuous variable, 1 categorical/discrete with at least 3 categories | - Comparing average performance among three independent groups (e.g., test scores of 3 classes). |
+| - Comparing means of at least three independent groups. | - two variables: 1 continuous variable, 1 categorical/discrete with at least 3 categories | - Comparing average performance among three independent groups (e.g., test scores of 3 classes). |
 |                                                         | - normality: data should be approximately normally distributed.                           |                                                                                                  |
 |                                                         | - homogeneity of variance: the variances of the group should be equal.                    |                                                                                                  |
 +---------------------------------------------------------+-------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
@@ -1226,123 +1394,330 @@ knitr::include_graphics("plot/tidy_paired-sample-t-test.png")
 6.  Conclusion
 :::
 
+
 ## One-way Anova
 
-::::: columns
-::: {.column width="50%"}
-Step 1: Import data and data management
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Example:
 
-```{r}
-#| echo: true
-
-# Create the dataframe
-exam_data <- data.frame(
-  group = c(
-    rep(1, 10),
-    rep(2, 10),
-    rep(3, 10)
-  ),
-  exam = c(
-    50,
-    45,
-    48,
-    47,
-    45,
-    49,
-    50,
-    54,
-    57,
-    55, # Group 1
-    63,
-    55,
-    54,
-    49,
-    65,
-    46,
-    53,
-    67,
-    58,
-    50, # Group 2
-    71,
-    67,
-    68,
-    62,
-    65,
-    58,
-    63,
-    69,
-    70,
-    61 # Group 3
-  )
-) |>
-  mutate(group = as_factor(group))
-
-# View the dataframe
-head(exam_data)
-```
+A researcher is interested in finding out whether intensity of electric shock will affect the time required to solve a set of difficult problems. Eighteen subjects are randomly assigned to the three experimental conditions of “Low Shock,” “Medium Shock,” and “High Shock.” The total time (in minutes) required to solve all the problems is the measure recorded for each subject.
 :::
 
-::: {.column width="50%"}
-Step 2: Test of normality
+```{r}
+#| echo: true
+sample_data5 <-
+  read_sav("data-sets/EX6.sav") |>
+  mutate(shock = as_factor(shock))
+
+head(sample_data5, 5)
+```
+
+## One-way Anova
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Step 1: State the hypotheses
+:::
+- 
+  - $H_o$: Mean solving time is the same across the three shock conditions
+  - $H_o$: $\mu_{Low} = \mu_{Medium} = \mu_{High}$
+
+<br>
+
+- 
+  - $H_a$: At least one shock condition has a different mean solving time
+  - $H_a$: Not all $\mu$ are equal
+
+## One-way Anova
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 2: Specify the decision rule and the level of statistical significance
+
+- Significance level: $\alpha = 0.05$
+- Reject $H_o$ if p-value $< 0.05$
+:::
+
+## One-way Anova
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 3: Test the assumptions and identify the appropriate test
+:::
+
+1. Normality test within each group using the Shapiro-Wilk test:
 
 ```{r}
 #| echo: true
 
-exam_data |>
-  group_by(group) |>
+sample_data5 |>
+  group_by(shock) |>
   summarise(
-    shapiro_test = shapiro.test(exam)$statistic,
-    p_value = shapiro.test(exam)$p.value
+    shapiro_test = shapiro.test(time)$statistic,
+    p_value = shapiro.test(time)$p.value
+  )
+```
+
+## One-way Anova
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 3: Test the assumptions and identify the appropriate test
+:::
+
+Visual inspection of solving time by shock condition:
+
+::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: false
+
+sample_data5 |>
+  tidyplot(x = time, color = shock) |>
+  add_histogram(
+    mapping = aes(y = after_stat(density)),
+    alpha = 0.5,
+    bins = 5
+  ) |>
+  add(geom_density(alpha = 0.7)) |>
+  split_plot(by = shock) |>
+  save_plot(
+    filename = "plot/normality_test_one-way-anova.png"
   )
 ```
 :::
-:::::
+
+::: {.column width="60%"}
+```{r}
+#| fig-align: right
+#| out-width: 100%
+
+## display plot
+knitr::include_graphics("plot/normality_test_one-way-anova.png")
+```
+:::
+:::
 
 ## One-way Anova
 
-::::: columns
-::: {.column width="50%"}
-Step 3: Test of homogeneity of variance
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 3: Test the assumptions and identify the appropriate test
+:::
 
+Q-Q plots by shock condition:
+
+::: {.columns}
+
+::: {.column width="40%"}
 ```{r}
 #| echo: true
+#| eval: false
 
-car::leveneTest(data = exam_data, exam ~ group, center = mean)
+sample_data5 |>
+  tidyplot(sample = time, color = shock) |>
+  add(stat_qq()) |>
+  add(stat_qq_line()) |>
+  split_plot(by = shock) |>
+  save_plot(
+    filename = "plot/qq_normality_test_one-way-anova.png"
+  )
 ```
 :::
 
-::: {.column width="50%"}
-Step 4: Perform one-way Anova
-
+::: {.column width="60%"}
 ```{r}
-#| echo: true
+#| fig-align: right
+#| out-width: 100%
 
-aov_result <- aov(exam ~ group, data = exam_data)
-summary(aov_result)
+## display plot
+knitr::include_graphics("plot/qq_normality_test_one-way-anova.png")
 ```
 :::
-:::::
+
+:::
 
 ## One-way Anova
 
-::::: columns
-::: {.column width="50%"}
-Step 5: Post-hoc test
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 3: Test the assumptions and identify the appropriate test
+:::
+
+2. Homogeneity of variance using Levene's test:
 
 ```{r}
 #| echo: true
-
-TukeyHSD(aov_result)
+library(car)
+leveneTest(time ~ shock, data = sample_data5)
 ```
-:::
 
-::: {.column width="50%"}
-Step 6: Interpretation
+## One-way Anova
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 4: Compute the statistic and p-value
+:::
 
 ```{r}
 #| echo: true
+one_way_anova <- aov(time ~ shock, data = sample_data5)
 
-report::report(aov_result)
+summary(one_way_anova)
+```
+
+## One-way Anova
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Step 5: Conclusion and interpretation
+:::
+
+```{r}
+#| echo: true
+report(one_way_anova)
+```
+
+## One-way Anova
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Post-hoc test: Tukey HSD
+:::
+
+A significant F-test only shows that at least one mean differs. Tukey's HSD compares all pairs of groups while controlling the family-wise error rate.
+
+```{r}
+#| echo: true
+TukeyHSD(one_way_anova)
+```
+
+## One-way Anova
+
+::: {.callout-note style="font-size: 2.0em;"}
+## Post-hoc test: Tukey HSD
+:::
+
+::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: false
+tukey_df <-
+  TukeyHSD(one_way_anova)$shock |>
+  as.data.frame() |>
+  tibble::rownames_to_column("comparison")
+
+ggplot(tukey_df, aes(x = diff, y = comparison)) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  geom_errorbar(
+    aes(xmin = lwr, xmax = upr),
+    orientation = "y",
+    width = 0.2
+  ) +
+  geom_point(size = 2) +
+  labs(
+    x = "Difference in mean time (minutes), 95% family-wise CI",
+    y = NULL
+  )
 ```
 :::
-:::::
+
+::: {.column width="60%"}
+```{r}
+#| fig-align: right
+#| out-width: 100%
+
+## display plot
+knitr::include_graphics("plot/tukey-hsd-one-way-anova.png")
+```
+:::
+
+:::
+
+## One-way Anova
+
+::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: false
+sample_data5 |>
+  tidyplot(x = shock, y = time, color = shock) |>
+  add_violin(alpha = 0.3) |>
+  add_data_points_beeswarm(white_border = TRUE) |>
+  save_plot(
+    filename = "plot/tidy_one-way-anova.png"
+  )
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| fig-align: right
+#| out-width: 100%
+
+## display plot
+knitr::include_graphics("plot/tidy_one-way-anova.png")
+```
+:::
+
+:::
+
+
+# Check-up quiz
+
+## When is a one-way ANOVA appropriate? {.quiz-question}
+
+- Comparing the means of two independent groups
+
+- Comparing the means of two related measurements
+
+- [Comparing the means of three or more independent groups]{.correct}
+
+- Measuring the correlation between two continuous variables
+
+## Which assumption does Levene's test check in a one-way ANOVA? {.quiz-question}
+
+- Normality of the residuals
+
+- [Homogeneity of variance across groups]{.correct}
+
+- Independence of observations
+
+- Equal sample sizes across groups
+
+## What is the null hypothesis in a one-way ANOVA? {.quiz-question}
+
+- At least one group mean is different from the others
+
+- [All group means are equal]{.correct}
+
+- All group variances are different
+
+- The group means are all different from each other
+
+## If the F-test in a one-way ANOVA is significant, what can we conclude? {.quiz-question}
+
+- All group means are different from each other
+
+- [At least one group mean differs from the others]{.correct}
+
+- The group variances are unequal
+
+- The data are not normally distributed
+
+## Why is a post-hoc test such as Tukey HSD used after a significant ANOVA? {.quiz-question}
+
+- To check the normality assumption
+
+- To check the homogeneity of variance assumption
+
+- [To identify which pairs of groups differ while controlling the family-wise error rate]{.correct}
+
+- To increase the sample size
+
+## Why not run several independent-samples t-tests instead of a one-way ANOVA? {.quiz-question}
+
+- t-tests cannot be used with more than 20 observations
+
+- [Multiple tests inflate the overall Type I error rate]{.correct}
+
+- t-tests do not assume normality
+
+- ANOVA has higher power only when the sample sizes are equal
