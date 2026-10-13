@@ -204,9 +204,11 @@
 <h2>Overview</h2>
 <div>
 <ul>
+<li class="fragment"><ul>
 <li class="fragment">Introduction to Tidyverse</li>
 <li class="fragment">Basic data wrangling with <code>dplyr</code></li>
 <li class="fragment">Data reshaping</li>
+</ul></li>
 </ul>
 </div>
 </section>
@@ -230,11 +232,13 @@
 <div class="column">
 <p><strong>Overview</strong></p>
 <ul>
+<li><ul>
 <li><p><code>select()</code> picks variables based on their names</p></li>
 <li><p><code>mutate()</code> adds new variables</p></li>
 <li><p><code>filter()</code> picks cases based on their values</p></li>
 <li><p><code>summarise()</code> reduces multiple values down to a single summary</p></li>
 <li><p><code>arrange()</code> change the ordering of the rows</p></li>
+</ul></li>
 </ul>
 
 </div><div class="column">
@@ -351,10 +355,12 @@
 <p><strong>Selection helpers</strong></p>
 <p>These <em>selection helpers</em> match variables according to a given pattern.</p>
 <ul>
+<li><ul>
 <li><p><code>starts_with()</code> starts with a prefix</p></li>
 <li><p><code>ends_with()</code> ends with a suffix</p></li>
 <li><p><code>contains()</code> contains a literal string</p></li>
 <li><p><code>matches()</code> matches regular expression</p></li>
+</ul></li>
 </ul>
 </section>
 <section id="filter" class="slide level2">
@@ -411,8 +417,10 @@
 <h2><code>mutate()</code></h2>
 <p>The <code>mutate</code> function will take a statement similar to this:</p>
 <ul>
+<li><ul>
 <li><p><code>variable_name</code> = <code>do_some_calculation</code></p></li>
 <li><p><code>variable_name</code> will be attached at the end of the dataset.</p></li>
+</ul></li>
 </ul>
 </section>
 <section id="mutate-1" class="slide level2">
@@ -467,9 +475,11 @@
 </section>
 <section id="rename" class="slide level2">
 <h2><code>rename()</code></h2>
-<p>Changes the variable name while keeping all else intact.</p>
 <ul>
+<li><ul>
+<li>Changes the variable name while keeping all else intact.</li>
 <li><code>new_variable_name</code> = <code>old_variable_name</code></li>
+</ul></li>
 </ul>
 <div class="columns">
 <div class="column">
@@ -520,7 +530,11 @@
 </section>
 <section id="arrange" class="slide level2">
 <h2><code>arrange()</code></h2>
-<p>You can order data by variable to show the highest or lowest values first.</p>
+<ul>
+<li><ul>
+<li>You can order data by variable to show the highest or lowest values first.</li>
+</ul></li>
+</ul>
 <div class="columns">
 <div class="column">
 <p>consider <code>lifeExp</code> default is lowest first</p>
@@ -573,8 +587,10 @@
 <section id="group_by-and-summarise" class="slide level2">
 <h2><code>group_by</code> and <code>summarise()</code></h2>
 <ul>
+<li><ul>
 <li><p>Use when you want to aggregate your data (by groups).</p></li>
 <li><p>Sometimes we want to calculate group statistics.</p></li>
+</ul></li>
 </ul>
 <p><br></p>
 <div class="{style=&quot;fig.align=&quot;center&quot;;&quot;}">
@@ -940,9 +956,11 @@
 <section id="reshaping-data" class="slide level2">
 <h2>Reshaping data</h2>
 <ul>
+<li><ul>
 <li><p>the process of changing the structure or layout of a dataset without altering its actual content.</p></li>
 <li><p>it helps organize data into formats that are easier to analyze, visualize, or model.</p></li>
 <li><p>same information, different arrangement.</p></li>
+</ul></li>
 </ul>
 <p><br></p>
 <div class="columns">
@@ -956,8 +974,8 @@
 <section id="reshaping-data-1" class="slide level2">
 <h2>Reshaping data</h2>
 <ul>
-<li><code>tidyr</code> package provides powerful functions for reshaping:
-<ul>
+<li><ul>
+<li><code>tidyr</code> package provides powerful functions for reshaping:</li>
 <li><code>pivot_longer()</code> → converts wide data into long format.</li>
 <li><code>pivot_wider()</code> → converts long data into wide format.</li>
 </ul></li>
@@ -974,9 +992,11 @@
 <section id="wide-data-format" class="slide level2">
 <h2>Wide data format</h2>
 <ul>
+<li><ul>
 <li><p>each subject or observation occupies a single row, with multiple variables spread across columns.</p></li>
 <li><p>one row per entity, many columns for repeated measures.</p></li>
 <li><p>easier for human readability and simple summaries. Often used in spreadsheets.</p></li>
+</ul></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb45-1"><a href=""></a><span class="in">```{r}</span></span>
@@ -1001,9 +1021,11 @@
 <section id="long-data-format" class="slide level2">
 <h2>Long data format</h2>
 <ul>
+<li><ul>
 <li><p>each measurement or observation is stored in its own row, with variables indicating who, what, and when.</p></li>
 <li><p>multiple rows per entity, fewer columns.</p></li>
 <li><p>referred for statistical modeling, visualization (e.g., <code>ggplot2</code> in R), and tidy data principles.</p></li>
+</ul></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href=""></a><span class="in">```{r}</span></span>
@@ -1029,9 +1051,11 @@
 <section id="wide-long-data-format" class="slide level2">
 <h2>Wide → Long data format</h2>
 <ul>
+<li><ul>
 <li><code>pivot_longer()</code> function “lengthens” data by collapsing several coumns into two</li>
 <li>original column names → names</li>
 <li>data values → value</li>
+</ul></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb49-1"><a href=""></a><span class="in">```{r}</span></span>
@@ -1045,9 +1069,11 @@
 <section id="wide-long-data-format-1" class="slide level2">
 <h2>Wide → Long data format</h2>
 <ul>
+<li><ul>
 <li><code>pivot_longer()</code> function “lengthens” data by collapsing several coumns into two</li>
 <li>original column names → names</li>
 <li>data values → value</li>
+</ul></li>
 </ul>
 <div class="columns">
 <div class="column">
@@ -1093,8 +1119,10 @@
 <section id="long-wide-data-format" class="slide level2">
 <h2>Long → Wide data format</h2>
 <ul>
+<li><ul>
 <li><p>inverse of <code>pivot_longer()</code>, widening data by expanding two columns into many</p></li>
 <li><p>used when a dataset is “too long” - an observation is scattered across multiple rows</p></li>
+</ul></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb52-1"><a href=""></a><span class="in">```{r}</span></span>
@@ -1107,8 +1135,10 @@
 <section id="long-wide-data-format-1" class="slide level2">
 <h2>Long → Wide data format</h2>
 <ul>
+<li><ul>
 <li><p>inverse of <code>pivot_longer()</code>, widening data by expanding two columns into many</p></li>
 <li><p>used when a dataset is “too long” - an observation is scattered across multiple rows</p></li>
+</ul></li>
 </ul>
 <div class="columns">
 <div class="column">
@@ -1151,13 +1181,8 @@
 </div></div>
 <!-- end columns -->
 </section></section>
-<section id="section-2" class="title-slide slide level1 center">
-<h1></h1>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/econ106-logo.png" class="quarto-figure quarto-figure-center" style="width:40.0%;height:40.0%"></p>
-</figure>
-</div>
+<section id="lets-practice" class="title-slide slide level1 center">
+<h1>Let’s practice!</h1>
 
 </section>
     </div>

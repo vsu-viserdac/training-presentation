@@ -40,9 +40,10 @@ library(readxl)
 ## Overview
 
 ::: incremental
--   Introduction to Tidyverse
--   Basic data wrangling with `dplyr`
--   Data reshaping
+-
+  -   Introduction to Tidyverse
+  -   Basic data wrangling with `dplyr`
+  -   Data reshaping
 :::
 
 # Basic data wrangling with `dplyr`
@@ -61,15 +62,16 @@ Illustration adopted from [Allison Horst](https://github.com/allisonhorst)
 :::: column
 **Overview**
 
--   `select()` picks variables based on their names
+- 
+  -   `select()` picks variables based on their names
 
--   `mutate()` adds new variables
+  -   `mutate()` adds new variables
 
--   `filter()` picks cases based on their values
+  -   `filter()` picks cases based on their values
 
--   `summarise()` reduces multiple values down to a single summary
+  -   `summarise()` reduces multiple values down to a single summary
 
--   `arrange()` change the ordering of the rows
+  -   `arrange()` change the ordering of the rows
 
 ::: aside
 see `dplyr` [cheatsheets](https://github.com/rstudio/cheatsheets/blob/cd775237fd6de08df51e69941fe01967ecd9bdc2/data-transformation.pdf)
@@ -165,13 +167,15 @@ select(data, -year, -pop)
 
 These *selection helpers* match variables according to a given pattern.
 
--   `starts_with()` starts with a prefix
+- 
 
--   `ends_with()` ends with a suffix
+  -   `starts_with()` starts with a prefix
 
--   `contains()` contains a literal string
+  -   `ends_with()` ends with a suffix
 
--   `matches()` matches regular expression
+  -   `contains()` contains a literal string
+
+  -   `matches()` matches regular expression
 
 ## `filter()`
 
@@ -211,9 +215,11 @@ filter(data, country == "Philippines")
 
 The `mutate` function will take a statement similar to this:
 
--   `variable_name` = `do_some_calculation`
+- 
 
--   `variable_name` will be attached at the end of the dataset.
+  -   `variable_name` = `do_some_calculation`
+
+  -   `variable_name` will be attached at the end of the dataset.
 
 ## `mutate()`
 
@@ -253,9 +259,9 @@ mutate(data, GDP = gdpPercap * pop)
 
 ## `rename()`
 
-Changes the variable name while keeping all else intact.
-
--   `new_variable_name` = `old_variable_name`
+- 
+  - Changes the variable name while keeping all else intact.
+  -   `new_variable_name` = `old_variable_name`
 
 ::::: columns
 ::: column
@@ -290,7 +296,8 @@ rename(data, population = pop)
 
 ## `arrange()`
 
-You can order data by variable to show the highest or lowest values first.
+- 
+  - You can order data by variable to show the highest or lowest values first.
 
 ::::: columns
 ::: column
@@ -329,9 +336,10 @@ arrange(data, desc(lifeExp))
 
 ## `group_by` and `summarise()`
 
--   Use when you want to aggregate your data (by groups).
+- 
+  -   Use when you want to aggregate your data (by groups).
 
--   Sometimes we want to calculate group statistics.
+  -   Sometimes we want to calculate group statistics.
 
 <br>
 
@@ -621,11 +629,12 @@ data %>%
 
 ## Reshaping data
 
--   the process of changing the structure or layout of a dataset without altering its actual content.
+- 
+  -   the process of changing the structure or layout of a dataset without altering its actual content.
 
--   it helps organize data into formats that are easier to analyze, visualize, or model.
+  -   it helps organize data into formats that are easier to analyze, visualize, or model.
 
--   same information, different arrangement.
+  -   same information, different arrangement.
 
 <br>
 
@@ -643,7 +652,8 @@ data %>%
 
 ## Reshaping data
 
--   `tidyr` package provides powerful functions for reshaping:
+- 
+  -   `tidyr` package provides powerful functions for reshaping:
     -   `pivot_longer()` → converts wide data into long format.
     -   `pivot_wider()` → converts long data into wide format.
 
@@ -663,11 +673,13 @@ data %>%
 
 ## Wide data format
 
--   each subject or observation occupies a single row, with multiple variables spread across columns.
+- 
 
--   one row per entity, many columns for repeated measures.
+  -   each subject or observation occupies a single row, with multiple variables spread across columns.
 
--   easier for human readability and simple summaries. Often used in spreadsheets.
+  -   one row per entity, many columns for repeated measures.
+
+  -   easier for human readability and simple summaries. Often used in spreadsheets.
 
 ```{r}
 #| echo: fenced
@@ -676,11 +688,12 @@ read_excel("data/urbanpop.xlsx")
 
 ## Long data format
 
--   each measurement or observation is stored in its own row, with variables indicating who, what, and when.
+- 
+  -   each measurement or observation is stored in its own row, with variables indicating who, what, and when.
 
--   multiple rows per entity, fewer columns.
+  -   multiple rows per entity, fewer columns.
 
--   referred for statistical modeling, visualization (e.g., `ggplot2` in R), and tidy data principles.
+  -   referred for statistical modeling, visualization (e.g., `ggplot2` in R), and tidy data principles.
 
 ```{r}
 #| echo: fenced
@@ -690,9 +703,10 @@ read_excel("data/urbanpop.xlsx") |>
 
 ## Wide → Long data format
 
--   `pivot_longer()` function "lengthens" data by collapsing several coumns into two
--   original column names → names
--   data values → value
+- 
+  -   `pivot_longer()` function "lengthens" data by collapsing several coumns into two
+  -   original column names → names
+  -   data values → value
 
 ```{r}
 #| echo: fenced
@@ -705,9 +719,10 @@ pivot_longer(data, cols, names_to = "name", values_to = "value")
 
 ## Wide → Long data format
 
--   `pivot_longer()` function "lengthens" data by collapsing several coumns into two
--   original column names → names
--   data values → value
+- 
+  -   `pivot_longer()` function "lengthens" data by collapsing several coumns into two
+  -   original column names → names
+  -   data values → value
 
 ::::: columns
 ::: column
@@ -732,9 +747,10 @@ read_excel("data/urbanpop.xlsx") |>
 
 ## Long → Wide data format
 
--   inverse of `pivot_longer()`, widening data by expanding two columns into many
+- 
+  -   inverse of `pivot_longer()`, widening data by expanding two columns into many
 
--   used when a dataset is "too long" - an observation is scattered across multiple rows
+  -   used when a dataset is "too long" - an observation is scattered across multiple rows
 
 ```{r}
 #| echo: fenced
@@ -746,9 +762,10 @@ pivot_wider(data, names_from = "name", values_to = "cases")
 
 ## Long → Wide data format
 
--   inverse of `pivot_longer()`, widening data by expanding two columns into many
+- 
+  -   inverse of `pivot_longer()`, widening data by expanding two columns into many
 
--   used when a dataset is "too long" - an observation is scattered across multiple rows
+  -   used when a dataset is "too long" - an observation is scattered across multiple rows
 
 ```{r}
 #| echo: false
@@ -779,4 +796,4 @@ urban_pop_long |>
 
 <!-- end columns -->
 
-# Thank you!
+# Let's practice!
