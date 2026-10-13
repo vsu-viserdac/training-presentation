@@ -39,11 +39,12 @@ library(tidyverse)
 ## Overview
 
 ::: incremental
-- What is R?
-- Installing R and RStudio
-- R objects
-- Packages and help pages
-- Importing data
+- 
+  - What is R?
+  - Installing R and RStudio
+  - R objects
+  - Packages and help pages
+  - Importing data
 :::
 
 # 
@@ -58,7 +59,6 @@ Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
 
 ## So ... what is R programming?
 
-<<<<<<< HEAD
 -   **R** is a language + an eco-system
     -   a free and open-source programming language
     -   statistical analysis, graphics representation, and reporting
@@ -69,21 +69,6 @@ Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
     -   tools for web technology
     -   even this presentation is made in R!
     -   also our class website is entirely built in R!
-=======
-- **R** is a language + an eco-system
-  - a free and open-source programming language
-  - statistical analysis, graphics representation, and reporting
-  - an eco-system of many high-quality user-contributed libraries/packages
-  - freely available under the GNU General Public License, and pre-compiled binary versions are provided for various operating systems (e.g., Linux, Windows, and Mac)
-
-::: incremental
-- Before, R is known for its statistical analysis toolkits
-- Nowadays R is capable of many other tasks
-  - tools that facilitates the whole data analysis workflow
-  - tools for web technology
-  - even this presentation is made in R!
-  - also our class website is entirely built in R!
->>>>>>> 37df230a9f2be8fe8a6cfc7567b91dca059d90fd
 :::
 
 ## The History of R programming
@@ -124,59 +109,36 @@ Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
 
 ## RStudio interface: `Console window`
 
-<<<<<<< HEAD
 - 
   -   located in the bottom-left
   -   where you often will find the output of your coding and computations
-=======
-- located in the bottom-left
-- where you often will find the output of your coding and computations
->>>>>>> 37df230a9f2be8fe8a6cfc7567b91dca059d90fd
 
 ![](img/console-pane.png){fig-align="center"}
 
 ## RStudio interface: `Source window`
 
-<<<<<<< HEAD
 - 
   -   located in the top-left
   -   *source* can be understood as any type of file, e.g. data, programming code, notes, etc.
   -   edit script, text, markdown, website, others
-=======
-- located in the top-left
-- *source* can be understood as any type of file, e.g. data, programming code, notes, etc.
-- edit script, text, markdown, website, others
->>>>>>> 37df230a9f2be8fe8a6cfc7567b91dca059d90fd
 
 ![](img/source-pane.png){width="70%" height="70%" fig-align="center"}
 
 ## RStudio interface: `Environment/ History/ Connections/ Tutorials`
 
-<<<<<<< HEAD
 - 
   -   located in the top-right
   -   **Environment:** shows saved R objects
   -   **History:** computation you run in the console will be stored
   -   **Connections:** allows the user to tab into external databases directly
   -   **Tutorials:** additional materials to learn R and RStudio
-=======
-- located in the top-right
-- **Environment:** shows saved R objects
-- **History:** computation you run in the console will be stored
-- **Connections:** allows the user to tab into external databases directly
-- **Tutorials:** additional materials to learn R and RStudio
->>>>>>> 37df230a9f2be8fe8a6cfc7567b91dca059d90fd
 
 ![](img/environment-pane.png){width="80%" height="80%" fig-align="center"}
 
 ## RStudio interface: `Files/ Plots/ Packages/ Help/ Viewer`
 
-<<<<<<< HEAD
 - 
   - located in the bottom-right
-=======
-- located in the bottom-right
->>>>>>> 37df230a9f2be8fe8a6cfc7567b91dca059d90fd
 
 ![](img/file-plot-pane.png){width="80%" height="80%" fig-align="center"}
 
@@ -186,18 +148,10 @@ Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
 
 ::::: columns
 ::: {.column width="60%"}
-<<<<<<< HEAD
 - 
   -   You can consider R objects as **saving information**
   -   e.g., text, number, matrix, vector, dataframe
   -   In another words everything in R is an object
-=======
-- You can consider R objects as **saving information**
-
-- e.g., text, number, matrix, vector, dataframe
-
-- In another words everything in R is an object
->>>>>>> 37df230a9f2be8fe8a6cfc7567b91dca059d90fd
 :::
 
 ::: {.column width="40%"}
@@ -207,12 +161,8 @@ Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
 
 ## R objects
 
-<<<<<<< HEAD
 - 
   - Objects in R are assigned a value using ←
-=======
-- Objects in R are assigned a value using ←
->>>>>>> 37df230a9f2be8fe8a6cfc7567b91dca059d90fd
 
 :::::::::: columns
 :::::: column
@@ -311,20 +261,12 @@ student
 
 ::::: columns
 ::: column
-<<<<<<< HEAD
 - 
   -   Collection of functions that load into your working environment.
 
   -   A package contains code that other R users have prepared for the community.
 
   -   Installing a package
-=======
-- Collection of functions that load into your working environment.
-
-- A package contains code that other R users have prepared for the community.
-
-- Installing a package
->>>>>>> 37df230a9f2be8fe8a6cfc7567b91dca059d90fd
 
 ```{r}
 #| eval: false
@@ -389,20 +331,12 @@ library(tidyverse)
 
 ## Importing data
 
-<<<<<<< HEAD
 - 
   -   SPSS, Stata, SAS files: [haven package](https://haven.tidyverse.org/)
 
   -   Excel files: [readxl package](https://readxl.tidyverse.org/)
 
   -   CSV files: [readr package](https://readr.tidyverse.org/)
-=======
-- SPSS, Stata, SAS files: [haven package](https://haven.tidyverse.org/)
-
-- Excel files: [readxl package](https://readxl.tidyverse.org/)
-
-- CSV files: [readr package](https://readr.tidyverse.org/)
->>>>>>> 37df230a9f2be8fe8a6cfc7567b91dca059d90fd
 
 ## Importing data into R
 
