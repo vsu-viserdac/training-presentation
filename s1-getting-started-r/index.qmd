@@ -11,7 +11,7 @@ format:
     code-summary: "code"
     chalkboard: true
     slide-number: true
-    footer: "Data visualization and Analysis using R"
+    footer: "Data visualization and Analysis using R | October 14-16, 2026 | CBDEM-LED AVR"
     quiz:
       defaultCorrect: "Correct!"
       defaultIncorrect: "Incorrect!"
@@ -62,12 +62,9 @@ Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
     -   a free and open-source programming language
     -   statistical analysis, graphics representation, and reporting
     -   an eco-system of many high-quality user-contributed libraries/packages
-    -   freely available under the GNU General Public License, and pre-compiled binary versions are provided for various operating systems (e.g., Linux, Windows, and Mac)
 
 ::: incremental
--   Before, R is known for its statistical analysis toolkits
--   Nowadays R is capable of many other tasks
-    -   tools that facilitates the whole data analysis workflow
+-   Before, R is known for its statistical analysis toolkits, now R is capable of many other tasks
     -   tools for web technology
     -   even this presentation is made in R!
     -   also our class website is entirely built in R!
@@ -111,32 +108,36 @@ Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
 
 ## RStudio interface: `Console window`
 
--   located in the bottom-left
--   where you often will find the output of your coding and computations
+- 
+  -   located in the bottom-left
+  -   where you often will find the output of your coding and computations
 
 ![](img/console-pane.png){fig-align="center"}
 
 ## RStudio interface: `Source window`
 
--   located in the top-left
--   *source* can be understood as any type of file, e.g. data, programming code, notes, etc.
--   edit script, text, markdown, website, others
+- 
+  -   located in the top-left
+  -   *source* can be understood as any type of file, e.g. data, programming code, notes, etc.
+  -   edit script, text, markdown, website, others
 
 ![](img/source-pane.png){width="70%" height="70%" fig-align="center"}
 
 ## RStudio interface: `Environment/ History/ Connections/ Tutorials`
 
--   located in the top-right
--   **Environment:** shows saved R objects
--   **History:** computation you run in the console will be stored
--   **Connections:** allows the user to tab into external databases directly
--   **Tutorials:** additional materials to learn R and RStudio
+- 
+  -   located in the top-right
+  -   **Environment:** shows saved R objects
+  -   **History:** computation you run in the console will be stored
+  -   **Connections:** allows the user to tab into external databases directly
+  -   **Tutorials:** additional materials to learn R and RStudio
 
 ![](img/environment-pane.png){width="80%" height="80%" fig-align="center"}
 
 ## RStudio interface: `Files/ Plots/ Packages/ Help/ Viewer`
 
--   located in the bottom-right
+- 
+  - located in the bottom-right
 
 ![](img/file-plot-pane.png){width="80%" height="80%" fig-align="center"}
 
@@ -146,11 +147,10 @@ Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
 
 ::::: columns
 ::: {.column width="60%"}
--   You can consider R objects as **saving information**
-
--   e.g., text, number, matrix, vector, dataframe
-
--   In another words everything in R is an object
+- 
+  -   You can consider R objects as **saving information**
+  -   e.g., text, number, matrix, vector, dataframe
+  -   In another words everything in R is an object
 :::
 
 ::: {.column width="40%"}
@@ -160,7 +160,8 @@ Illustration adopted from [Allison Horst](https://twitter.com/allison_horst)
 
 ## R objects
 
--   Objects in R are assigned a value using ←
+- 
+  - Objects in R are assigned a value using ←
 
 :::::::::: columns
 :::::: column
@@ -259,11 +260,12 @@ student
 
 ::::: columns
 ::: column
--   Collection of functions that load into your working environment.
+- 
+  -   Collection of functions that load into your working environment.
 
--   A package contains code that other R users have prepared for the community.
+  -   A package contains code that other R users have prepared for the community.
 
--   Installing a package
+  -   Installing a package
 
 ```{r}
 #| eval: false
@@ -328,11 +330,12 @@ library(tidyverse)
 
 ## Importing data
 
--   SPSS, Stata, SAS files: [haven package](https://haven.tidyverse.org/)
+- 
+  -   SPSS, Stata, SAS files: [haven package](https://haven.tidyverse.org/)
 
--   Excel files: [readxl package](https://readxl.tidyverse.org/)
+  -   Excel files: [readxl package](https://readxl.tidyverse.org/)
 
--   CSV files: [readr package](https://readr.tidyverse.org/)
+  -   CSV files: [readr package](https://readr.tidyverse.org/)
 
 ## Importing data into R
 
