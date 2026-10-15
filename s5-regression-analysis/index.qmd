@@ -55,15 +55,34 @@ theme_set(theme_bw(base_size = 18)) # Set theme for all ggplots
 
 ## What is regression?
 
-A way of predicting the value of one variable from another.
+- Regression analysis is used to:
+  - Predict the value of a dependent variable based on the value of at least one independent variable.
+  - Explain the impact of changes in an independent variable on the dependent variable
 
-- 
-
-  - it is a hypothetical model of the relationship between two variables.
-  - the model used is linear.
-  - we describe the relationship using the equation of a straight line.
 
 ## Simple linear regression
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Regression equation
+
+$$
+Y_i = \beta_0 + \beta_iX_i + \epsilon_i
+$$
+:::
+
+
+![](plot/regression-plot-sample.png){fig-align="center"}
+
+
+## Simple linear regression
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Regression equation
+
+$$
+Y_i = \beta_0 + \beta_iX_i + \epsilon_i
+$$
+:::
 
 ```{r}
 #| fig-align: center
@@ -110,7 +129,27 @@ ggplot() +
   )
 ```
 
-## Simple linear regression (a quick review)
+
+
+
+
+## Simple linear regression
+
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Regression equation
+
+$$
+Y_i = \beta_0 + \beta_iX_i + \epsilon_i
+$$
+:::
+
+
+```{r}
+knitr::include_graphics("plot/simle-linear-reg.png")
+```
+
+
+## Simple linear regression
 
 <br>
 
@@ -120,59 +159,51 @@ ggplot() +
 $$
 Y_i = \beta_0 + \beta_iX_i + \epsilon_i
 $$
-
-- 
-
-  - $\beta_i$
-    - regression coefficient for the predictor
-    - gradient or slope of the regression line
-    - direction/strength of the relationship
-  - $\beta_0$
-    - intercept
-    - point at which the regression line crosses the Y-axis
 :::
 
-## Simple linear regression (a quick review)
+-   
+    -   $\beta_i$
+        -   regression coefficient for the predictor
+        -   gradient or slope of the regression line
+        -   direction/strength of the relationship
+    -   $\beta_0$
+        -   intercept
+        -   point at which the regression line crosses the Y-axis
 
-```{r}
-knitr::include_graphics("plot/simle-linear-reg.png")
-```
-
-## Deriving the Ordinary Least Squares (OLS) estimators
-
-- In order to estimate the regression model one needs data
-
-- A random sample of $n$ observations
-
-  - $(x_1, y_1)$ ← first observation
-  - $(x_2, y_2)$ ← second observation
-  - $(x_3, y_3)$ ← third observation
-  - ...
-  - $(x_n, y_n)$ ← nth observation
 
 ## Deriving the Ordinary Least Squares (OLS) estimators
 
-- Defining regression residuals
-  - $\hat{u_i} = y_i - \hat{y_i} = y_i - (\hat{\beta_0} + \hat{\beta_1}x_i)$
+-   In order to estimate the regression model one needs data
+
+-   A random sample of $n$ observations
+
+    -   $(x_1, y_1)$ ← first observation
+    -   $(x_2, y_2)$ ← second observation
+    -   $(x_3, y_3)$ ← third observation
+    -   ...
+    -   $(x_n, y_n)$ ← nth observation
+
+## Deriving the Ordinary Least Squares (OLS) estimators
+
+-   Defining regression residuals
+    -   $\hat{u_i} = y_i - \hat{y_i} = y_i - (\hat{\beta_0} + \hat{\beta_1}x_i)$
 
 <br>
 
-- Minimize the sum of squared residuals (SSR)
-  - $\text{min} \Sigma_{i=1}^n \hat{u_i}^2$ → $\hat{\beta_0}, \hat{\beta_1}$
+-   Minimize the sum of squared residuals (SSR)
+    -   $\text{min} \Sigma_{i=1}^n \hat{u_i}^2$ → $\hat{\beta_0}, \hat{\beta_1}$
 
 <br>
 
-- OLS estimator
-  - $\hat{\beta_1} = \frac{Cov(X,Y)}{Var(X)} = \frac{\Sigma_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\Sigma_{i=1}^n (x_i - \bar{x})^2}$
-  - $\hat{\beta_0} = \bar{y} - \hat{\beta_1}\bar{x}$
+-   OLS estimator
+    -   $\hat{\beta_1} = \frac{Cov(X,Y)}{Var(X)} = \frac{\Sigma_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\Sigma_{i=1}^n (x_i - \bar{x})^2}$
+    -   $\hat{\beta_0} = \bar{y} - \hat{\beta_1}\bar{x}$
 
 ## Simple linear regression model
 
 <br>
 
-```{r}
-knitr::include_graphics("plot/OLS fit.png")
-```
+![](plot/OLS fit.png){fig-align="center"}
 
 ::: aside
 Source: Wooldridge, J. M. (2020). Introductory Econometrics: A Modern Approach (7th ed.). Cengage Learning.
@@ -180,11 +211,11 @@ Source: Wooldridge, J. M. (2020). Introductory Econometrics: A Modern Approach (
 
 ## Simple regression model
 
-- Wage and education
-  - $wage = \beta_0 + \beta_1 educ + u$
-- fitted regression
-  - $\hat{wage} = -0.90 + 0.54 educ$
-  - Interpretation: in the sample, one more year of education was associated with an increase in hourly wage by \$0.54.
+-   Wage and education
+    -   $wage = \beta_0 + \beta_1 educ + u$
+-   fitted regression
+    -   $\hat{wage} = -0.90 + 0.54 educ$
+    -   Interpretation: in the sample, one more year of education was associated with an increase in hourly wage by \$0.54.
 
 ```{r}
 #| echo: true
@@ -326,25 +357,25 @@ summary(model)
 ::: {.column width="50%"}
 Step 3: Interpret results
 
-- y-intercept (a): 558.28
+-   y-intercept (a): 558.28
 
-  - estimated average value of $y$ when all $x_i = 0$
+    -   estimated average value of $y$ when all $x_i = 0$
 
-- slope (b): -24.03
+-   slope (b): -24.03
 
-  - estimates the average value of y changes by $b_i$ units for each 1 unit increase in $x_i$ holding other variables constant.
+    -   estimates the average value of y changes by $b_i$ units for each 1 unit increase in $x_i$ holding other variables constant.
 
-  - example: a 1 unit increase in price decreases the pie sales by 24.03 pies per week.
+    -   example: a 1 unit increase in price decreases the pie sales by 24.03 pies per week.
 :::
 :::::
 
 ## Multiple linear regression
 
-- 
+-   
 
-  - a linear regression with one or more independent variable (explanatory variable), and one dependent variable (response variable).
+    -   a linear regression with one or more independent variable (explanatory variable), and one dependent variable (response variable).
 
-  - multiple regression model
+    -   multiple regression model
 
 $$
 y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + b_k x_k
@@ -487,13 +518,13 @@ summary(model)
 ::: {.column width="50%"}
 Step 4: Interpret results
 
-- $\beta_1$ (Price): -24.98
+-   $\beta_1$ (Price): -24.98
 
-  - pie sales will decrease, on average, by 24.98 pies per week for each 1 unit increase in selling price, net of the effects of changes due to advertising.
+    -   pie sales will decrease, on average, by 24.98 pies per week for each 1 unit increase in selling price, net of the effects of changes due to advertising.
 
-- $\beta_2$ (Advertising): 74.13
+-   $\beta_2$ (Advertising): 74.13
 
-  - sales will increase, on average, by 74.13 pies per week for each \$1 increase in advertising, net of the effects of changes due to price.
+    -   sales will increase, on average, by 74.13 pies per week for each \$1 increase in advertising, net of the effects of changes due to price.
 :::
 :::::
 
@@ -522,342 +553,192 @@ summ(model)
 :::
 :::::
 
-## Multiple linear regression
 
-<br>
+## Is the model significant?
 
 ::::: columns
-::: {.column width="40%"}
+::: {.column width="50%"}
 ```{r}
-#| echo: true
-#| eval: false
+#| echo: false
 
-# plot
+# table summary
 library(jtools)
-effect_plot(
-  model,
-  pred = Price,
-  plot.points = TRUE,
-  jitter = 0.5,
-  interval = TRUE
-)
+summ(model)
 ```
 :::
 
-::: {.column width="60%"}
-```{r}
-#| fig-align: center
-
-# plot
-library(jtools)
-effect_plot(
-  model,
-  pred = Price,
-  plot.points = TRUE,
-  jitter = 0.5,
-  interval = TRUE
-)
-```
+::: {.column width="50%"}
+- **F-test**
+    - shows if there is a linear relationship between all of the x variables considered together and the y variable. 
+    - tests the null hypothesis that all regression coefficients are equal to zero.
+    -   $H_0: \beta_1 = \beta_2 = 0$
+    -   $H_a$: at least one $\beta_i \neq 0$
+    -   p-value < 0.05 → reject $H_0$ → at least one $\beta_i \neq 0$
 :::
 :::::
 
-## Multiple linear regression
-
-<br>
+## Multiple coefficient of determination (R-squared)
 
 ::::: columns
-::: {.column width="40%"}
+::: {.column width="50%"}
 ```{r}
-#| echo: true
-#| eval: false
+#| echo: false
 
-# plot
+# table summary
 library(jtools)
-effect_plot(
-  model,
-  pred = Advertising,
-  plot.points = TRUE,
-  jitter = 0.5,
-  interval = TRUE
-)
+summ(model)
 ```
 :::
 
-::: {.column width="60%"}
-```{r}
-#| fig-align: center
+::: {.column width="50%"}
+- **R-squared**
+    - shows the proportion of variation in $y$ explained by all $x$ variables adjusted for the number of $x$ variables used.
+    -   where excessive use of unimportant independent variables
+    - reports the proportion of total variation of in $y$ explained by all $x$ variables taken together
+    - ranges from 0 to 1
+    
 
-# plot
-library(jtools)
-effect_plot(
-  model,
-  pred = Advertising,
-  plot.points = TRUE,
-  jitter = 0.5,
-  interval = TRUE
-)
-```
+$$
+R^2 = \frac{\text{SSR}}{SST} = \frac{\text{Sum of squares regression}}{\text{Total sum of squares}}
+$$
+
 :::
 :::::
 
-## Multiple linear regression
 
+## Multiple coefficient of determination (R-squared)
+
+::::: columns
+::: {.column width="50%"}
 ```{r}
-library(visreg)
+#| echo: false
 
-visreg(model, "Advertising", gg = TRUE)
+# table summary
+library(jtools)
+summ(model)
 ```
+:::
 
-```{r}
-df |>
-  ggplot(aes(Advertising, Pie_Sales)) +
-  geom_point(size = 2) +
-  geom_smooth(method = "lm", se = TRUE)
-```
+::: {.column width="50%"}
+- **Adjusted R-squared**
+    - adjusts the $R^2$ for the number of $x$ variables in the model
+    - $R^2$ never decreases when new $x$ variable is added to the model.
+    -  This can be disadvantage when comparing models
+
+$$
+R^2_{adj} = 1 - (1 - R^2)(\frac{n-1}{n-k-1})
+$$
+
+:::
+:::::
+
 
 # Check-up quiz
 
 ## What is the primary goal of linear regression analysis? {.quiz-question}
 
-- To determine the strength of the relationship between two categorical variables.
+-   To determine the strength of the relationship between two categorical variables.
 
-- [To predict the value of a dependent variable based on one or more independent variables]{.correct}
+-   [To predict the value of a dependent variable based on one or more independent variables]{.correct}
 
-- To compare the means of two or more groups.
+-   To compare the means of two or more groups.
 
-- To analyze the frequency of occurrences within categories.
+-   To analyze the frequency of occurrences within categories.
 
 ## In simple linear regression, what does the slope of the regression line represent? {.quiz-question}
 
-- The average value of the dependent variable.
+-   The average value of the dependent variable.
 
-- [The change in the dependent variable for a one-unit increase in the independent variable]{.correct}
+-   [The change in the dependent variable for a one-unit increase in the independent variable]{.correct}
 
-- The correlation between the two variables.
+-   The correlation between the two variables.
 
-- The predicted value of the dependent variable when the independent variable is zero.
+-   The predicted value of the dependent variable when the independent variable is zero.
 
 ## How does multiple linear regression differ from simple linear regression? {.quiz-question}
 
-- Multiple linear regression uses only one independent variable.
+-   Multiple linear regression uses only one independent variable.
 
-- [Multiple linear regression uses two or more independent variables]{.correct}
+-   [Multiple linear regression uses two or more independent variables]{.correct}
 
-- Multiple linear regression analyzes categorical variables.
+-   Multiple linear regression analyzes categorical variables.
 
-- Multiple linear regression does not involve a dependent variable.
+-   Multiple linear regression does not involve a dependent variable.
 
 ## What is the coefficient of determination (R-squared) in the context of regression analysis? {.quiz-question}
 
-- [A measure of the strength of the linear relationship between the variables]{.correct}
+-   [A measure of the strength of the linear relationship between the variables]{.correct}
 
-- The probability of making a correct prediction.
+-   The probability of making a correct prediction.
 
-- The difference between the observed and predicted values.
+-   The difference between the observed and predicted values.
 
-- he slope of the regression line.
+-   he slope of the regression line.
 
-## How good is the model?
+# Let's practice
 
-<br>
+## Limited Dependent (LIMDEP) Models
 
-::: {.callout-warning style="font-size: 2.0em;"}
-## Take note!
-
-- 
-
-  - The regression line is only a model based on a data.
-  - This model might not reflect the reality.
-    - We need some way of testing how well the model fits the observed data.
-    - how?
-:::
-
-## Sum of Squares
-
-**Total sum of squares**
-
-::::: columns
-::: {.column width="40%"}
-- 
-
-  - $SS_T = \Sigma(y_i - \bar{y})^2$
-    - uses the differences between the observed data and the mean value of Y
-:::
-
-::: {.column width="60%"}
-```{r}
-p_sst
-```
-:::
-:::::
-
-## Sum of Squares
-
-**Residuals sum of squares**
-
-::::: columns
-::: {.column width="40%"}
-- 
-
-  - $SS_R = \Sigma(y_i - \hat{y_i})^2$
-    - uses the differences between the observed data and regression line
-:::
-
-::: {.column width="60%"}
-```{r}
-p_ssr
-```
-:::
-:::::
-
-## Multiple coefficient of determination (R-squared)
-
-::: {.callout-note style="font-size: 2.0em;"}
-## R-squared ($R^2$)
-
-- 
-
-  - reports the proportion of total variation of in $y$ explained by all $x$ variables taken together
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Regression equation
 
 $$
-R^2 = \frac{\text{SSR}}{SST} = \frac{\text{Sum of squares regression}}{\text{Total sum of squares}}
+Y_i = \beta_0 + \beta_iX_i + \epsilon_i
 $$
 :::
 
-## Multiple coefficient of determination (R-squared)
+- $Y_i$: limited dependent variable, censored or truncated variable
+- $X_i$: independent variable
 
-- **Adjusted R-squared (**$R^2$)
+## Limited Dependent (LIMDEP) Models
 
-  - $R^2$ never decreases when new $x$ variable is added to the model.
-  - This can be disadvantage when comparing models
-
-<br>
-
-:::: fragment
-::: {.callout-warning style="font-size: 2.0em;"}
-## What is the effect of adding a new variable?
-
-- 
-
-  - We lose a degree of freedom when a new $x$ variable is added.
-  - Did the new $x$ variable add enough explanatory power to offset the loss of one degree of freedom?
-:::
-::::
-
-## Multiple coefficient of determination (R-squared)
-
-::: {.callout-note style="font-size: 2.0em;"}
-## **Adjusted R-squared (**$R^2$)
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Adoption of new technology
 
 $$
-R^2_{adj} = 1 - (1 - R^2)(\frac{n-1}{n-k-1})
+adoption = f(price, income, education, age, farm size, ... )
 $$
-
-- where
-  - $n$ = sample size
-  - $k$ = number of independent variables
 :::
 
 - 
+  - adoption (1 = yes, 0 = no): limited dependent variable
+  - adoption = 1 if the farmer adopts the new technology, 0 otherwise
 
-  - shows the proportion of variation in $y$ explained by all $x$ variables adjusted for the number of $x$ variables used.
 
-  - where excessive use of unimportant independent variables
+## Logistic regression
 
-  - smaller then $R^2$
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Adoption of new technology
 
-  - useful in comparing among models
-
-## Example in R
-
-Calculate the $R^2$ and adjusted $R^2$
-
-::::::: columns
-:::: {.column width="50%"}
 $$
-R^2 = \frac{\text{SSR}}{SST} = \frac{\Sigma(y_i - \hat{y_i})^2}{\Sigma(y_i - \bar{y})^2}
+ln(\frac{P_{adoption}}{1-P_{adoption}}) = f(price, income, education, age, farm size, ... )
 $$
-
-```{r}
-#| echo: true
-
-## Estimating linear regression
-model <- lm(Pie_Sales ~ Price + Advertising, data = df)
-
-## Extract model predictions
-y_pred <- predict(model)
-y_actual <- df$Pie_Sales
-
-## Compute SS_tot (Total Sum of Squares)
-y_mean <- mean(y_actual)
-SS_tot <- sum((y_actual - y_mean)^2)
-
-## Compute SS_res (Residual Sum of Squares)
-SS_res <- sum((y_actual - y_pred)^2)
-
-## Compute R-squared manually
-r_squared_manual <- 1 - (SS_res / SS_tot)
-```
-
-::: {.callout-tip .mycallout appearance="simple" icon="false" style="font-size: 1.0em;"}
-```{r}
-## Print the manually calculated values
-cat("Manual R-squared:", r_squared_manual, "\n")
-```
 :::
-::::
-
-:::: {.column width="50%"}
-$$
-R^2_{adj} = 1 - (1 - R^2)(\frac{n-1}{n-k-1})
-$$
-
-```{r}
-#| echo: true
-
-## Compute Adjusted R-squared manually
-n <- nrow(df) # Number of observations
-k <- length(coef(model)) - 1 # Number of predictors
-adj_r_squared_manual <- 1 - ((1 - r_squared_manual) * (n - 1) / (n - k - 1))
-```
-
-::: {.callout-tip .mycallout appearance="simple" icon="false"}
-```{r}
-## Print the manually calculated values
-cat("Manual Adjusted R-squared:", adj_r_squared_manual, "\n")
-```
-:::
-::::
-:::::::
-
-# Diagnostic tests
-
-## Linearity assumption
 
 - 
+  - $P_{adoption}$: probability of adoption
+  - $1-P_{adoption}$: probability of non-adoption
 
-  - linear regression model relates the outcome to the predictors via a linear fashion.
+## Logistic regression
 
-  - departure from linearity can be checked by using a scatter plot and a line overlaid to the plots
+::: {.callout-note icon="false" style="font-size: 2.0em;"}
+## Adoption of new technology
 
-  - if linearity is not satisfied, transformation may be needed
+$$
+ln(\frac{P_{adoption}}{1-P_{adoption}}) = \beta_0 + \beta_1 age + \beta_2 farm + \beta_3 educ + \epsilon
+$$
 
-## Linearity assumption
-
-**insert plot**
-
-## Normality of errors
+$$
+ln(\frac{P_{adoption}}{1-P_{adoption}}) = 0.3021 - 0.0231 age + 0.3852 farm + 0.1784 educ + \epsilon
+$$
+:::
 
 - 
+  - $\beta_1 = -0.0231$: for each additional year of age, the log-odds of adoption decreases by 0.0231, holding other variables constant.
 
-  - confidence intervals for regression and related hypothesis tests are based on the assumption that the coeffcient estimates have normal distribution.
+  - $\beta_2 = 0.3852$: for each additional unit increase in farm size, the log-odds of adoption increases by 0.3852, holding other variables constant.
 
-## Homoscedasticity of error variance
+  - $\beta_3 = 0.1784$: for each additional year of education, the log-odds of adoption increases by 0.1784, holding other variables constant.
 
-## Independence of errors
 
-## Non-multicollinearity
-
-## 
-
-# Thank you!
+# Let's practice
